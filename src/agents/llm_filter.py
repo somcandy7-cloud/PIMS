@@ -68,8 +68,9 @@ class LLMFilter:
     프롬프트 템플릿: config/llm_filter_prompt.md
     """
 
-    def __init__(self, backend: LLMBackend | None):
+    def __init__(self, backend: LLMBackend | None, max_candidates_per_run: int | None = None):
         self.backend = backend
+        self.max_candidates_per_run = max_candidates_per_run
 
     def filter(
         self,
@@ -85,8 +86,32 @@ class LLMFilter:
         template = _load_prompt_template()
         validated = []
 
-        for event in candidates:
-            verdict, reason = self._call_backend(event, df, template)
+        should_limit = (
+            self.max_candidates_per_run is not None
+            and self.max_candidates_per_run > 0
+            and len(candidates) > self.max_candidates_per_run
+        )
+        callable_indexes: set[int]
+        if should_limit:
+            ranked = sorted(
+                list(enumerate(candidates)),
+                key=lambda x: abs(float(x[1].score)),
+                reverse=True,
+            )
+            callable_indexes = {idx for idx, _ in ranked[: self.max_candidates_per_run]}
+        else:
+            callable_indexes = set(range(len(candidates)))
+
+        for idx, event in enumerate(candidates):
+            if idx in callable_indexes:
+                verdict, reason = self._call_backend(event, df, template)
+            else:
+                verdict = "SKIP_KEEP"
+                reason = (
+                    f"LLM 검증 생략: 후보 {len(candidates)}건 중 "
+                    f"상위 {self.max_candidates_per_run}건만 검증"
+                )
+
             updated_meta = {
                 **event.metadata,
                 "llm_verdict": verdict,
@@ -100,7 +125,7 @@ class LLMFilter:
                 label=event.label,
                 metadata=updated_meta,
             )
-            if verdict in ("KEEP", "ERROR_KEEP"):
+            if verdict in ("KEEP", "ERROR_KEEP", "SKIP_KEEP"):
                 validated.append(updated_event)
 
         return validated

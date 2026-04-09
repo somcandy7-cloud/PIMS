@@ -20,7 +20,9 @@ class OperationFilter:
             return df.copy()
         mask = pd.Series(True, index=df.index)
         for cond in self.conditions:
-            col_data = df[cond.column]  # KeyError 의도적 전파
+            if cond.column not in df.columns:
+                continue  # 다른 CSV 파일 전환 시 컬럼이 없을 수 있음 — 해당 조건 스킵
+            col_data = df[cond.column]
             op_func = _OPS.get(cond.op)
             if op_func is None:
                 raise ValueError(f"지원하지 않는 연산자: {cond.op!r}")

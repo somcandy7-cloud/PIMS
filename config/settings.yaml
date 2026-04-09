@@ -3,6 +3,7 @@ output_folder: C:/ibaData/reports
 log_file: C:/ibaData/reports/alarm.log
 llm:
   backend: openai
+  max_candidates_per_run: 10
   openai:
     model: gpt-4o-mini
     api_key_env: OPENAI_API_KEY

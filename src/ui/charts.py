@@ -143,7 +143,24 @@ def render_event_summary_and_bar(
         )
         st.plotly_chart(fig_bar, use_container_width=True, key="bar_chart")
 
-        available = [s for s in sig_names if s in df.columns]
+        # top_signals 컬럼명은 rolling suffix(_rmean/_rstd/_roc)가 붙은 특징명.
+        # 원본 df 컬럼과 대조하려면 suffix를 제거해 기본 신호명으로 복원한다.
+        _ROLL_SUFFIXES = ("_rmean", "_rstd", "_roc")
+
+        def _base_sig(col: str) -> str:
+            for sfx in _ROLL_SUFFIXES:
+                if col.endswith(sfx):
+                    return col[: -len(sfx)]
+            return col
+
+        seen: set[str] = set()
+        available: list[str] = []
+        for s in sig_names:
+            base = _base_sig(s)
+            if base not in seen and base in df.columns:
+                seen.add(base)
+                available.append(base)
+
         if available:
             available_display = {s: display_name(s, mapper) for s in available}
             sel_sig = st.radio(

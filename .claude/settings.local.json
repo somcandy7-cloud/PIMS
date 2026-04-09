@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pytest tests/ -v --tb=short)",
+      "Bash(python -m pytest tests/test_signal_reducer.py tests/test_equipment_profile_store.py tests/test_device_group_parser.py -v)",
+      "Bash(cmd:*)",
+      "Bash(export PYTHONPATH=\"C:\\\\Users\\\\somca\\\\내문서\\\\project\\\\PIMS\")",
+      "Bash(python -c \"import pytest; r = pytest.main\\(['tests/', '--tb=short', '-q']\\)\")",
+      "Bash(python -m pytest tests/ --tb=short -q)",
+      "Bash(python -m pytest tests/test_signal_reducer.py -v)",
+      "mcp__ide__executeCode"
+    ]
+  }
+}

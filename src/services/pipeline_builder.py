@@ -30,7 +30,12 @@ def build_llm_filter(settings: dict):
     from src.agents.llm_filter import LLMFilter
     llm_cfg = settings.get("llm", {})
     backend = build_llm_backend(llm_cfg)
-    return LLMFilter(backend=backend)
+    # Large CSV can produce many IF candidates; cap per-run LLM calls to avoid timeouts.
+    max_candidates = int(llm_cfg.get("max_candidates_per_run", 10))
+    return LLMFilter(
+        backend=backend,
+        max_candidates_per_run=max_candidates if max_candidates > 0 else None,
+    )
 
 
 def build_signal_reducer(hitl_cfg: dict):

@@ -217,6 +217,12 @@ if run_btn:
                 gp = all_groups.get(group_id, {})
                 raw_conds = gp.get("conditions")
 
+                # 다른 CSV 파일 전환 시: 캐시된 조건의 컬럼이 현재 파일에 없으면 재탐색
+                if raw_conds is not None:
+                    group_col_set = set(group_cols)
+                    if any(c.get("column") not in group_col_set for c in raw_conds):
+                        raw_conds = None
+
                 if raw_conds is None:
                     group_df = df_temp[group_cols]
                     new_conds = AutoOperationDiscovery(
@@ -228,6 +234,12 @@ if run_btn:
                     clusters = None
                 else:
                     clusters = gp.get("clusters")
+                    # 클러스터 캐시도 현재 파일 컬럼 기준으로 검증
+                    if clusters is not None:
+                        group_col_set = set(group_cols)
+                        if not any(c in group_col_set for c in clusters):
+                            clusters = None
+                            ep_store.clear_group_clusters(equipment_id, group_id)
 
                 if clusters is None and raw_conds:
                     conds_objs = [OperationCondition.from_dict(c) for c in raw_conds]

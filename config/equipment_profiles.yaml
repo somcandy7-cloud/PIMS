@@ -6,3 +6,5847 @@ oven:
     source: bimodal
     value: 15.5
   confirmed: false
+  groups:
+    3_CO_PLC_A:
+      clusters:
+        '[3_CO_PLC_A]DB110.DBb11_3A_reverse[MB169]':
+        - '[3_CO_PLC_A]DB110.DBb11_3A_reverse[MB169]'
+        '[3_CO_PLC_A]DB421.DBB    3':
+        - '[3_CO_PLC_A]DB421.DBB    3'
+        - '[3_CO_PLC_A]MB      43'
+        - '[3_CO_PLC_A]MB    1005'
+        - '[3_CO_PLC_A]QB      15'
+        - '[3_CO_PLC_A]QB      40'
+        '[3_CO_PLC_A]DB421.DBB   26':
+        - '[3_CO_PLC_A]DB421.DBB   26'
+        - '[3_CO_PLC_A]IB      13'
+        - '[3_CO_PLC_A]IB      15'
+        '[3_CO_PLC_A]DB421.DBB   28':
+        - '[3_CO_PLC_A]DB421.DBB   28'
+        '[3_CO_PLC_A]DB421.DBB   34':
+        - '[3_CO_PLC_A]DB421.DBB   34'
+        '[3_CO_PLC_A]DB421.DBB   60':
+        - '[3_CO_PLC_A]DB421.DBB   60'
+        '[3_CO_PLC_A]IB       8':
+        - '[3_CO_PLC_A]IB       8'
+        '[3_CO_PLC_A]IB      12':
+        - '[3_CO_PLC_A]IB      12'
+        '[3_CO_PLC_A]IB      14':
+        - '[3_CO_PLC_A]DB421.DBB   27'
+        - '[3_CO_PLC_A]IB      14'
+        '[3_CO_PLC_A]MB      21':
+        - '[3_CO_PLC_A]MB      21'
+        '[3_CO_PLC_A]MB      63':
+        - '[3_CO_PLC_A]DB421.DBB   29'
+        - '[3_CO_PLC_A]DB421.DBB   35'
+        - '[3_CO_PLC_A]DB421.DBB   61'
+        - '[3_CO_PLC_A]MB      19'
+        - '[3_CO_PLC_A]MB      20'
+        - '[3_CO_PLC_A]MB      40'
+        - '[3_CO_PLC_A]MB      41'
+        - '[3_CO_PLC_A]MB      42'
+        - '[3_CO_PLC_A]MB      63'
+        '[3_CO_PLC_A]MB     130':
+        - '[3_CO_PLC_A]MB     130'
+        '[3_CO_PLC_A]QB      13':
+        - '[3_CO_PLC_A]QB      13'
+      conditions:
+      - column: '[3_CO_PLC_A]IB       6'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 2.5
+      confirmed: false
+    3_CO_PLC_B:
+      clusters:
+        '[3_CO_PLC_B]DB421.DBB   61':
+        - '[3_CO_PLC_B]DB421.DBB   61'
+        '[3_CO_PLC_B]IB      12':
+        - '[3_CO_PLC_B]IB      12'
+        '[3_CO_PLC_B]IB      14':
+        - '[3_CO_PLC_B]DB421.DBB   26'
+        - '[3_CO_PLC_B]DB421.DBB   27'
+        - '[3_CO_PLC_B]DB421.DBB   34'
+        - '[3_CO_PLC_B]IB      13'
+        - '[3_CO_PLC_B]IB      14'
+        - '[3_CO_PLC_B]IB      15'
+        - '[3_CO_PLC_B]QB      40'
+        '[3_CO_PLC_B]MB      20':
+        - '[3_CO_PLC_B]MB      20'
+        '[3_CO_PLC_B]MB      21':
+        - '[3_CO_PLC_B]MB      21'
+        - '[3_CO_PLC_B]MB      41'
+        '[3_CO_PLC_B]MB      63':
+        - '[3_CO_PLC_B]DB421.DBB   29'
+        - '[3_CO_PLC_B]DB421.DBB   35'
+        - '[3_CO_PLC_B]MB      19'
+        - '[3_CO_PLC_B]MB      63'
+        - '[3_CO_PLC_B]QB      13'
+        '[3_CO_PLC_B]QB      41':
+        - '[3_CO_PLC_B]QB      41'
+        '[3_CO_PLC_B]QB      42':
+        - '[3_CO_PLC_B]QB      42'
+      conditions:
+      - column: '[3_CO_PLC_B]IB       8'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 64.0000000000001
+      confirmed: false
+    3_C_CAR_1:
+      clusters:
+        '[3_C_CAR_1]DB421.DBB   47':
+        - '[3_C_CAR_1]DB421.DBB   47'
+        - '[3_C_CAR_1]IB      37'
+        '[3_C_CAR_1]MB       1':
+        - '[3_C_CAR_1]DB421.DBB   11'
+        - '[3_C_CAR_1]DB421.DBB   12'
+        - '[3_C_CAR_1]DB421.DBB   61'
+        - '[3_C_CAR_1]DB421.DBB  323'
+        - '[3_C_CAR_1]IB       2'
+        - '[3_C_CAR_1]IB      50'
+        - '[3_C_CAR_1]MB       1'
+        - '[3_C_CAR_1]MB     154'
+        - '[3_C_CAR_1]MB     326'
+        - '[3_C_CAR_1]MB     331'
+        - '[3_C_CAR_1]MB     335'
+        - '[3_C_CAR_1]MB     409'
+        - '[3_C_CAR_1]MB     714'
+        - '[3_C_CAR_1]MB     780'
+        - '[3_C_CAR_1]QB      22'
+        '[3_C_CAR_1]MB       3':
+        - '[3_C_CAR_1]MB       3'
+        '[3_C_CAR_1]MB    4032':
+        - '[3_C_CAR_1]MB    4032'
+      conditions:
+      - column: '[3_C_CAR_1]IB       9'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 86.5
+      confirmed: false
+    3_C_CAR_2:
+      clusters:
+        '[3_C_CAR_2]DB421.DBB    3':
+        - '[3_C_CAR_2]DB421.DBB    3'
+        - '[3_C_CAR_2]MB       0'
+        '[3_C_CAR_2]DB421.DBB   10':
+        - '[3_C_CAR_2]DB421.DBB   10'
+        '[3_C_CAR_2]DB421.DBB   36':
+        - '[3_C_CAR_2]DB421.DBB   36'
+        '[3_C_CAR_2]DB421.DBB   39':
+        - '[3_C_CAR_2]DB421.DBB   39'
+        '[3_C_CAR_2]DB421.DBB   40':
+        - '[3_C_CAR_2]DB421.DBB   40'
+        '[3_C_CAR_2]DB421.DBB   55':
+        - '[3_C_CAR_2]DB421.DBB   55'
+        - '[3_C_CAR_2]DB421.DBB   56'
+        - '[3_C_CAR_2]DB421.DBB   60'
+        - '[3_C_CAR_2]MB     144'
+        '[3_C_CAR_2]DB421.DBB   76':
+        - '[3_C_CAR_2]DB421.DBB   76'
+        '[3_C_CAR_2]DB421.DBB   80':
+        - '[3_C_CAR_2]DB421.DBB   80'
+        '[3_C_CAR_2]DB421.DBB  110':
+        - '[3_C_CAR_2]DB421.DBB  110'
+        '[3_C_CAR_2]DB421.DBB  112':
+        - '[3_C_CAR_2]DB421.DBB  112'
+        '[3_C_CAR_2]DB421.DBB  113':
+        - '[3_C_CAR_2]DB421.DBB  113'
+        - '[3_C_CAR_2]QB      32'
+        '[3_C_CAR_2]DB421.DBB  222':
+        - '[3_C_CAR_2]DB421.DBB  222'
+        '[3_C_CAR_2]IB       5':
+        - '[3_C_CAR_2]DB421.DBB   70'
+        - '[3_C_CAR_2]IB       5'
+        - '[3_C_CAR_2]MB       6'
+        - '[3_C_CAR_2]QB       2'
+        '[3_C_CAR_2]IB      42':
+        - '[3_C_CAR_2]IB      42'
+        '[3_C_CAR_2]IB      43':
+        - '[3_C_CAR_2]IB      43'
+        '[3_C_CAR_2]IB      44':
+        - '[3_C_CAR_2]IB      44'
+        '[3_C_CAR_2]IB      45':
+        - '[3_C_CAR_2]IB      45'
+        '[3_C_CAR_2]IB      55':
+        - '[3_C_CAR_2]IB      55'
+        '[3_C_CAR_2]IB      61':
+        - '[3_C_CAR_2]IB      61'
+        '[3_C_CAR_2]IB      84':
+        - '[3_C_CAR_2]IB      84'
+        '[3_C_CAR_2]IB      86':
+        - '[3_C_CAR_2]IB      86'
+        '[3_C_CAR_2]IB      96':
+        - '[3_C_CAR_2]IB      96'
+        - '[3_C_CAR_2]MB      89'
+        - '[3_C_CAR_2]MB     381'
+        '[3_C_CAR_2]MB       1':
+        - '[3_C_CAR_2]MB       1'
+        '[3_C_CAR_2]MB       3':
+        - '[3_C_CAR_2]MB       3'
+        '[3_C_CAR_2]MB       7':
+        - '[3_C_CAR_2]MB       7'
+        '[3_C_CAR_2]MB      14':
+        - '[3_C_CAR_2]MB      14'
+        - '[3_C_CAR_2]MB      24'
+        - '[3_C_CAR_2]MB      34'
+        - '[3_C_CAR_2]MB      44'
+        - '[3_C_CAR_2]MB     123'
+        '[3_C_CAR_2]MB      16':
+        - '[3_C_CAR_2]DB421.DBB   11'
+        - '[3_C_CAR_2]DB421.DBB   13'
+        - '[3_C_CAR_2]DB421.DBB   35'
+        - '[3_C_CAR_2]DB421.DBB   38'
+        - '[3_C_CAR_2]DB421.DBB   79'
+        - '[3_C_CAR_2]DB421.DBB   83'
+        - '[3_C_CAR_2]DB421.DBB   84'
+        - '[3_C_CAR_2]DB421.DBB   85'
+        - '[3_C_CAR_2]DB421.DBB   86'
+        - '[3_C_CAR_2]DB421.DBB   87'
+        - '[3_C_CAR_2]DB421.DBB   88'
+        - '[3_C_CAR_2]IB      88'
+        - '[3_C_CAR_2]IB      92'
+        - '[3_C_CAR_2]IB      93'
+        - '[3_C_CAR_2]IB      94'
+        - '[3_C_CAR_2]IB      95'
+        - '[3_C_CAR_2]MB      16'
+        - '[3_C_CAR_2]MB      17'
+        - '[3_C_CAR_2]MB      39'
+        - '[3_C_CAR_2]MB      63'
+        - '[3_C_CAR_2]MB      69'
+        - '[3_C_CAR_2]MB      73'
+        - '[3_C_CAR_2]MB      83'
+        - '[3_C_CAR_2]MB      93'
+        - '[3_C_CAR_2]MB     114'
+        - '[3_C_CAR_2]MB     117'
+        - '[3_C_CAR_2]MB     160'
+        - '[3_C_CAR_2]MB     300'
+        - '[3_C_CAR_2]MB     301'
+        - '[3_C_CAR_2]MB     303'
+        - '[3_C_CAR_2]MB     307'
+        - '[3_C_CAR_2]MB     340'
+        - '[3_C_CAR_2]MB     403'
+        - '[3_C_CAR_2]MB     404'
+        - '[3_C_CAR_2]MB     406'
+        - '[3_C_CAR_2]MB     410'
+        - '[3_C_CAR_2]MB     412'
+        - '[3_C_CAR_2]MB     414'
+        - '[3_C_CAR_2]MB     511'
+        - '[3_C_CAR_2]MB     514'
+        - '[3_C_CAR_2]MB     518'
+        - '[3_C_CAR_2]QB       4'
+        - '[3_C_CAR_2]QB      28'
+        - '[3_C_CAR_2]QB      66'
+        - '[3_C_CAR_2]QB      67'
+        - '[3_C_CAR_2]QB      69'
+        '[3_C_CAR_2]MB      19':
+        - '[3_C_CAR_2]MB      19'
+        '[3_C_CAR_2]MB      46':
+        - '[3_C_CAR_2]MB      46'
+        - '[3_C_CAR_2]MB      54'
+        '[3_C_CAR_2]MB      99':
+        - '[3_C_CAR_2]MB      99'
+        '[3_C_CAR_2]MB     103':
+        - '[3_C_CAR_2]MB     103'
+        '[3_C_CAR_2]MB     111':
+        - '[3_C_CAR_2]MB     111'
+        '[3_C_CAR_2]MB     112':
+        - '[3_C_CAR_2]MB     112'
+        '[3_C_CAR_2]MB     113':
+        - '[3_C_CAR_2]MB     113'
+        '[3_C_CAR_2]MB     115':
+        - '[3_C_CAR_2]MB     115'
+        '[3_C_CAR_2]MB     131':
+        - '[3_C_CAR_2]MB     131'
+        '[3_C_CAR_2]MB     133':
+        - '[3_C_CAR_2]MB     133'
+        '[3_C_CAR_2]MB     143':
+        - '[3_C_CAR_2]MB     143'
+        '[3_C_CAR_2]MB     159':
+        - '[3_C_CAR_2]MB     159'
+        '[3_C_CAR_2]MB     183':
+        - '[3_C_CAR_2]MB     183'
+        '[3_C_CAR_2]MB     304':
+        - '[3_C_CAR_2]DB421.DBB   14'
+        - '[3_C_CAR_2]DB421.DBB   15'
+        - '[3_C_CAR_2]DB421.DBB   42'
+        - '[3_C_CAR_2]DB421.DBB   48'
+        - '[3_C_CAR_2]DB421.DBB  102'
+        - '[3_C_CAR_2]MB      13'
+        - '[3_C_CAR_2]MB      15'
+        - '[3_C_CAR_2]MB      23'
+        - '[3_C_CAR_2]MB      25'
+        - '[3_C_CAR_2]MB      27'
+        - '[3_C_CAR_2]MB      33'
+        - '[3_C_CAR_2]MB      35'
+        - '[3_C_CAR_2]MB      43'
+        - '[3_C_CAR_2]MB      45'
+        - '[3_C_CAR_2]MB      47'
+        - '[3_C_CAR_2]MB      49'
+        - '[3_C_CAR_2]MB      52'
+        - '[3_C_CAR_2]MB      58'
+        - '[3_C_CAR_2]MB      59'
+        - '[3_C_CAR_2]MB      76'
+        - '[3_C_CAR_2]MB      79'
+        - '[3_C_CAR_2]MB      86'
+        - '[3_C_CAR_2]MB      97'
+        - '[3_C_CAR_2]MB      98'
+        - '[3_C_CAR_2]MB     102'
+        - '[3_C_CAR_2]MB     110'
+        - '[3_C_CAR_2]MB     120'
+        - '[3_C_CAR_2]MB     124'
+        - '[3_C_CAR_2]MB     125'
+        - '[3_C_CAR_2]MB     129'
+        - '[3_C_CAR_2]MB     134'
+        - '[3_C_CAR_2]MB     135'
+        - '[3_C_CAR_2]MB     138'
+        - '[3_C_CAR_2]MB     146'
+        - '[3_C_CAR_2]MB     182'
+        - '[3_C_CAR_2]MB     302'
+        - '[3_C_CAR_2]MB     304'
+        - '[3_C_CAR_2]MB     305'
+        - '[3_C_CAR_2]MB     313'
+        - '[3_C_CAR_2]MB     320'
+        - '[3_C_CAR_2]MB     321'
+        - '[3_C_CAR_2]MB    2000'
+        - '[3_C_CAR_2]MB    3001'
+        '[3_C_CAR_2]MB     306':
+        - '[3_C_CAR_2]MB     306'
+        '[3_C_CAR_2]MB     310':
+        - '[3_C_CAR_2]MB     310'
+        '[3_C_CAR_2]MB     323':
+        - '[3_C_CAR_2]MB     323'
+        '[3_C_CAR_2]MB     328':
+        - '[3_C_CAR_2]MB     328'
+        '[3_C_CAR_2]MB     329':
+        - '[3_C_CAR_2]MB     329'
+        '[3_C_CAR_2]MB     346':
+        - '[3_C_CAR_2]DB421.DBB  272'
+        - '[3_C_CAR_2]MB     346'
+        '[3_C_CAR_2]MB     380':
+        - '[3_C_CAR_2]DB421.DBB   37'
+        - '[3_C_CAR_2]DB421.DBB   41'
+        - '[3_C_CAR_2]DB421.DBB   81'
+        - '[3_C_CAR_2]IB      85'
+        - '[3_C_CAR_2]IB      89'
+        - '[3_C_CAR_2]MB     380'
+        '[3_C_CAR_2]MB     400':
+        - '[3_C_CAR_2]MB     400'
+        '[3_C_CAR_2]MB     401':
+        - '[3_C_CAR_2]MB     401'
+        '[3_C_CAR_2]MB     402':
+        - '[3_C_CAR_2]MB     402'
+        '[3_C_CAR_2]MB     407':
+        - '[3_C_CAR_2]MB     407'
+        '[3_C_CAR_2]MB     413':
+        - '[3_C_CAR_2]MB     413'
+        '[3_C_CAR_2]MB     440':
+        - '[3_C_CAR_2]MB     440'
+        '[3_C_CAR_2]MB     505':
+        - '[3_C_CAR_2]MB     505'
+        '[3_C_CAR_2]MB     508':
+        - '[3_C_CAR_2]MB     508'
+        '[3_C_CAR_2]MB     515':
+        - '[3_C_CAR_2]MB     515'
+        '[3_C_CAR_2]MB     520':
+        - '[3_C_CAR_2]MB     167'
+        - '[3_C_CAR_2]MB     311'
+        - '[3_C_CAR_2]MB     399'
+        - '[3_C_CAR_2]MB     409'
+        - '[3_C_CAR_2]MB     502'
+        - '[3_C_CAR_2]MB     517'
+        - '[3_C_CAR_2]MB     520'
+        - '[3_C_CAR_2]MB     826'
+        '[3_C_CAR_2]MB     523':
+        - '[3_C_CAR_2]MB     523'
+        '[3_C_CAR_2]MB     718':
+        - '[3_C_CAR_2]MB     718'
+        '[3_C_CAR_2]MB     733':
+        - '[3_C_CAR_2]MB     733'
+        '[3_C_CAR_2]MB     780':
+        - '[3_C_CAR_2]MB     780'
+        '[3_C_CAR_2]MB     828':
+        - '[3_C_CAR_2]DB421.DBB   12'
+        - '[3_C_CAR_2]DB421.DBB   25'
+        - '[3_C_CAR_2]DB421.DBB   43'
+        - '[3_C_CAR_2]DB421.DBB   99'
+        - '[3_C_CAR_2]DB421.DBB  240'
+        - '[3_C_CAR_2]IB      35'
+        - '[3_C_CAR_2]IB      41'
+        - '[3_C_CAR_2]MB       2'
+        - '[3_C_CAR_2]MB     122'
+        - '[3_C_CAR_2]MB     521'
+        - '[3_C_CAR_2]MB     717'
+        - '[3_C_CAR_2]MB     719'
+        - '[3_C_CAR_2]MB     749'
+        - '[3_C_CAR_2]MB     827'
+        - '[3_C_CAR_2]MB     828'
+        - '[3_C_CAR_2]MB     829'
+        - '[3_C_CAR_2]MB     830'
+        - '[3_C_CAR_2]MB     831'
+        - '[3_C_CAR_2]MB     980'
+        - '[3_C_CAR_2]QB      64'
+        - '[3_C_CAR_2]QB      73'
+        '[3_C_CAR_2]QB       6':
+        - '[3_C_CAR_2]DB421.DBB   21'
+        - '[3_C_CAR_2]DB421.DBB   22'
+        - '[3_C_CAR_2]DB421.DBB   23'
+        - '[3_C_CAR_2]DB421.DBB   24'
+        - '[3_C_CAR_2]DB421.DBB   31'
+        - '[3_C_CAR_2]DB421.DBB   32'
+        - '[3_C_CAR_2]DB421.DBB   44'
+        - '[3_C_CAR_2]DB421.DBB   49'
+        - '[3_C_CAR_2]DB421.DBB   50'
+        - '[3_C_CAR_2]DB421.DBB   58'
+        - '[3_C_CAR_2]DB421.DBB   59'
+        - '[3_C_CAR_2]DB421.DBB   64'
+        - '[3_C_CAR_2]QB       6'
+        - '[3_C_CAR_2]QB      10'
+        - '[3_C_CAR_2]QB      14'
+        - '[3_C_CAR_2]QB      15'
+        - '[3_C_CAR_2]QB      18'
+        - '[3_C_CAR_2]QB      19'
+        - '[3_C_CAR_2]QB      20'
+        '[3_C_CAR_2]QB      16':
+        - '[3_C_CAR_2]QB      16'
+        '[3_C_CAR_2]QB      17':
+        - '[3_C_CAR_2]QB      17'
+        '[3_C_CAR_2]QB      29':
+        - '[3_C_CAR_2]DB421.DBB  111'
+        - '[3_C_CAR_2]QB      29'
+        '[3_C_CAR_2]QB      68':
+        - '[3_C_CAR_2]QB      68'
+      conditions:
+      - column: '[3_C_CAR_2]IB      40'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 67.99999999999993
+      confirmed: false
+    3_C_CAR_3:
+      clusters:
+        '[3_C_CAR_3]DB420.DBB    2':
+        - '[3_C_CAR_3]DB420.DBB    2'
+        '[3_C_CAR_3]DB420.DBB   23':
+        - '[3_C_CAR_3]DB420.DBB   23'
+        '[3_C_CAR_3]DB421.DBB    3':
+        - '[3_C_CAR_3]DB421.DBB    3'
+        - '[3_C_CAR_3]MB       0'
+        '[3_C_CAR_3]DB421.DBB   12':
+        - '[3_C_CAR_3]DB421.DBB   12'
+        '[3_C_CAR_3]DB421.DBB   13':
+        - '[3_C_CAR_3]DB421.DBB   13'
+        - '[3_C_CAR_3]DB421.DBB  269'
+        - '[3_C_CAR_3]MB      55'
+        '[3_C_CAR_3]DB421.DBB   17':
+        - '[3_C_CAR_3]DB421.DBB   17'
+        '[3_C_CAR_3]DB421.DBB   18':
+        - '[3_C_CAR_3]DB421.DBB   18'
+        '[3_C_CAR_3]DB421.DBB   19':
+        - '[3_C_CAR_3]DB421.DBB   19'
+        '[3_C_CAR_3]DB421.DBB   20':
+        - '[3_C_CAR_3]DB421.DBB   20'
+        '[3_C_CAR_3]DB421.DBB   21':
+        - '[3_C_CAR_3]DB421.DBB   21'
+        '[3_C_CAR_3]DB421.DBB   22':
+        - '[3_C_CAR_3]DB421.DBB   22'
+        '[3_C_CAR_3]DB421.DBB   23':
+        - '[3_C_CAR_3]DB421.DBB   23'
+        '[3_C_CAR_3]DB421.DBB   24':
+        - '[3_C_CAR_3]DB421.DBB   24'
+        '[3_C_CAR_3]DB421.DBB   29':
+        - '[3_C_CAR_3]DB421.DBB   29'
+        '[3_C_CAR_3]DB421.DBB   32':
+        - '[3_C_CAR_3]DB421.DBB   32'
+        '[3_C_CAR_3]DB421.DBB   33':
+        - '[3_C_CAR_3]DB421.DBB   33'
+        - '[3_C_CAR_3]DB421.DBB   92'
+        - '[3_C_CAR_3]DB421.DBB   93'
+        - '[3_C_CAR_3]IB      98'
+        - '[3_C_CAR_3]IB      99'
+        - '[3_C_CAR_3]MB     331'
+        - '[3_C_CAR_3]MB     333'
+        - '[3_C_CAR_3]QB       4'
+        '[3_C_CAR_3]DB421.DBB   34':
+        - '[3_C_CAR_3]DB421.DBB   34'
+        - '[3_C_CAR_3]MB      46'
+        - '[3_C_CAR_3]MB      86'
+        - '[3_C_CAR_3]MB      98'
+        '[3_C_CAR_3]DB421.DBB   40':
+        - '[3_C_CAR_3]DB421.DBB   40'
+        '[3_C_CAR_3]DB421.DBB   44':
+        - '[3_C_CAR_3]DB421.DBB   44'
+        '[3_C_CAR_3]DB421.DBB   45':
+        - '[3_C_CAR_3]DB421.DBB   45'
+        '[3_C_CAR_3]DB421.DBB   47':
+        - '[3_C_CAR_3]DB421.DBB   47'
+        '[3_C_CAR_3]DB421.DBB   48':
+        - '[3_C_CAR_3]DB421.DBB   48'
+        '[3_C_CAR_3]DB421.DBB   49':
+        - '[3_C_CAR_3]DB421.DBB   49'
+        '[3_C_CAR_3]DB421.DBB   50':
+        - '[3_C_CAR_3]DB421.DBB   50'
+        '[3_C_CAR_3]DB421.DBB   52':
+        - '[3_C_CAR_3]DB421.DBB   52'
+        '[3_C_CAR_3]DB421.DBB   57':
+        - '[3_C_CAR_3]DB421.DBB   57'
+        '[3_C_CAR_3]DB421.DBB   58':
+        - '[3_C_CAR_3]DB421.DBB   58'
+        '[3_C_CAR_3]DB421.DBB   59':
+        - '[3_C_CAR_3]DB421.DBB   59'
+        - '[3_C_CAR_3]QB      31'
+        '[3_C_CAR_3]DB421.DBB   64':
+        - '[3_C_CAR_3]DB421.DBB   39'
+        - '[3_C_CAR_3]DB421.DBB   64'
+        - '[3_C_CAR_3]QB      17'
+        - '[3_C_CAR_3]QB      20'
+        '[3_C_CAR_3]DB421.DBB   71':
+        - '[3_C_CAR_3]DB421.DBB   71'
+        '[3_C_CAR_3]DB421.DBB   79':
+        - '[3_C_CAR_3]DB421.DBB   79'
+        '[3_C_CAR_3]DB421.DBB   95':
+        - '[3_C_CAR_3]DB421.DBB   95'
+        '[3_C_CAR_3]DB421.DBB  110':
+        - '[3_C_CAR_3]DB421.DBB  110'
+        - '[3_C_CAR_3]IB      96'
+        '[3_C_CAR_3]DB421.DBB  209':
+        - '[3_C_CAR_3]DB421.DBB  209'
+        '[3_C_CAR_3]IB      14':
+        - '[3_C_CAR_3]IB      14'
+        '[3_C_CAR_3]IB      17':
+        - '[3_C_CAR_3]IB      17'
+        '[3_C_CAR_3]IB      19':
+        - '[3_C_CAR_3]IB      19'
+        '[3_C_CAR_3]IB      21':
+        - '[3_C_CAR_3]IB      21'
+        - '[3_C_CAR_3]QB       7'
+        '[3_C_CAR_3]IB      26':
+        - '[3_C_CAR_3]IB      26'
+        '[3_C_CAR_3]IB      30':
+        - '[3_C_CAR_3]DB421.DBB   27'
+        - '[3_C_CAR_3]DB421.DBB   51'
+        - '[3_C_CAR_3]DB421.DBB   91'
+        - '[3_C_CAR_3]DB421.DBB   94'
+        - '[3_C_CAR_3]IB      30'
+        - '[3_C_CAR_3]IB      33'
+        - '[3_C_CAR_3]IB      97'
+        - '[3_C_CAR_3]IB     100'
+        - '[3_C_CAR_3]MB     326'
+        - '[3_C_CAR_3]MB     335'
+        - '[3_C_CAR_3]QB      12'
+        '[3_C_CAR_3]IB      36':
+        - '[3_C_CAR_3]IB      36'
+        '[3_C_CAR_3]IB      37':
+        - '[3_C_CAR_3]IB      37'
+        '[3_C_CAR_3]IB      38':
+        - '[3_C_CAR_3]IB      38'
+        '[3_C_CAR_3]IB      46':
+        - '[3_C_CAR_3]IB      46'
+        - '[3_C_CAR_3]IB      47'
+        '[3_C_CAR_3]IB      48':
+        - '[3_C_CAR_3]IB      48'
+        '[3_C_CAR_3]IB      61':
+        - '[3_C_CAR_3]IB      61'
+        '[3_C_CAR_3]MB       1':
+        - '[3_C_CAR_3]MB       1'
+        '[3_C_CAR_3]MB       3':
+        - '[3_C_CAR_3]MB       3'
+        '[3_C_CAR_3]MB       4':
+        - '[3_C_CAR_3]DB421.DBB   72'
+        - '[3_C_CAR_3]MB       4'
+        - '[3_C_CAR_3]MB     172'
+        '[3_C_CAR_3]MB      12':
+        - '[3_C_CAR_3]MB      12'
+        '[3_C_CAR_3]MB      13':
+        - '[3_C_CAR_3]MB      13'
+        - '[3_C_CAR_3]MB      23'
+        - '[3_C_CAR_3]MB      33'
+        '[3_C_CAR_3]MB      14':
+        - '[3_C_CAR_3]MB      14'
+        - '[3_C_CAR_3]MB      24'
+        '[3_C_CAR_3]MB      17':
+        - '[3_C_CAR_3]MB      17'
+        '[3_C_CAR_3]MB      19':
+        - '[3_C_CAR_3]MB      19'
+        '[3_C_CAR_3]MB      20':
+        - '[3_C_CAR_3]MB      20'
+        '[3_C_CAR_3]MB      22':
+        - '[3_C_CAR_3]MB      22'
+        '[3_C_CAR_3]MB      26':
+        - '[3_C_CAR_3]MB      26'
+        '[3_C_CAR_3]MB      27':
+        - '[3_C_CAR_3]MB      27'
+        '[3_C_CAR_3]MB      30':
+        - '[3_C_CAR_3]MB      30'
+        '[3_C_CAR_3]MB      32':
+        - '[3_C_CAR_3]MB      32'
+        '[3_C_CAR_3]MB      34':
+        - '[3_C_CAR_3]MB      34'
+        '[3_C_CAR_3]MB      36':
+        - '[3_C_CAR_3]MB      36'
+        '[3_C_CAR_3]MB      37':
+        - '[3_C_CAR_3]DB421.DBB   76'
+        - '[3_C_CAR_3]MB      37'
+        '[3_C_CAR_3]MB      38':
+        - '[3_C_CAR_3]MB      38'
+        '[3_C_CAR_3]MB      40':
+        - '[3_C_CAR_3]MB      40'
+        '[3_C_CAR_3]MB      41':
+        - '[3_C_CAR_3]MB      41'
+        '[3_C_CAR_3]MB      43':
+        - '[3_C_CAR_3]MB      43'
+        '[3_C_CAR_3]MB      44':
+        - '[3_C_CAR_3]MB      44'
+        '[3_C_CAR_3]MB      50':
+        - '[3_C_CAR_3]MB      50'
+        '[3_C_CAR_3]MB      51':
+        - '[3_C_CAR_3]MB      51'
+        '[3_C_CAR_3]MB      53':
+        - '[3_C_CAR_3]DB421.DBB   25'
+        - '[3_C_CAR_3]DB421.DBB   99'
+        - '[3_C_CAR_3]MB      53'
+        - '[3_C_CAR_3]MB     736'
+        '[3_C_CAR_3]MB      57':
+        - '[3_C_CAR_3]MB      57'
+        '[3_C_CAR_3]MB      61':
+        - '[3_C_CAR_3]MB      61'
+        '[3_C_CAR_3]MB      65':
+        - '[3_C_CAR_3]MB      65'
+        '[3_C_CAR_3]MB      73':
+        - '[3_C_CAR_3]MB      73'
+        '[3_C_CAR_3]MB      75':
+        - '[3_C_CAR_3]MB      75'
+        '[3_C_CAR_3]MB      76':
+        - '[3_C_CAR_3]MB      76'
+        - '[3_C_CAR_3]MB     320'
+        '[3_C_CAR_3]MB      81':
+        - '[3_C_CAR_3]MB      81'
+        '[3_C_CAR_3]MB      82':
+        - '[3_C_CAR_3]MB      82'
+        '[3_C_CAR_3]MB      83':
+        - '[3_C_CAR_3]MB      83'
+        '[3_C_CAR_3]MB      85':
+        - '[3_C_CAR_3]MB      85'
+        '[3_C_CAR_3]MB      91':
+        - '[3_C_CAR_3]MB      91'
+        '[3_C_CAR_3]MB      93':
+        - '[3_C_CAR_3]MB      63'
+        - '[3_C_CAR_3]MB      93'
+        '[3_C_CAR_3]MB      96':
+        - '[3_C_CAR_3]MB      96'
+        '[3_C_CAR_3]MB      99':
+        - '[3_C_CAR_3]MB      99'
+        '[3_C_CAR_3]MB     115':
+        - '[3_C_CAR_3]MB     115'
+        '[3_C_CAR_3]MB     120':
+        - '[3_C_CAR_3]MB     120'
+        '[3_C_CAR_3]MB     121':
+        - '[3_C_CAR_3]MB     121'
+        '[3_C_CAR_3]MB     122':
+        - '[3_C_CAR_3]MB     122'
+        '[3_C_CAR_3]MB     125':
+        - '[3_C_CAR_3]MB     125'
+        '[3_C_CAR_3]MB     126':
+        - '[3_C_CAR_3]MB     126'
+        '[3_C_CAR_3]MB     133':
+        - '[3_C_CAR_3]MB     133'
+        '[3_C_CAR_3]MB     142':
+        - '[3_C_CAR_3]MB     142'
+        '[3_C_CAR_3]MB     143':
+        - '[3_C_CAR_3]MB     143'
+        '[3_C_CAR_3]MB     158':
+        - '[3_C_CAR_3]MB     158'
+        '[3_C_CAR_3]MB     159':
+        - '[3_C_CAR_3]MB     159'
+        '[3_C_CAR_3]MB     164':
+        - '[3_C_CAR_3]MB     164'
+        '[3_C_CAR_3]MB     174':
+        - '[3_C_CAR_3]MB     174'
+        '[3_C_CAR_3]MB     175':
+        - '[3_C_CAR_3]MB     175'
+        '[3_C_CAR_3]MB     177':
+        - '[3_C_CAR_3]MB     177'
+        '[3_C_CAR_3]MB     182':
+        - '[3_C_CAR_3]MB     104'
+        - '[3_C_CAR_3]MB     182'
+        '[3_C_CAR_3]MB     303':
+        - '[3_C_CAR_3]MB     303'
+        '[3_C_CAR_3]MB     304':
+        - '[3_C_CAR_3]DB421.DBB   10'
+        - '[3_C_CAR_3]DB421.DBB   11'
+        - '[3_C_CAR_3]DB421.DBB   14'
+        - '[3_C_CAR_3]DB421.DBB   15'
+        - '[3_C_CAR_3]DB421.DBB   16'
+        - '[3_C_CAR_3]DB421.DBB   28'
+        - '[3_C_CAR_3]DB421.DBB   38'
+        - '[3_C_CAR_3]DB421.DBB   42'
+        - '[3_C_CAR_3]DB421.DBB   43'
+        - '[3_C_CAR_3]DB421.DBB   46'
+        - '[3_C_CAR_3]DB421.DBB   55'
+        - '[3_C_CAR_3]DB421.DBB   56'
+        - '[3_C_CAR_3]DB421.DBB   60'
+        - '[3_C_CAR_3]DB421.DBB   68'
+        - '[3_C_CAR_3]DB421.DBB   80'
+        - '[3_C_CAR_3]DB421.DBB   81'
+        - '[3_C_CAR_3]DB421.DBB   83'
+        - '[3_C_CAR_3]DB421.DBB   84'
+        - '[3_C_CAR_3]DB421.DBB   85'
+        - '[3_C_CAR_3]DB421.DBB   86'
+        - '[3_C_CAR_3]DB421.DBB   87'
+        - '[3_C_CAR_3]DB421.DBB   88'
+        - '[3_C_CAR_3]DB421.DBB  102'
+        - '[3_C_CAR_3]DB421.DBB  222'
+        - '[3_C_CAR_3]IB       9'
+        - '[3_C_CAR_3]IB      35'
+        - '[3_C_CAR_3]IB      40'
+        - '[3_C_CAR_3]IB      41'
+        - '[3_C_CAR_3]IB      44'
+        - '[3_C_CAR_3]IB      45'
+        - '[3_C_CAR_3]IB      88'
+        - '[3_C_CAR_3]IB      89'
+        - '[3_C_CAR_3]IB      92'
+        - '[3_C_CAR_3]IB      93'
+        - '[3_C_CAR_3]IB      94'
+        - '[3_C_CAR_3]IB      95'
+        - '[3_C_CAR_3]MB       9'
+        - '[3_C_CAR_3]MB      15'
+        - '[3_C_CAR_3]MB      16'
+        - '[3_C_CAR_3]MB      25'
+        - '[3_C_CAR_3]MB      35'
+        - '[3_C_CAR_3]MB      39'
+        - '[3_C_CAR_3]MB      42'
+        - '[3_C_CAR_3]MB      45'
+        - '[3_C_CAR_3]MB      47'
+        - '[3_C_CAR_3]MB      49'
+        - '[3_C_CAR_3]MB      58'
+        - '[3_C_CAR_3]MB      59'
+        - '[3_C_CAR_3]MB      64'
+        - '[3_C_CAR_3]MB      69'
+        - '[3_C_CAR_3]MB      74'
+        - '[3_C_CAR_3]MB      84'
+        - '[3_C_CAR_3]MB      94'
+        - '[3_C_CAR_3]MB     102'
+        - '[3_C_CAR_3]MB     103'
+        - '[3_C_CAR_3]MB     110'
+        - '[3_C_CAR_3]MB     116'
+        - '[3_C_CAR_3]MB     117'
+        - '[3_C_CAR_3]MB     123'
+        - '[3_C_CAR_3]MB     124'
+        - '[3_C_CAR_3]MB     129'
+        - '[3_C_CAR_3]MB     130'
+        - '[3_C_CAR_3]MB     131'
+        - '[3_C_CAR_3]MB     134'
+        - '[3_C_CAR_3]MB     135'
+        - '[3_C_CAR_3]MB     136'
+        - '[3_C_CAR_3]MB     138'
+        - '[3_C_CAR_3]MB     141'
+        - '[3_C_CAR_3]MB     144'
+        - '[3_C_CAR_3]MB     145'
+        - '[3_C_CAR_3]MB     150'
+        - '[3_C_CAR_3]MB     160'
+        - '[3_C_CAR_3]MB     180'
+        - '[3_C_CAR_3]MB     181'
+        - '[3_C_CAR_3]MB     300'
+        - '[3_C_CAR_3]MB     301'
+        - '[3_C_CAR_3]MB     302'
+        - '[3_C_CAR_3]MB     304'
+        - '[3_C_CAR_3]MB     307'
+        - '[3_C_CAR_3]MB     328'
+        - '[3_C_CAR_3]MB     340'
+        - '[3_C_CAR_3]MB     400'
+        - '[3_C_CAR_3]MB     403'
+        - '[3_C_CAR_3]MB     404'
+        - '[3_C_CAR_3]MB     406'
+        - '[3_C_CAR_3]MB     410'
+        - '[3_C_CAR_3]MB     412'
+        - '[3_C_CAR_3]MB     414'
+        - '[3_C_CAR_3]MB     432'
+        - '[3_C_CAR_3]MB     517'
+        - '[3_C_CAR_3]MB     520'
+        - '[3_C_CAR_3]MB     717'
+        - '[3_C_CAR_3]MB     733'
+        - '[3_C_CAR_3]MB     820'
+        - '[3_C_CAR_3]MB     827'
+        - '[3_C_CAR_3]MB    3000'
+        - '[3_C_CAR_3]MB    3001'
+        - '[3_C_CAR_3]MB    3002'
+        - '[3_C_CAR_3]MB    3005'
+        - '[3_C_CAR_3]MB    5003'
+        - '[3_C_CAR_3]QB       3'
+        - '[3_C_CAR_3]QB      18'
+        - '[3_C_CAR_3]QB      19'
+        - '[3_C_CAR_3]QB      28'
+        - '[3_C_CAR_3]QB      66'
+        - '[3_C_CAR_3]QB      67'
+        - '[3_C_CAR_3]QB      69'
+        - '[3_C_CAR_3]QB      73'
+        '[3_C_CAR_3]MB     305':
+        - '[3_C_CAR_3]MB     305'
+        '[3_C_CAR_3]MB     306':
+        - '[3_C_CAR_3]MB     306'
+        '[3_C_CAR_3]MB     310':
+        - '[3_C_CAR_3]MB     310'
+        '[3_C_CAR_3]MB     313':
+        - '[3_C_CAR_3]MB     313'
+        '[3_C_CAR_3]MB     314':
+        - '[3_C_CAR_3]MB     314'
+        '[3_C_CAR_3]MB     315':
+        - '[3_C_CAR_3]MB     315'
+        - '[3_C_CAR_3]MB     337'
+        '[3_C_CAR_3]MB     316':
+        - '[3_C_CAR_3]MB     316'
+        - '[3_C_CAR_3]MB     702'
+        - '[3_C_CAR_3]MB     749'
+        '[3_C_CAR_3]MB     321':
+        - '[3_C_CAR_3]DB421.DBB   30'
+        - '[3_C_CAR_3]DB421.DBB   35'
+        - '[3_C_CAR_3]MB      56'
+        - '[3_C_CAR_3]MB      62'
+        - '[3_C_CAR_3]MB      71'
+        - '[3_C_CAR_3]MB      72'
+        - '[3_C_CAR_3]MB      79'
+        - '[3_C_CAR_3]MB      90'
+        - '[3_C_CAR_3]MB      92'
+        - '[3_C_CAR_3]MB      97'
+        - '[3_C_CAR_3]MB     169'
+        - '[3_C_CAR_3]MB     321'
+        - '[3_C_CAR_3]MB     509'
+        - '[3_C_CAR_3]MB     521'
+        - '[3_C_CAR_3]QB      22'
+        '[3_C_CAR_3]MB     322':
+        - '[3_C_CAR_3]MB     322'
+        '[3_C_CAR_3]MB     323':
+        - '[3_C_CAR_3]MB     323'
+        '[3_C_CAR_3]MB     324':
+        - '[3_C_CAR_3]MB     324'
+        '[3_C_CAR_3]MB     325':
+        - '[3_C_CAR_3]DB421.DBB   26'
+        - '[3_C_CAR_3]MB      52'
+        - '[3_C_CAR_3]MB     325'
+        - '[3_C_CAR_3]QB      72'
+        '[3_C_CAR_3]MB     380':
+        - '[3_C_CAR_3]DB421.DBB   36'
+        - '[3_C_CAR_3]IB      84'
+        - '[3_C_CAR_3]IB      86'
+        - '[3_C_CAR_3]MB     113'
+        - '[3_C_CAR_3]MB     114'
+        - '[3_C_CAR_3]MB     380'
+        '[3_C_CAR_3]MB     399':
+        - '[3_C_CAR_3]MB     311'
+        - '[3_C_CAR_3]MB     399'
+        '[3_C_CAR_3]MB     401':
+        - '[3_C_CAR_3]MB     401'
+        '[3_C_CAR_3]MB     402':
+        - '[3_C_CAR_3]MB     402'
+        '[3_C_CAR_3]MB     407':
+        - '[3_C_CAR_3]MB     407'
+        - '[3_C_CAR_3]MB     411'
+        '[3_C_CAR_3]MB     409':
+        - '[3_C_CAR_3]MB     409'
+        '[3_C_CAR_3]MB     413':
+        - '[3_C_CAR_3]MB     413'
+        '[3_C_CAR_3]MB     501':
+        - '[3_C_CAR_3]MB     501'
+        '[3_C_CAR_3]MB     502':
+        - '[3_C_CAR_3]MB     502'
+        '[3_C_CAR_3]MB     503':
+        - '[3_C_CAR_3]MB     503'
+        '[3_C_CAR_3]MB     504':
+        - '[3_C_CAR_3]MB     504'
+        '[3_C_CAR_3]MB     508':
+        - '[3_C_CAR_3]MB     508'
+        '[3_C_CAR_3]MB     514':
+        - '[3_C_CAR_3]MB     514'
+        '[3_C_CAR_3]MB     515':
+        - '[3_C_CAR_3]MB     515'
+        '[3_C_CAR_3]MB     518':
+        - '[3_C_CAR_3]MB     518'
+        '[3_C_CAR_3]MB     522':
+        - '[3_C_CAR_3]MB     522'
+        '[3_C_CAR_3]MB     525':
+        - '[3_C_CAR_3]MB     525'
+        '[3_C_CAR_3]MB     708':
+        - '[3_C_CAR_3]MB     708'
+        '[3_C_CAR_3]MB     720':
+        - '[3_C_CAR_3]MB     720'
+        '[3_C_CAR_3]MB     729':
+        - '[3_C_CAR_3]DB420.DBB   51'
+        - '[3_C_CAR_3]DB421.DBB   73'
+        - '[3_C_CAR_3]MB     729'
+        '[3_C_CAR_3]MB     735':
+        - '[3_C_CAR_3]DB421.DBB   31'
+        - '[3_C_CAR_3]IB      28'
+        - '[3_C_CAR_3]MB      11'
+        - '[3_C_CAR_3]MB      21'
+        - '[3_C_CAR_3]MB      31'
+        - '[3_C_CAR_3]MB      54'
+        - '[3_C_CAR_3]MB      95'
+        - '[3_C_CAR_3]MB     173'
+        - '[3_C_CAR_3]MB     312'
+        - '[3_C_CAR_3]MB     330'
+        - '[3_C_CAR_3]MB     735'
+        '[3_C_CAR_3]MB     751':
+        - '[3_C_CAR_3]DB420.DBB    3'
+        - '[3_C_CAR_3]MB     751'
+        '[3_C_CAR_3]MB     780':
+        - '[3_C_CAR_3]MB     780'
+        '[3_C_CAR_3]MB     826':
+        - '[3_C_CAR_3]DB421.DBB  205'
+        - '[3_C_CAR_3]DB421.DBB  207'
+        - '[3_C_CAR_3]DB421.DBB  229'
+        - '[3_C_CAR_3]MB     431'
+        - '[3_C_CAR_3]MB     826'
+        '[3_C_CAR_3]MB    1100':
+        - '[3_C_CAR_3]MB    1100'
+        '[3_C_CAR_3]MB    3003':
+        - '[3_C_CAR_3]MB     132'
+        - '[3_C_CAR_3]MB    3003'
+        '[3_C_CAR_3]MB    3008':
+        - '[3_C_CAR_3]MB    3008'
+        - '[3_C_CAR_3]MB    3010'
+        '[3_C_CAR_3]MB    3009':
+        - '[3_C_CAR_3]MB    3009'
+        '[3_C_CAR_3]MB    4032':
+        - '[3_C_CAR_3]MB    4032'
+        '[3_C_CAR_3]MB    5004':
+        - '[3_C_CAR_3]MB    5004'
+        '[3_C_CAR_3]MB    5010':
+        - '[3_C_CAR_3]MB    5010'
+        '[3_C_CAR_3]QB       5':
+        - '[3_C_CAR_3]QB       5'
+        '[3_C_CAR_3]QB       6':
+        - '[3_C_CAR_3]QB       6'
+        '[3_C_CAR_3]QB       8':
+        - '[3_C_CAR_3]QB       8'
+        '[3_C_CAR_3]QB       9':
+        - '[3_C_CAR_3]QB       9'
+        '[3_C_CAR_3]QB      10':
+        - '[3_C_CAR_3]QB      10'
+        '[3_C_CAR_3]QB      11':
+        - '[3_C_CAR_3]QB      11'
+        '[3_C_CAR_3]QB      13':
+        - '[3_C_CAR_3]QB      13'
+        '[3_C_CAR_3]QB      14':
+        - '[3_C_CAR_3]QB      14'
+        '[3_C_CAR_3]QB      15':
+        - '[3_C_CAR_3]QB      15'
+        '[3_C_CAR_3]QB      29':
+        - '[3_C_CAR_3]DB421.DBB   41'
+        - '[3_C_CAR_3]DB421.DBB  111'
+        - '[3_C_CAR_3]DB421.DBB  112'
+        - '[3_C_CAR_3]DB421.DBB  113'
+        - '[3_C_CAR_3]QB      16'
+        - '[3_C_CAR_3]QB      29'
+        - '[3_C_CAR_3]QB      32'
+        '[3_C_CAR_3]QB      65':
+        - '[3_C_CAR_3]QB      65'
+        '[3_C_CAR_3]QB      68':
+        - '[3_C_CAR_3]QB      68'
+      conditions:
+      - column: '[3_C_CAR_3]IB       9'
+        confidence: .nan
+        op: '>'
+        source: bimodal
+        value: 54.890845070422536
+      confirmed: false
+    3_ECS_PLC_A:
+      clusters:
+        '[3_ECS_PLC_A]MB       0':
+        - '[3_ECS_PLC_A]MB       0'
+        '[3_ECS_PLC_A]MB       1':
+        - '[3_ECS_PLC_A]MB       1'
+      conditions:
+      - column: '[3_ECS_PLC_A]QB      19'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 4.999999999999995
+      confirmed: false
+    3_ECS_PLC_B:
+      clusters:
+        '[3_ECS_PLC_B]IB      14':
+        - '[3_ECS_PLC_B]IB      14'
+        '[3_ECS_PLC_B]IB      15':
+        - '[3_ECS_PLC_B]IB      15'
+        '[3_ECS_PLC_B]MB       1':
+        - '[3_ECS_PLC_B]MB       1'
+      conditions:
+      - column: '[3_ECS_PLC_B]IB       8'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 17.000000000000004
+      confirmed: false
+    3_LOCO_A:
+      clusters: {}
+      conditions:
+      - column: '[3_LOCO_A]IB      16'
+        confidence: .nan
+        op: '>'
+        source: bimodal
+        value: 24.0
+      confirmed: false
+    3_LOCO_B:
+      clusters: {}
+      conditions:
+      - column: '[3_LOCO_B]IB      16'
+        confidence: .nan
+        op: '>'
+        source: bimodal
+        value: 24.0
+      confirmed: false
+    3_P_CAR_1:
+      clusters:
+        '[3_P_CAR_1]DB420.DBB    2':
+        - '[3_P_CAR_1]DB420.DBB    2'
+        - '[3_P_CAR_1]MB     730'
+        '[3_P_CAR_1]DB421.DBB    3':
+        - '[3_P_CAR_1]DB421.DBB    3'
+        '[3_P_CAR_1]DB421.DBB   13':
+        - '[3_P_CAR_1]DB421.DBB   13'
+        - '[3_P_CAR_1]DB421.DBB   15'
+        - '[3_P_CAR_1]DB421.DBB  106'
+        - '[3_P_CAR_1]DB421.DBB  109'
+        - '[3_P_CAR_1]IB      22'
+        - '[3_P_CAR_1]MB       9'
+        - '[3_P_CAR_1]MB      66'
+        - '[3_P_CAR_1]MB     150'
+        - '[3_P_CAR_1]MB     181'
+        - '[3_P_CAR_1]MB     272'
+        - '[3_P_CAR_1]MB     290'
+        - '[3_P_CAR_1]QB      11'
+        - '[3_P_CAR_1]QB      51'
+        '[3_P_CAR_1]DB421.DBB   70':
+        - '[3_P_CAR_1]DB421.DBB   70'
+        - '[3_P_CAR_1]IB      20'
+        - '[3_P_CAR_1]QB       8'
+        - '[3_P_CAR_1]QB      22'
+        '[3_P_CAR_1]DB421.DBB   75':
+        - '[3_P_CAR_1]DB421.DBB   75'
+        '[3_P_CAR_1]DB421.DBB   84':
+        - '[3_P_CAR_1]DB421.DBB   84'
+        - '[3_P_CAR_1]MB     299'
+        - '[3_P_CAR_1]QB       9'
+        '[3_P_CAR_1]DB421.DBB  124':
+        - '[3_P_CAR_1]DB421.DBB  124'
+        '[3_P_CAR_1]DB421.DBB  152':
+        - '[3_P_CAR_1]DB421.DBB  152'
+        - '[3_P_CAR_1]QB      18'
+        - '[3_P_CAR_1]QB      24'
+        '[3_P_CAR_1]DB421.DBB  162':
+        - '[3_P_CAR_1]DB421.DBB  162'
+        '[3_P_CAR_1]DB421.DBB  251':
+        - '[3_P_CAR_1]DB421.DBB  251'
+        '[3_P_CAR_1]IB       1':
+        - '[3_P_CAR_1]IB       1'
+        '[3_P_CAR_1]IB      24':
+        - '[3_P_CAR_1]IB      24'
+        '[3_P_CAR_1]IB      38':
+        - '[3_P_CAR_1]IB      38'
+        '[3_P_CAR_1]IB      47':
+        - '[3_P_CAR_1]IB      47'
+        '[3_P_CAR_1]IB     110':
+        - '[3_P_CAR_1]IB     110'
+        '[3_P_CAR_1]IB     112':
+        - '[3_P_CAR_1]DB421.DBB   96'
+        - '[3_P_CAR_1]DB421.DBB  102'
+        - '[3_P_CAR_1]IB     112'
+        '[3_P_CAR_1]MB       1':
+        - '[3_P_CAR_1]MB       1'
+        '[3_P_CAR_1]MB       7':
+        - '[3_P_CAR_1]MB       7'
+        '[3_P_CAR_1]MB      40':
+        - '[3_P_CAR_1]MB      40'
+        '[3_P_CAR_1]MB      41':
+        - '[3_P_CAR_1]MB      41'
+        '[3_P_CAR_1]MB      42':
+        - '[3_P_CAR_1]DB421.DBB  163'
+        - '[3_P_CAR_1]MB      42'
+        - '[3_P_CAR_1]QB      29'
+        '[3_P_CAR_1]MB      44':
+        - '[3_P_CAR_1]MB      44'
+        '[3_P_CAR_1]MB      45':
+        - '[3_P_CAR_1]MB      45'
+        '[3_P_CAR_1]MB      50':
+        - '[3_P_CAR_1]MB      50'
+        - '[3_P_CAR_1]MB     746'
+        '[3_P_CAR_1]MB      51':
+        - '[3_P_CAR_1]DB421.DBB  150'
+        - '[3_P_CAR_1]MB      51'
+        - '[3_P_CAR_1]MB     175'
+        '[3_P_CAR_1]MB      52':
+        - '[3_P_CAR_1]DB421.DBB   14'
+        - '[3_P_CAR_1]DB421.DBB  151'
+        - '[3_P_CAR_1]DB421.DBB  153'
+        - '[3_P_CAR_1]IB      44'
+        - '[3_P_CAR_1]IB      45'
+        - '[3_P_CAR_1]MB      52'
+        - '[3_P_CAR_1]MB      53'
+        - '[3_P_CAR_1]MB      55'
+        - '[3_P_CAR_1]MB      57'
+        - '[3_P_CAR_1]MB      88'
+        - '[3_P_CAR_1]MB      93'
+        - '[3_P_CAR_1]MB     118'
+        - '[3_P_CAR_1]MB     166'
+        - '[3_P_CAR_1]MB     169'
+        - '[3_P_CAR_1]QB      17'
+        '[3_P_CAR_1]MB      54':
+        - '[3_P_CAR_1]DB421.DBB  256'
+        - '[3_P_CAR_1]MB      54'
+        - '[3_P_CAR_1]MB     442'
+        '[3_P_CAR_1]MB      59':
+        - '[3_P_CAR_1]MB      59'
+        - '[3_P_CAR_1]QB      35'
+        '[3_P_CAR_1]MB      78':
+        - '[3_P_CAR_1]MB      78'
+        '[3_P_CAR_1]MB      84':
+        - '[3_P_CAR_1]MB      84'
+        '[3_P_CAR_1]MB     117':
+        - '[3_P_CAR_1]MB     117'
+        '[3_P_CAR_1]MB     134':
+        - '[3_P_CAR_1]MB     134'
+        '[3_P_CAR_1]MB     140':
+        - '[3_P_CAR_1]MB     140'
+        '[3_P_CAR_1]MB     153':
+        - '[3_P_CAR_1]MB     153'
+        - '[3_P_CAR_1]QB      10'
+        '[3_P_CAR_1]MB     165':
+        - '[3_P_CAR_1]MB     165'
+        '[3_P_CAR_1]MB     171':
+        - '[3_P_CAR_1]MB     171'
+        '[3_P_CAR_1]MB     195':
+        - '[3_P_CAR_1]MB     195'
+        '[3_P_CAR_1]MB     243':
+        - '[3_P_CAR_1]DB421.DBB   97'
+        - '[3_P_CAR_1]MB     243'
+        '[3_P_CAR_1]MB     260':
+        - '[3_P_CAR_1]DB421.DBB   10'
+        - '[3_P_CAR_1]DB421.DBB   11'
+        - '[3_P_CAR_1]DB421.DBB   12'
+        - '[3_P_CAR_1]DB421.DBB   89'
+        - '[3_P_CAR_1]DB421.DBB  101'
+        - '[3_P_CAR_1]DB421.DBB  103'
+        - '[3_P_CAR_1]DB421.DBB  108'
+        - '[3_P_CAR_1]DB421.DBB  116'
+        - '[3_P_CAR_1]DB421.DBB  118'
+        - '[3_P_CAR_1]DB421.DBB  119'
+        - '[3_P_CAR_1]DB421.DBB  120'
+        - '[3_P_CAR_1]DB421.DBB  121'
+        - '[3_P_CAR_1]DB421.DBB  122'
+        - '[3_P_CAR_1]DB421.DBB  160'
+        - '[3_P_CAR_1]DB421.DBB  161'
+        - '[3_P_CAR_1]DB421.DBB  164'
+        - '[3_P_CAR_1]DB421.DBB  214'
+        - '[3_P_CAR_1]DB421.DBB  215'
+        - '[3_P_CAR_1]DB421.DBB  216'
+        - '[3_P_CAR_1]DB421.DBB  252'
+        - '[3_P_CAR_1]DB421.DBB  253'
+        - '[3_P_CAR_1]DB421.DBB  266'
+        - '[3_P_CAR_1]IB      40'
+        - '[3_P_CAR_1]IB      60'
+        - '[3_P_CAR_1]IB      61'
+        - '[3_P_CAR_1]IB      62'
+        - '[3_P_CAR_1]IB      63'
+        - '[3_P_CAR_1]IB      64'
+        - '[3_P_CAR_1]IB      65'
+        - '[3_P_CAR_1]MB      12'
+        - '[3_P_CAR_1]MB      23'
+        - '[3_P_CAR_1]MB      43'
+        - '[3_P_CAR_1]MB      46'
+        - '[3_P_CAR_1]MB      47'
+        - '[3_P_CAR_1]MB      49'
+        - '[3_P_CAR_1]MB      61'
+        - '[3_P_CAR_1]MB     126'
+        - '[3_P_CAR_1]MB     152'
+        - '[3_P_CAR_1]MB     176'
+        - '[3_P_CAR_1]MB     244'
+        - '[3_P_CAR_1]MB     245'
+        - '[3_P_CAR_1]MB     260'
+        - '[3_P_CAR_1]MB     263'
+        - '[3_P_CAR_1]MB     264'
+        - '[3_P_CAR_1]MB     269'
+        - '[3_P_CAR_1]MB     270'
+        - '[3_P_CAR_1]MB     280'
+        - '[3_P_CAR_1]MB     281'
+        - '[3_P_CAR_1]MB     283'
+        - '[3_P_CAR_1]MB     284'
+        - '[3_P_CAR_1]MB     295'
+        - '[3_P_CAR_1]MB     400'
+        - '[3_P_CAR_1]MB     401'
+        - '[3_P_CAR_1]MB     402'
+        - '[3_P_CAR_1]MB     438'
+        - '[3_P_CAR_1]MB     452'
+        - '[3_P_CAR_1]MB     814'
+        - '[3_P_CAR_1]QB      23'
+        - '[3_P_CAR_1]QB      46'
+        - '[3_P_CAR_1]QB      47'
+        - '[3_P_CAR_1]QB      49'
+        - '[3_P_CAR_1]QB     102'
+        '[3_P_CAR_1]MB     261':
+        - '[3_P_CAR_1]MB     261'
+        '[3_P_CAR_1]MB     262':
+        - '[3_P_CAR_1]MB     262'
+        '[3_P_CAR_1]MB     266':
+        - '[3_P_CAR_1]MB     266'
+        '[3_P_CAR_1]MB     267':
+        - '[3_P_CAR_1]MB     267'
+        '[3_P_CAR_1]MB     285':
+        - '[3_P_CAR_1]MB     285'
+        '[3_P_CAR_1]MB     291':
+        - '[3_P_CAR_1]MB     291'
+        '[3_P_CAR_1]MB     292':
+        - '[3_P_CAR_1]MB     292'
+        '[3_P_CAR_1]MB     297':
+        - '[3_P_CAR_1]MB     297'
+        '[3_P_CAR_1]MB     411':
+        - '[3_P_CAR_1]DB421.DBB  225'
+        - '[3_P_CAR_1]MB     411'
+        '[3_P_CAR_1]MB     428':
+        - '[3_P_CAR_1]MB     428'
+        '[3_P_CAR_1]MB     431':
+        - '[3_P_CAR_1]MB     431'
+        '[3_P_CAR_1]MB     439':
+        - '[3_P_CAR_1]MB     404'
+        - '[3_P_CAR_1]MB     415'
+        - '[3_P_CAR_1]MB     436'
+        - '[3_P_CAR_1]MB     439'
+        '[3_P_CAR_1]MB     450':
+        - '[3_P_CAR_1]MB     450'
+        '[3_P_CAR_1]MB     739':
+        - '[3_P_CAR_1]MB     739'
+        '[3_P_CAR_1]QB       1':
+        - '[3_P_CAR_1]QB       1'
+        '[3_P_CAR_1]QB       5':
+        - '[3_P_CAR_1]QB       5'
+        '[3_P_CAR_1]QB       7':
+        - '[3_P_CAR_1]QB       7'
+        '[3_P_CAR_1]QB      14':
+        - '[3_P_CAR_1]DB421.DBB   85'
+        - '[3_P_CAR_1]QB      14'
+        '[3_P_CAR_1]QB      15':
+        - '[3_P_CAR_1]QB      15'
+        - '[3_P_CAR_1]QB      16'
+        '[3_P_CAR_1]QB      21':
+        - '[3_P_CAR_1]QB      21'
+        '[3_P_CAR_1]QB      48':
+        - '[3_P_CAR_1]QB      48'
+        '[3_P_CAR_1]QB      50':
+        - '[3_P_CAR_1]QB      50'
+        '[3_P_CAR_1]QB      52':
+        - '[3_P_CAR_1]QB      52'
+        '[3_P_CAR_1]QB      53':
+        - '[3_P_CAR_1]QB      53'
+        '[3_P_CAR_1]QB     101':
+        - '[3_P_CAR_1]DB421.DBB   95'
+        - '[3_P_CAR_1]QB     101'
+        '[3_P_CAR_1]QB     103':
+        - '[3_P_CAR_1]QB     103'
+      conditions:
+      - column: '[3_P_CAR_1]IB       0'
+        confidence: .nan
+        op: '>'
+        source: bimodal
+        value: 48.0
+      confirmed: false
+    3_P_CAR_2:
+      clusters:
+        '[3_P_CAR_2]IB       2':
+        - '[3_P_CAR_2]IB       2'
+        - '[3_P_CAR_2]IB      32'
+        - '[3_P_CAR_2]IB      52'
+        - '[3_P_CAR_2]QB      19'
+        '[3_P_CAR_2]IB       3':
+        - '[3_P_CAR_2]IB       3'
+        '[3_P_CAR_2]IB      11':
+        - '[3_P_CAR_2]IB      11'
+        '[3_P_CAR_2]IB      12':
+        - '[3_P_CAR_2]IB      12'
+        '[3_P_CAR_2]IB      38':
+        - '[3_P_CAR_2]IB      38'
+        '[3_P_CAR_2]IB     107':
+        - '[3_P_CAR_2]IB     107'
+        '[3_P_CAR_2]MB       1':
+        - '[3_P_CAR_2]MB       1'
+        '[3_P_CAR_2]MB      10':
+        - '[3_P_CAR_2]MB      10'
+        '[3_P_CAR_2]MB      11':
+        - '[3_P_CAR_2]MB      11'
+        '[3_P_CAR_2]MB      13':
+        - '[3_P_CAR_2]MB      13'
+        '[3_P_CAR_2]MB      14':
+        - '[3_P_CAR_2]MB      14'
+        '[3_P_CAR_2]MB      15':
+        - '[3_P_CAR_2]MB      15'
+        '[3_P_CAR_2]MB      16':
+        - '[3_P_CAR_2]MB      16'
+        '[3_P_CAR_2]MB      17':
+        - '[3_P_CAR_2]MB      17'
+        '[3_P_CAR_2]MB      18':
+        - '[3_P_CAR_2]MB      18'
+        '[3_P_CAR_2]MB      19':
+        - '[3_P_CAR_2]MB      19'
+        '[3_P_CAR_2]MB      25':
+        - '[3_P_CAR_2]MB      25'
+        '[3_P_CAR_2]MB      26':
+        - '[3_P_CAR_2]MB      26'
+        - '[3_P_CAR_2]MB      29'
+        - '[3_P_CAR_2]MB      87'
+        '[3_P_CAR_2]MB      30':
+        - '[3_P_CAR_2]MB      30'
+        '[3_P_CAR_2]MB      31':
+        - '[3_P_CAR_2]MB      31'
+        '[3_P_CAR_2]MB      32':
+        - '[3_P_CAR_2]MB      32'
+        '[3_P_CAR_2]MB      33':
+        - '[3_P_CAR_2]IB      21'
+        - '[3_P_CAR_2]MB      33'
+        - '[3_P_CAR_2]MB     165'
+        '[3_P_CAR_2]MB      35':
+        - '[3_P_CAR_2]MB      35'
+        '[3_P_CAR_2]MB      36':
+        - '[3_P_CAR_2]MB      36'
+        '[3_P_CAR_2]MB      37':
+        - '[3_P_CAR_2]MB      37'
+        '[3_P_CAR_2]MB      39':
+        - '[3_P_CAR_2]MB      39'
+        '[3_P_CAR_2]MB      40':
+        - '[3_P_CAR_2]MB      40'
+        '[3_P_CAR_2]MB      41':
+        - '[3_P_CAR_2]MB      41'
+        '[3_P_CAR_2]MB      42':
+        - '[3_P_CAR_2]MB      42'
+        '[3_P_CAR_2]MB      43':
+        - '[3_P_CAR_2]MB      43'
+        - '[3_P_CAR_2]MB      47'
+        '[3_P_CAR_2]MB      44':
+        - '[3_P_CAR_2]MB      44'
+        '[3_P_CAR_2]MB      46':
+        - '[3_P_CAR_2]IB      40'
+        - '[3_P_CAR_2]MB      46'
+        - '[3_P_CAR_2]MB      49'
+        - '[3_P_CAR_2]MB     126'
+        - '[3_P_CAR_2]MB     176'
+        - '[3_P_CAR_2]MB     401'
+        '[3_P_CAR_2]MB      52':
+        - '[3_P_CAR_2]IB      44'
+        - '[3_P_CAR_2]IB      45'
+        - '[3_P_CAR_2]IB      47'
+        - '[3_P_CAR_2]MB      52'
+        - '[3_P_CAR_2]MB      53'
+        - '[3_P_CAR_2]MB      55'
+        - '[3_P_CAR_2]MB      57'
+        - '[3_P_CAR_2]MB     166'
+        - '[3_P_CAR_2]QB      17'
+        - '[3_P_CAR_2]QB      18'
+        '[3_P_CAR_2]MB      59':
+        - '[3_P_CAR_2]MB      59'
+        '[3_P_CAR_2]MB      61':
+        - '[3_P_CAR_2]MB      61'
+        '[3_P_CAR_2]MB      62':
+        - '[3_P_CAR_2]MB      62'
+        - '[3_P_CAR_2]MB     284'
+        '[3_P_CAR_2]MB      63':
+        - '[3_P_CAR_2]MB      63'
+        '[3_P_CAR_2]MB      65':
+        - '[3_P_CAR_2]MB      65'
+        '[3_P_CAR_2]MB      66':
+        - '[3_P_CAR_2]MB      66'
+        '[3_P_CAR_2]MB      67':
+        - '[3_P_CAR_2]MB      67'
+        '[3_P_CAR_2]MB      68':
+        - '[3_P_CAR_2]MB      68'
+        '[3_P_CAR_2]MB      70':
+        - '[3_P_CAR_2]MB      70'
+        '[3_P_CAR_2]MB      71':
+        - '[3_P_CAR_2]MB      71'
+        '[3_P_CAR_2]MB      72':
+        - '[3_P_CAR_2]MB      72'
+        '[3_P_CAR_2]MB      73':
+        - '[3_P_CAR_2]MB      73'
+        '[3_P_CAR_2]MB      75':
+        - '[3_P_CAR_2]MB      75'
+        '[3_P_CAR_2]MB      76':
+        - '[3_P_CAR_2]MB      12'
+        - '[3_P_CAR_2]MB      69'
+        - '[3_P_CAR_2]MB      76'
+        - '[3_P_CAR_2]MB     125'
+        - '[3_P_CAR_2]MB     303'
+        '[3_P_CAR_2]MB      81':
+        - '[3_P_CAR_2]MB      81'
+        '[3_P_CAR_2]MB      84':
+        - '[3_P_CAR_2]MB      84'
+        '[3_P_CAR_2]MB      93':
+        - '[3_P_CAR_2]MB      93'
+        '[3_P_CAR_2]MB     116':
+        - '[3_P_CAR_2]IB      43'
+        - '[3_P_CAR_2]IB      49'
+        - '[3_P_CAR_2]IB      58'
+        - '[3_P_CAR_2]MB      22'
+        - '[3_P_CAR_2]MB      85'
+        - '[3_P_CAR_2]MB     116'
+        - '[3_P_CAR_2]MB     121'
+        - '[3_P_CAR_2]MB     222'
+        - '[3_P_CAR_2]QB      11'
+        '[3_P_CAR_2]MB     117':
+        - '[3_P_CAR_2]MB     117'
+        '[3_P_CAR_2]MB     118':
+        - '[3_P_CAR_2]MB     118'
+        '[3_P_CAR_2]MB     124':
+        - '[3_P_CAR_2]MB     124'
+        - '[3_P_CAR_2]MB     182'
+        - '[3_P_CAR_2]QB      21'
+        '[3_P_CAR_2]MB     140':
+        - '[3_P_CAR_2]MB     140'
+        '[3_P_CAR_2]MB     152':
+        - '[3_P_CAR_2]MB     152'
+        '[3_P_CAR_2]MB     153':
+        - '[3_P_CAR_2]MB     153'
+        - '[3_P_CAR_2]QB      10'
+        '[3_P_CAR_2]MB     169':
+        - '[3_P_CAR_2]MB     169'
+        '[3_P_CAR_2]MB     171':
+        - '[3_P_CAR_2]MB     171'
+        '[3_P_CAR_2]MB     181':
+        - '[3_P_CAR_2]MB      27'
+        - '[3_P_CAR_2]MB     181'
+        '[3_P_CAR_2]MB     195':
+        - '[3_P_CAR_2]MB     195'
+        '[3_P_CAR_2]MB     243':
+        - '[3_P_CAR_2]MB     243'
+        '[3_P_CAR_2]MB     244':
+        - '[3_P_CAR_2]MB     244'
+        '[3_P_CAR_2]MB     245':
+        - '[3_P_CAR_2]MB     245'
+        '[3_P_CAR_2]MB     260':
+        - '[3_P_CAR_2]IB      60'
+        - '[3_P_CAR_2]IB      61'
+        - '[3_P_CAR_2]IB      62'
+        - '[3_P_CAR_2]IB      63'
+        - '[3_P_CAR_2]MB      23'
+        - '[3_P_CAR_2]MB     260'
+        - '[3_P_CAR_2]MB     266'
+        - '[3_P_CAR_2]MB     272'
+        - '[3_P_CAR_2]QB      46'
+        - '[3_P_CAR_2]QB      47'
+        - '[3_P_CAR_2]QB      49'
+        '[3_P_CAR_2]MB     269':
+        - '[3_P_CAR_2]IB      65'
+        - '[3_P_CAR_2]MB     263'
+        - '[3_P_CAR_2]MB     269'
+        - '[3_P_CAR_2]QB      48'
+        '[3_P_CAR_2]MB     280':
+        - '[3_P_CAR_2]MB     280'
+        '[3_P_CAR_2]MB     281':
+        - '[3_P_CAR_2]MB     281'
+        '[3_P_CAR_2]MB     283':
+        - '[3_P_CAR_2]MB     283'
+        '[3_P_CAR_2]MB     291':
+        - '[3_P_CAR_2]MB     291'
+        '[3_P_CAR_2]MB     292':
+        - '[3_P_CAR_2]MB     292'
+        '[3_P_CAR_2]MB     297':
+        - '[3_P_CAR_2]MB      51'
+        - '[3_P_CAR_2]MB      54'
+        - '[3_P_CAR_2]MB     175'
+        - '[3_P_CAR_2]MB     297'
+        '[3_P_CAR_2]MB     298':
+        - '[3_P_CAR_2]MB     298'
+        '[3_P_CAR_2]MB     301':
+        - '[3_P_CAR_2]MB     295'
+        - '[3_P_CAR_2]MB     301'
+        '[3_P_CAR_2]MB     304':
+        - '[3_P_CAR_2]MB     304'
+        '[3_P_CAR_2]MB     306':
+        - '[3_P_CAR_2]MB     306'
+        '[3_P_CAR_2]MB     347':
+        - '[3_P_CAR_2]MB     150'
+        - '[3_P_CAR_2]MB     296'
+        - '[3_P_CAR_2]MB     299'
+        - '[3_P_CAR_2]MB     347'
+        - '[3_P_CAR_2]MB     431'
+        - '[3_P_CAR_2]QB      35'
+        '[3_P_CAR_2]MB     400':
+        - '[3_P_CAR_2]MB     400'
+        '[3_P_CAR_2]MB     408':
+        - '[3_P_CAR_2]MB     402'
+        - '[3_P_CAR_2]MB     408'
+        '[3_P_CAR_2]MB     409':
+        - '[3_P_CAR_2]MB     409'
+        '[3_P_CAR_2]MB     413':
+        - '[3_P_CAR_2]MB     403'
+        - '[3_P_CAR_2]MB     404'
+        - '[3_P_CAR_2]MB     407'
+        - '[3_P_CAR_2]MB     413'
+        '[3_P_CAR_2]MB     414':
+        - '[3_P_CAR_2]MB     411'
+        - '[3_P_CAR_2]MB     414'
+        '[3_P_CAR_2]MB     415':
+        - '[3_P_CAR_2]MB     405'
+        - '[3_P_CAR_2]MB     406'
+        - '[3_P_CAR_2]MB     415'
+        '[3_P_CAR_2]MB     416':
+        - '[3_P_CAR_2]MB     416'
+        '[3_P_CAR_2]MB     418':
+        - '[3_P_CAR_2]MB     412'
+        - '[3_P_CAR_2]MB     418'
+        '[3_P_CAR_2]MB     420':
+        - '[3_P_CAR_2]MB     410'
+        - '[3_P_CAR_2]MB     420'
+        '[3_P_CAR_2]MB     421':
+        - '[3_P_CAR_2]MB     421'
+        '[3_P_CAR_2]MB     422':
+        - '[3_P_CAR_2]MB     422'
+        '[3_P_CAR_2]MB     424':
+        - '[3_P_CAR_2]MB     424'
+        '[3_P_CAR_2]MB     425':
+        - '[3_P_CAR_2]MB     425'
+        '[3_P_CAR_2]MB     426':
+        - '[3_P_CAR_2]MB     285'
+        - '[3_P_CAR_2]MB     287'
+        - '[3_P_CAR_2]MB     290'
+        - '[3_P_CAR_2]MB     294'
+        - '[3_P_CAR_2]MB     300'
+        - '[3_P_CAR_2]MB     426'
+        '[3_P_CAR_2]MB     427':
+        - '[3_P_CAR_2]MB     417'
+        - '[3_P_CAR_2]MB     427'
+        '[3_P_CAR_2]MB     428':
+        - '[3_P_CAR_2]MB     428'
+        '[3_P_CAR_2]MB     429':
+        - '[3_P_CAR_2]MB     429'
+        '[3_P_CAR_2]MB     430':
+        - '[3_P_CAR_2]MB     430'
+        '[3_P_CAR_2]MB     434':
+        - '[3_P_CAR_2]MB     423'
+        - '[3_P_CAR_2]MB     434'
+        '[3_P_CAR_2]MB     435':
+        - '[3_P_CAR_2]MB     435'
+        '[3_P_CAR_2]MB     436':
+        - '[3_P_CAR_2]MB     436'
+        '[3_P_CAR_2]MB     438':
+        - '[3_P_CAR_2]MB     438'
+        '[3_P_CAR_2]MB     439':
+        - '[3_P_CAR_2]MB     439'
+        '[3_P_CAR_2]MB     440':
+        - '[3_P_CAR_2]MB     440'
+        '[3_P_CAR_2]QB       2':
+        - '[3_P_CAR_2]QB       2'
+        '[3_P_CAR_2]QB       3':
+        - '[3_P_CAR_2]QB       3'
+        '[3_P_CAR_2]QB       4':
+        - '[3_P_CAR_2]IB       8'
+        - '[3_P_CAR_2]QB       4'
+        '[3_P_CAR_2]QB       5':
+        - '[3_P_CAR_2]QB       5'
+        '[3_P_CAR_2]QB       6':
+        - '[3_P_CAR_2]QB       6'
+        '[3_P_CAR_2]QB       7':
+        - '[3_P_CAR_2]MB     262'
+        - '[3_P_CAR_2]MB     264'
+        - '[3_P_CAR_2]QB       1'
+        - '[3_P_CAR_2]QB       7'
+        - '[3_P_CAR_2]QB      51'
+        '[3_P_CAR_2]QB       8':
+        - '[3_P_CAR_2]QB       8'
+        '[3_P_CAR_2]QB       9':
+        - '[3_P_CAR_2]IB      33'
+        - '[3_P_CAR_2]IB      34'
+        - '[3_P_CAR_2]MB      88'
+        - '[3_P_CAR_2]MB     167'
+        - '[3_P_CAR_2]QB       9'
+        - '[3_P_CAR_2]QB      13'
+        - '[3_P_CAR_2]QB      28'
+        '[3_P_CAR_2]QB      12':
+        - '[3_P_CAR_2]QB      12'
+        '[3_P_CAR_2]QB      14':
+        - '[3_P_CAR_2]QB      14'
+        '[3_P_CAR_2]QB      15':
+        - '[3_P_CAR_2]QB      15'
+        '[3_P_CAR_2]QB      16':
+        - '[3_P_CAR_2]MB      21'
+        - '[3_P_CAR_2]QB      16'
+        '[3_P_CAR_2]QB      20':
+        - '[3_P_CAR_2]QB      20'
+        '[3_P_CAR_2]QB      22':
+        - '[3_P_CAR_2]QB      22'
+        '[3_P_CAR_2]QB      23':
+        - '[3_P_CAR_2]QB      23'
+        '[3_P_CAR_2]QB      24':
+        - '[3_P_CAR_2]QB      24'
+        '[3_P_CAR_2]QB      25':
+        - '[3_P_CAR_2]QB      25'
+        '[3_P_CAR_2]QB      26':
+        - '[3_P_CAR_2]QB      26'
+        '[3_P_CAR_2]QB      29':
+        - '[3_P_CAR_2]QB      29'
+        '[3_P_CAR_2]QB      43':
+        - '[3_P_CAR_2]QB      43'
+        '[3_P_CAR_2]QB      52':
+        - '[3_P_CAR_2]QB      52'
+        '[3_P_CAR_2]QB     100':
+        - '[3_P_CAR_2]QB     100'
+        '[3_P_CAR_2]QB     101':
+        - '[3_P_CAR_2]QB     101'
+        '[3_P_CAR_2]QB     102':
+        - '[3_P_CAR_2]QB     102'
+        '[3_P_CAR_2]QB     103':
+        - '[3_P_CAR_2]QB     103'
+      conditions:
+      - column: '[3_P_CAR_2]IB       1'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 2.9999999999999982
+      confirmed: false
+    4_CO_PLC_A:
+      clusters:
+        '[4_CO_PLC_A]DB421.DBB   34':
+        - '[4_CO_PLC_A]DB421.DBB   34'
+        - '[4_CO_PLC_A]MB      63'
+        '[4_CO_PLC_A]MB    1000':
+        - '[4_CO_PLC_A]MB    1000'
+      conditions:
+      - column: '[4_CO_PLC_A]QB      13'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 139.0
+      confirmed: false
+    4_CO_PLC_B:
+      clusters:
+        '[4_CO_PLC_B]DB421.DBB   26':
+        - '[4_CO_PLC_B]DB421.DBB   26'
+        - '[4_CO_PLC_B]IB      12'
+        - '[4_CO_PLC_B]IB      13'
+        - '[4_CO_PLC_B]IB      15'
+        - '[4_CO_PLC_B]QB      40'
+        '[4_CO_PLC_B]DB421.DBB   28':
+        - '[4_CO_PLC_B]DB421.DBB   28'
+        '[4_CO_PLC_B]DB421.DBB   34':
+        - '[4_CO_PLC_B]DB421.DBB   34'
+        '[4_CO_PLC_B]IB      14':
+        - '[4_CO_PLC_B]DB421.DBB   27'
+        - '[4_CO_PLC_B]IB      14'
+        '[4_CO_PLC_B]MB      20':
+        - '[4_CO_PLC_B]MB      20'
+        '[4_CO_PLC_B]MB      63':
+        - '[4_CO_PLC_B]MB      63'
+        '[4_CO_PLC_B]QB      41':
+        - '[4_CO_PLC_B]QB      41'
+      conditions:
+      - column: '[4_CO_PLC_B]QB      13'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 139.00000000000009
+      confirmed: false
+    4_ECS_PLC_A:
+      clusters: {}
+      conditions:
+      - column: '[4_ECS_PLC_A]IB      18'
+        confidence: .nan
+        op: '>'
+        source: bimodal
+        value: 41.0
+      confirmed: false
+    4_ECS_PLC_B:
+      clusters:
+        '[4_ECS_PLC_B]DB401.DBB  116':
+        - '[4_ECS_PLC_B]DB401.DBB  116'
+        - '[4_ECS_PLC_B]DB401.DBB  117'
+        '[4_ECS_PLC_B]DB401.DBB  125':
+        - '[4_ECS_PLC_B]DB401.DBB   19'
+        - '[4_ECS_PLC_B]DB401.DBB   25'
+        - '[4_ECS_PLC_B]DB401.DBB   42'
+        - '[4_ECS_PLC_B]DB401.DBB  106'
+        - '[4_ECS_PLC_B]DB401.DBB  109'
+        - '[4_ECS_PLC_B]DB401.DBB  110'
+        - '[4_ECS_PLC_B]DB401.DBB  125'
+        - '[4_ECS_PLC_B]IB      13'
+        - '[4_ECS_PLC_B]IB      26'
+        - '[4_ECS_PLC_B]MB      11'
+        - '[4_ECS_PLC_B]MB      18'
+        - '[4_ECS_PLC_B]MB      19'
+        - '[4_ECS_PLC_B]MB      42'
+        - '[4_ECS_PLC_B]MB      43'
+        - '[4_ECS_PLC_B]MB      44'
+        - '[4_ECS_PLC_B]QB       3'
+        - '[4_ECS_PLC_B]QB       5'
+        - '[4_ECS_PLC_B]QB       6'
+        - '[4_ECS_PLC_B]QB       9'
+        - '[4_ECS_PLC_B]QB      10'
+        '[4_ECS_PLC_B]DB401.DBB  126':
+        - '[4_ECS_PLC_B]DB401.DBB  126'
+        '[4_ECS_PLC_B]IB      15':
+        - '[4_ECS_PLC_B]IB      15'
+        '[4_ECS_PLC_B]IB      22':
+        - '[4_ECS_PLC_B]IB      22'
+        '[4_ECS_PLC_B]MB       0':
+        - '[4_ECS_PLC_B]MB       0'
+        '[4_ECS_PLC_B]MB       1':
+        - '[4_ECS_PLC_B]MB       1'
+        '[4_ECS_PLC_B]MB      10':
+        - '[4_ECS_PLC_B]DB401.DBB   18'
+        - '[4_ECS_PLC_B]DB401.DBB   43'
+        - '[4_ECS_PLC_B]DB401.DBB  112'
+        - '[4_ECS_PLC_B]MB      10'
+        - '[4_ECS_PLC_B]MB     103'
+        - '[4_ECS_PLC_B]MB     140'
+        - '[4_ECS_PLC_B]MB     142'
+        - '[4_ECS_PLC_B]MB     155'
+        '[4_ECS_PLC_B]MB      31':
+        - '[4_ECS_PLC_B]MB      31'
+        '[4_ECS_PLC_B]MB     104':
+        - '[4_ECS_PLC_B]MB     104'
+        '[4_ECS_PLC_B]QB       4':
+        - '[4_ECS_PLC_B]DB401.DBB  123'
+        - '[4_ECS_PLC_B]IB      21'
+        - '[4_ECS_PLC_B]IB      44'
+        - '[4_ECS_PLC_B]QB       4'
+        '[4_ECS_PLC_B]QB      12':
+        - '[4_ECS_PLC_B]QB      12'
+        '[4_ECS_PLC_B]QB      20':
+        - '[4_ECS_PLC_B]QB      20'
+        '[4_ECS_PLC_B]QB      22':
+        - '[4_ECS_PLC_B]QB      22'
+      conditions:
+      - column: '[4_ECS_PLC_B]IB      15'
+        confidence: .nan
+        op: '>'
+        source: bimodal
+        value: 140.04225352112678
+      confirmed: false
+    __default__:
+      clusters:
+        DB 421.DBW 130:
+        - DB 421.DBW 130
+        - DB 421.DBW 132
+        - DB 421.DBW 134
+        DB 421.DBW 130_1:
+        - DB 421.DBW 130_1
+        - DB 421.DBW 132_1
+        - DB 421.DBW 134_1
+        DB201.DBX 15.1:
+        - DB201.DBX 15.1
+        DB401.DBD 200_1:
+        - DB401.DBD 200_1
+        DB401.DBD 200_3:
+        - DB401.DBD 200_3
+        DB401.DBD 208_1:
+        - DB401.DBD 208_1
+        DB401.DBD 208_2:
+        - DB401.DBD 208_2
+        DB401.DBD 212_1:
+        - DB401.DBD 212_1
+        DB401.DBD 212_2:
+        - DB401.DBD 212_2
+        DB401.DBD 216:
+        - DB401.DBD 216
+        - DB401.DBD 240
+        DB401.DBD 220_2:
+        - DB401.DBD 220_2
+        DB401.DBD 224:
+        - DB401.DBD 204
+        - DB401.DBD 224
+        - DB401.DBD 228
+        DB401.DBD 224_1:
+        - DB401.DBD 224_1
+        - DB401.DBD 228_1
+        DB401.DBD 224_2:
+        - DB401.DBD 224_2
+        DB401.DBD 228_2:
+        - DB401.DBD 228_2
+        DB401.DBD 228_3:
+        - DB401.DBD 228_3
+        DB401.DBD 232_2:
+        - DB401.DBD 232_2
+        DB401.DBD 232_3:
+        - 4B ECS ���� Bearing �µ�
+        - DB401.DBD 216_2
+        - DB401.DBD 220_3
+        - DB401.DBD 232_3
+        - DB401.DBD 240_2
+        - DB401.DBD 240_3
+        - DB401.DBD 244_3
+        - DB401.DBD 248_2
+        - DB401.DBD 248_3
+        - DB401.DBD 252_2
+        - DB401.DBD 252_3
+        - DB401.DBD 264_1
+        - DB401.DBD 272
+        - DB401.DBD 276_3
+        - DB401.DBD 280_3
+        - DB401.DBD 284_1
+        - DB401.DBD 288_1
+        - DB401.DBD 288_2
+        - DB401.DBD 292
+        - DB401.DBD 292_1
+        - DB401.DBD 292_2
+        - DB401.DBD 300
+        - DB401.DBD 300_1
+        - DB401.DBD 304
+        - DB401.DBD 308_3
+        - DB401.DBD 312
+        - DB401.DBD 312_1
+        - DB401.DBD 316_2
+        - DB401.DBD 320_1
+        - DB401.DBD 324_1
+        - DB401.DBD 324_2
+        - DB401.DBD 328_1
+        - DB401.DBD 328_2
+        - DB401.DBD 332_1
+        - DB401.DBD 332_2
+        - DB420.DBB 14_1
+        - DB420.DBB 19_1
+        - DB420.DBW 2_1
+        - DB421.DBB 110
+        - DB421.DBB 111
+        - DB421.DBB 4_3
+        - DB421.DBB 5_3
+        - DB421.DBB 7_2
+        - DB421.DBB 8_1
+        - DB421.DBB 9_1
+        - DB421.DBB 9_2
+        - DB421.DBB 9_3
+        - DB421.DBD 10
+        - DB421.DBD 112
+        - DB421.DBD 6
+        - DB421.DBW 0
+        - DB421.DBW 0_1
+        - DB421.DBW 0_2
+        - DB421.DBW 0_3
+        - DB421.DBW 124_1
+        - DB421.DBW 128_4
+        - DB421.DBW 130
+        - DB421.DBW 14_1
+        - DB421.DBW 16_1
+        - DB421.DBW 16_2
+        - DB421.DBW 16_3
+        - DB421.DBW 18
+        - DB421.DBW 180_3
+        - DB421.DBW 186_3
+        - DB421.DBW 188_3
+        - DB421.DBW 190_3
+        - DB421.DBW 192_2
+        - DB421.DBW 192_3
+        - DB421.DBW 194_3
+        - DB421.DBW 20
+        - DB421.DBW 278_2
+        - DB421.DBW 32_1
+        - DB421.DBW 34_3
+        - DB421.DBW 40_2
+        - DB421.DBW 42_5
+        - DB421.DBW 56_1
+        - DB421.DBW 60
+        - DB421.DBW 62
+        - DB421.DBW 64
+        - DB421.DBW 90_5
+        - DB421.DBW0
+        - DB421.DBW0_1
+        - DB421.DBW20_1
+        - DB421.DBW56_1
+        - DB421.DBW64
+        - DB421.DBW64_1
+        - DB421.DBW66
+        - DB421.DBW68
+        - DB421.DBW70
+        - DB421.DBW76
+        - DB421.DBW76_1
+        - DB421.DBW78_1
+        - DB422.DBB 324_1
+        - DB422.DBD 168_2
+        - DB422.DBD 172
+        - DB422.DBD 172_2
+        - DB422.DBD 188_2
+        - DB422.DBD 212_2
+        - DB422.DBD 216_2
+        - DB422.DBD 220_2
+        - DB422.DBD 276_2
+        - DB422.DBD 284_2
+        - DB422.DBD 92_2
+        - DB422.DBW 10_2
+        - DB422.DBW 12_2
+        - DB422.DBW 14_2
+        - DB422.DBW 16_2
+        - DB422.DBW 18_2
+        - DB422.DBW 20_2
+        - DB422.DBW 22_1
+        - DB422.DBW 32_1
+        - DB422.DBW 4_1
+        - DB422.DBW 4_2
+        - DB422.DBW 52_2
+        - DB422.DBW 6_1
+        - DB422.DBW 6_2
+        - DB422.DBW 8_1
+        - DB422.DBW 8_2
+        - DB423.DBD 100
+        - DB423.DBD 116
+        - DB423.DBD 124
+        - DB423.DBD 132
+        - DB423.DBD 140
+        - DB423.DBD 38
+        - DB423.DBD 42
+        - DB423.DBD 580_1
+        - DB423.DBD 584_1
+        - MB     97
+        - MB    101
+        - MD    110
+        - MD    110_3
+        - MD    300
+        - MD    306
+        - MD    312
+        - MD    336
+        - MW     12_1
+        - MW     80
+        - MW     96
+        - MW     98
+        - MW    100
+        - MW    102
+        - MW    166
+        - MW    260_2
+        - MW    262_2
+        - MW    264_2
+        - MW    266_2
+        - MW    278_2
+        - MW    280_2
+        - MW    282_2
+        - MW    298_1
+        - MW    298_2
+        - MW    310
+        - MW    334
+        - MW    820_2
+        - MW   2010
+        - MW   2010_1
+        - MW   2010_2
+        - MW   2010_3
+        - MW   3004_2
+        - PIW   582
+        - PIW   586
+        - PIW   616_1
+        - PIW   618
+        - QW      7
+        - QW     26_1
+        DB401.DBD 236:
+        - DB401.DBD 236
+        DB401.DBD 236_1:
+        - DB401.DBD 236_1
+        DB401.DBD 236_2:
+        - DB401.DBD 236_2
+        - DB421.DBW 72_2
+        DB401.DBD 236_3:
+        - DB401.DBD 236_3
+        DB401.DBD 240_1:
+        - DB401.DBD 216_1
+        - DB401.DBD 240_1
+        - DB421.DBW 76_1
+        DB401.DBD 244:
+        - DB401.DBD 244
+        DB401.DBD 244_1:
+        - DB401.DBD 244_1
+        DB401.DBD 244_2:
+        - DB401.DBD 244_2
+        DB401.DBD 248_1:
+        - DB401.DBD 248_1
+        DB401.DBD 252_1:
+        - DB401.DBD 252_1
+        DB401.DBD 256:
+        - DB401.DBD 256
+        DB401.DBD 256_1:
+        - DB401.DBD 256_1
+        DB401.DBD 256_2:
+        - DB401.DBD 256_2
+        DB401.DBD 256_3:
+        - DB401.DBD 256_3
+        DB401.DBD 260_1:
+        - DB401.DBD 260_1
+        DB401.DBD 260_2:
+        - DB401.DBD 260_2
+        DB401.DBD 260_3:
+        - DB401.DBD 260_3
+        DB401.DBD 276:
+        - DB401.DBD 276
+        - DB401.DBD 308
+        DB401.DBD 276_1:
+        - DB401.DBD 276_1
+        - DB401.DBD 308_1
+        DB401.DBD 276_2:
+        - DB401.DBD 276_2
+        - DB401.DBD 308_2
+        DB401.DBD 284:
+        - DB401.DBD 284
+        DB401.DBD 284_3:
+        - DB401.DBD 284_3
+        DB401.DBD 288:
+        - DB401.DBD 288
+        DB401.DBD 288_3:
+        - DB401.DBD 288_3
+        DB401.DBD 296_1:
+        - DB401.DBD 296_1
+        DB401.DBD 300_2:
+        - DB401.DBD 300_2
+        DB401.DBD 300_3:
+        - DB401.DBD 300_3
+        DB401.DBD 312_3:
+        - DB401.DBD 292_3
+        - DB401.DBD 312_3
+        DB401.DBD 316:
+        - DB401.DBD 316
+        DB401.DBD 316_1:
+        - DB401.DBD 316_1
+        DB401.DBD 316_3:
+        - DB401.DBD 316_3
+        DB401.DBD 320:
+        - DB401.DBD 296
+        - DB401.DBD 320
+        DB401.DBD 320_2:
+        - DB401.DBD 296_2
+        - DB401.DBD 320_2
+        DB401.DBD 320_3:
+        - DB401.DBD 296_3
+        - DB401.DBD 320_3
+        DB401.DBD 336:
+        - DB401.DBD 336
+        DB420.DBB 0_5:
+        - DB420.DBB 0_5
+        - DB420.DBB 1_6
+        DB420.DBW 0_1:
+        - DB420.DBW 0
+        - DB420.DBW 0_1
+        DB420.DBW 0_2:
+        - DB420.DBW 0_2
+        DB420.DBW0:
+        - DB420.DBB 0
+        - DB420.DBB 0_1
+        - DB420.DBB 0_2
+        - DB420.DBB 0_4
+        - DB420.DBB 1
+        - DB420.DBB 1_1
+        - DB420.DBB 1_2
+        - DB420.DBB 1_3
+        - DB420.DBB 1_5
+        - DB420.DBW0
+        DB421.DBD 170:
+        - DB421.DBD 170
+        - DB423.DBD 104
+        DB421.DBD 50:
+        - DB421.DBD 50
+        DB421.DBW   52:
+        - DB421.DBW   52
+        DB421.DBW 0_4:
+        - DB401.DBD 284_2
+        - DB401.DBD 312_2
+        - DB420.DBB 14_2
+        - DB420.DBB 19_2
+        - DB421.DBW 0_4
+        - DB421.DBW 136_1
+        - DB421.DBW 60_3
+        - DB422.DBW 22_2
+        - DB422.DBW 32_2
+        DB421.DBW 0_5:
+        - DB421.DBW 0_5
+        DB421.DBW 0_6:
+        - DB421.DBW 0_6
+        DB421.DBW 0_7:
+        - DB421.DBW 0_7
+        DB421.DBW 0_8:
+        - DB421.DBW 0_8
+        - DB421.DBW 130_1
+        DB421.DBW 114_5:
+        - DB421.DBW 110_2
+        - DB421.DBW 114_5
+        - DB421.DBW 20_2
+        - DB421.DBW 22_2
+        - DB423.DBW 24
+        - DB423.DBW 26
+        - DB423.DBW 28
+        - MD    320
+        - MD    324
+        - MD    330
+        DB421.DBW 126_5:
+        - DB421.DBW 126_5
+        DB421.DBW 138_3:
+        - DB421.DBW 138_3
+        DB421.DBW 146_2:
+        - DB421.DBW 146_2
+        DB421.DBW 148_2:
+        - DB421.DBW 148_2
+        DB421.DBW 148_3:
+        - DB421.DBW 148_3
+        DB421.DBW 154_2:
+        - DB421.DBW 154_2
+        DB421.DBW 154_3:
+        - DB421.DBW 154_3
+        DB421.DBW 168_2:
+        - DB421.DBW 168_2
+        DB421.DBW 168_3:
+        - DB421.DBW 168_3
+        DB421.DBW 176_3:
+        - DB421.DBW 176_3
+        DB421.DBW 178_3:
+        - DB421.DBW 178_3
+        DB421.DBW 184_2:
+        - DB421.DBW 184_2
+        DB421.DBW 184_3:
+        - DB421.DBW 184_3
+        DB421.DBW 186_2:
+        - DB421.DBW 186_2
+        DB421.DBW 188_2:
+        - DB421.DBW 188_2
+        DB421.DBW 190_2:
+        - DB421.DBW 190_2
+        - DB423.DBD 584
+        DB421.DBW 194_2:
+        - DB421.DBW 194_2
+        DB421.DBW 20_1:
+        - DB421.DBB 110_1
+        - DB421.DBB 4_2
+        - DB421.DBB 4_6
+        - DB421.DBB 5_2
+        - DB421.DBB 5_6
+        - DB421.DBB 6_4
+        - DB421.DBB 7_4
+        - DB421.DBB 8_4
+        - DB421.DBW 10_1
+        - DB421.DBW 12_1
+        - DB421.DBW 20_1
+        - DB421.DBW 22_1
+        - DB421.DBW 22_5
+        - DB421.DBW 34_1
+        - DB421.DBW 36_1
+        - DB421.DBW 36_3
+        - DB421.DBW 38_1
+        - DB421.DBW 40_1
+        - DB421.DBW 42_1
+        - DB421.DBW 44_1
+        - DB421.DBW 46_1
+        - DB421.DBW 4_1
+        - DB421.DBW 6_1
+        - DB421.DBW 8_1
+        - MB    119_1
+        - MB    144
+        - MB    146
+        - MD    110_1
+        - MD    114_1
+        - MW    168
+        - MW    200_1
+        - MW    340_1
+        - QW     30_1
+        DB421.DBW 276_2:
+        - DB421.DBW 276_2
+        DB421.DBW 30_1:
+        - DB421.DBW 30_1
+        DB421.DBW 60_2:
+        - DB421.DBW 60_2
+        DB421.DBW 66:
+        - DB421.DBW 66
+        DB421.DBW 66_1:
+        - DB421.DBW 66_1
+        DB421.DBW 68:
+        - DB421.DBW 68
+        DB421.DBW 70:
+        - DB421.DBW 70
+        DB421.DBW 74:
+        - DB421.DBW 24
+        - DB421.DBW 74
+        - DB422.DBW 62_1
+        DB421.DBW 76:
+        - DB421.DBW 76
+        DB421.DBW 90_4:
+        - DB421.DBW 90_4
+        DB421.DBW20:
+        - DB421.DBW10
+        - DB421.DBW12
+        - DB421.DBW14
+        - DB421.DBW20
+        - DB421.DBW22
+        - DB421.DBW36
+        - DB421.DBW38
+        - DB421.DBW4
+        - DB421.DBW40
+        - DB421.DBW42
+        - DB421.DBW44
+        - DB421.DBW46
+        - DB421.DBW6
+        - DB421.DBW8
+        - MB    119_2
+        - MD    110_2
+        - MD    114_2
+        - MW    200_2
+        DB421.DBW24_1:
+        - DB421.DBW 64_1
+        - DB421.DBW 68_1
+        - DB421.DBW 70_1
+        - DB421.DBW24_1
+        - DB421.DBW56
+        DB422.DBD 124_2:
+        - DB422.DBD 112_2
+        - DB422.DBD 116_2
+        - DB422.DBD 120_2
+        - DB422.DBD 124_2
+        DB422.DBD 128_2:
+        - DB422.DBD 128_2
+        - DB422.DBD 132_2
+        - DB422.DBD 136_2
+        - DB422.DBD 140_2
+        - DB422.DBD 144_2
+        - DB422.DBD 148_2
+        - DB422.DBD 152_2
+        - DB422.DBD 156_2
+        DB422.DBD 164_2:
+        - DB422.DBD 164_2
+        DB422.DBD 180_2:
+        - DB422.DBD 180_2
+        DB422.DBD 216_1:
+        - DB421.DBW72
+        - DB422.DBD 208_1
+        - DB422.DBD 212_1
+        - DB422.DBD 216_1
+        - DB422.DBD 220_1
+        DB422.DBD 224_2:
+        - DB422.DBD 224_2
+        DB422.DBD 92_1:
+        - DB401.DBD 280_1
+        - DB401.DBD 280_2
+        - DB422.DBD 92_1
+        DB422.DBD 96_2:
+        - DB422.DBD 100_2
+        - DB422.DBD 104_2
+        - DB422.DBD 108_2
+        - DB422.DBD 96_2
+        DB422.DBW 42_1:
+        - DB422.DBW 42_1
+        DB422.DBW 42_2:
+        - DB422.DBW 42_2
+        DB422.DBW 52_1:
+        - DB422.DBW 52_1
+        DB422.DBW 62_2:
+        - DB422.DBW 62_2
+        DB422.DBW 64_2:
+        - DB422.DBW 64_2
+        DB422.DBW 66_2:
+        - DB422.DBW 66_2
+        DB423.DBD 108:
+        - DB423.DBD 108
+        DB423.DBD 112_1:
+        - DB423.DBD 112_1
+        DB423.DBD 120:
+        - DB421.DBW 126_4
+        - DB423.DBD 112
+        - DB423.DBD 120
+        - DB423.DBD 128
+        - DB423.DBD 136
+        DB423.DBD 120_1:
+        - DB423.DBD 120_1
+        IW     16:
+        - IW     16
+        MD    348:
+        - DB421.DBW 112_2
+        - DB421.DBW 116
+        - MD    348
+        - MD    356
+        MW     30:
+        - MW     30
+        MW    140:
+        - DB421.DBD 112_1
+        - DB421.DBW 128_5
+        - DB422.DBD 184_2
+        - DB422.DBD 236_2
+        - DB422.DBD 240_2
+        - DB422.DBD 244_2
+        - DB422.DBD 248_2
+        - DB422.DBD 260_2
+        - DB422.DBD 264_2
+        - DB422.DBD 268_2
+        - DB422.DBW 48_2
+        - DB423.DBD 100_1
+        - DB423.DBD 116_1
+        - DB423.DBD 124_1
+        - DB423.DBD 128_1
+        - DB423.DBD 132_1
+        - DB423.DBD 136_1
+        - DB423.DBD 140_1
+        - MW    140
+        - MW    164
+        - MW    220
+        - MW    224
+        MW    152:
+        - MW    152
+        MW    158_1:
+        - MW    158_1
+        MW    158_2:
+        - MW    158_2
+        MW    170:
+        - MW    170
+        MW    276_1:
+        - DB422.DBB 310_1
+        - MW    276_1
+        MW    462:
+        - MW    462
+        MW    508_1:
+        - MW    508_1
+        MW    508_2:
+        - MW    508_2
+        MW    510_1:
+        - MW    510_1
+        MW   2012:
+        - MW   2012
+        MW   2012_1:
+        - MW   2012_1
+        MW   2012_2:
+        - MW   2012_2
+        MW   2012_3:
+        - MW   2012_3
+        MW   4002:
+        - MW   4002
+        MW   4002_1:
+        - MW   4002_1
+        MW   4002_2:
+        - MW   4002_2
+        PIW   576:
+        - PIW   576
+        PIW   576_1:
+        - DB422.DBD 160_1
+        - PIW   576_1
+        PIW   578:
+        - PIW   578
+        PIW   578_1:
+        - DB422.DBD 164_1
+        - PIW   578_1
+        PIW   580:
+        - PIW   580
+        PIW   582_1:
+        - DB422.DBD 172_1
+        - PIW   582_1
+        PIW   584:
+        - PIW   584
+        PIW   584_1:
+        - DB422.DBD 224_1
+        - PIW   584_1
+        PIW   586_1:
+        - PIW   586_1
+        PIW   592_1:
+        - PIW   592_1
+        PIW   616:
+        - PIW   616
+        PIW   618_1:
+        - DB422.DBW 66_1
+        - PIW   618_1
+        PIW   622_1:
+        - DB422.DBD 96_1
+        - PIW   622_1
+        PIW   632_1:
+        - DB422.DBD 112_1
+        - DB422.DBD 116_1
+        - DB422.DBD 120_1
+        - DB422.DBD 124_1
+        - PIW   624_1
+        - PIW   628_1
+        - PIW   632_1
+        - PIW   636_1
+        PIW   634_1:
+        - DB422.DBD 100_1
+        - DB422.DBD 104_1
+        - DB422.DBD 108_1
+        - PIW   626_1
+        - PIW   630_1
+        - PIW   634_1
+        PIW   656:
+        - PIW   656
+        PIW   664:
+        - PIW   664
+        PIW   664_1:
+        - DB422.DBD 128_1
+        - DB422.DBD 132_1
+        - DB422.DBD 136_1
+        - DB422.DBD 140_1
+        - PIW   650_1
+        - PIW   652_1
+        - PIW   654_1
+        - PIW   656_1
+        - PIW   658_1
+        - PIW   660_1
+        - PIW   662_1
+        - PIW   664_1
+        QB      4_1:
+        - QB      4_1
+        QW      5:
+        - QW      5
+        QW     42_1:
+        - QW     42_1
+      conditions:
+      - column: MB    118
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 15.5
+      confirmed: false
+oven_0cb5bfba8a:
+  groups:
+    3_CO_PLC_A:
+      clusters:
+        '[3_CO_PLC_A]DB110.DBb11_3A_reverse[MB169]':
+        - '[3_CO_PLC_A]DB110.DBb11_3A_reverse[MB169]'
+        '[3_CO_PLC_A]DB421.DBB   26':
+        - '[3_CO_PLC_A]DB421.DBB   26'
+        - '[3_CO_PLC_A]IB      13'
+        - '[3_CO_PLC_A]IB      15'
+        '[3_CO_PLC_A]DB421.DBB   28':
+        - '[3_CO_PLC_A]DB421.DBB   28'
+        '[3_CO_PLC_A]DB421.DBB   34':
+        - '[3_CO_PLC_A]DB421.DBB   34'
+        '[3_CO_PLC_A]DB421.DBB   60':
+        - '[3_CO_PLC_A]DB421.DBB   60'
+        - '[3_CO_PLC_A]DB421.DBB   61'
+        - '[3_CO_PLC_A]QB      13'
+        '[3_CO_PLC_A]DB421.DBB  117':
+        - '[3_CO_PLC_A]DB421.DBB  117'
+        '[3_CO_PLC_A]IB      14':
+        - '[3_CO_PLC_A]DB421.DBB   27'
+        - '[3_CO_PLC_A]IB      14'
+        '[3_CO_PLC_A]MB      10':
+        - '[3_CO_PLC_A]DB420.DBB   62'
+        - '[3_CO_PLC_A]DB421.DBB    2'
+        - '[3_CO_PLC_A]DB421.DBB   62'
+        - '[3_CO_PLC_A]IB      12'
+        - '[3_CO_PLC_A]MB       6'
+        - '[3_CO_PLC_A]MB      10'
+        '[3_CO_PLC_A]MB      63':
+        - '[3_CO_PLC_A]DB421.DBB   35'
+        - '[3_CO_PLC_A]IB       6'
+        - '[3_CO_PLC_A]MB      19'
+        - '[3_CO_PLC_A]MB      40'
+        - '[3_CO_PLC_A]MB      63'
+        - '[3_CO_PLC_A]QB      40'
+        '[3_CO_PLC_A]MB    1000':
+        - '[3_CO_PLC_A]MB    1000'
+        '[3_CO_PLC_A]MB    1004':
+        - '[3_CO_PLC_A]DB421.DBB    3'
+        - '[3_CO_PLC_A]MB    1004'
+      conditions:
+      - column: '[3_CO_PLC_A]IB       8'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 64.00000000000018
+      confirmed: false
+    3_CO_PLC_B:
+      clusters:
+        '[3_CO_PLC_B]DB421.DBB   60':
+        - '[3_CO_PLC_B]DB421.DBB   60'
+        - '[3_CO_PLC_B]MB      19'
+        - '[3_CO_PLC_B]MB      42'
+        '[3_CO_PLC_B]DB421.DBB   61':
+        - '[3_CO_PLC_B]DB421.DBB   61'
+        '[3_CO_PLC_B]IB      12':
+        - '[3_CO_PLC_B]IB      12'
+        '[3_CO_PLC_B]IB      14':
+        - '[3_CO_PLC_B]DB421.DBB   27'
+        - '[3_CO_PLC_B]IB      14'
+        '[3_CO_PLC_B]IB      15':
+        - '[3_CO_PLC_B]DB421.DBB   28'
+        - '[3_CO_PLC_B]IB      15'
+        '[3_CO_PLC_B]MB      21':
+        - '[3_CO_PLC_B]MB      21'
+        '[3_CO_PLC_B]MB      40':
+        - '[3_CO_PLC_B]MB      40'
+        '[3_CO_PLC_B]MB      41':
+        - '[3_CO_PLC_B]MB      41'
+        '[3_CO_PLC_B]MB     130':
+        - '[3_CO_PLC_B]MB     130'
+      conditions:
+      - column: '[3_CO_PLC_B]IB       8'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 64.00000000000007
+      confirmed: false
+    3_C_CAR_1:
+      clusters:
+        '[3_C_CAR_1]DB421.DBB   75':
+        - '[3_C_CAR_1]DB421.DBB   75'
+        - '[3_C_CAR_1]IB      55'
+        '[3_C_CAR_1]DB421.DBB   87':
+        - '[3_C_CAR_1]DB421.DBB   87'
+        - '[3_C_CAR_1]IB      88'
+        '[3_C_CAR_1]DB421.DBB  310':
+        - '[3_C_CAR_1]DB421.DBB  310'
+        - '[3_C_CAR_1]DB421.DBB  311'
+        '[3_C_CAR_1]IB       2':
+        - '[3_C_CAR_1]IB       2'
+        - '[3_C_CAR_1]MB     732'
+        '[3_C_CAR_1]IB       5':
+        - '[3_C_CAR_1]DB421.DBB   70'
+        - '[3_C_CAR_1]IB       5'
+        - '[3_C_CAR_1]MB       6'
+        - '[3_C_CAR_1]QB       2'
+        '[3_C_CAR_1]IB      61':
+        - '[3_C_CAR_1]IB      61'
+        - '[3_C_CAR_1]MB     413'
+        '[3_C_CAR_1]MB       3':
+        - '[3_C_CAR_1]MB       1'
+        - '[3_C_CAR_1]MB       3'
+        '[3_C_CAR_1]MB      69':
+        - '[3_C_CAR_1]DB421.DBB   35'
+        - '[3_C_CAR_1]MB      69'
+        - '[3_C_CAR_1]MB      97'
+        - '[3_C_CAR_1]MB     160'
+        - '[3_C_CAR_1]MB     303'
+        - '[3_C_CAR_1]MB     409'
+        - '[3_C_CAR_1]MB     412'
+        - '[3_C_CAR_1]QB       4'
+        '[3_C_CAR_1]MB     105':
+        - '[3_C_CAR_1]MB     105'
+        '[3_C_CAR_1]MB     320':
+        - '[3_C_CAR_1]MB     320'
+        '[3_C_CAR_1]MB     323':
+        - '[3_C_CAR_1]MB     323'
+        '[3_C_CAR_1]MB     401':
+        - '[3_C_CAR_1]MB     401'
+        '[3_C_CAR_1]MB     728':
+        - '[3_C_CAR_1]IB       7'
+        - '[3_C_CAR_1]MB     728'
+        '[3_C_CAR_1]MB     733':
+        - '[3_C_CAR_1]MB     414'
+        - '[3_C_CAR_1]MB     733'
+        '[3_C_CAR_1]MB     738':
+        - '[3_C_CAR_1]IB      89'
+        - '[3_C_CAR_1]IB      91'
+        - '[3_C_CAR_1]MB     738'
+      conditions:
+      - column: '[3_C_CAR_1]IB      47'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 50.0
+      confirmed: false
+    3_C_CAR_2:
+      clusters:
+        '[3_C_CAR_2]DB420.DBB    2':
+        - '[3_C_CAR_2]DB420.DBB    2'
+        - '[3_C_CAR_2]MB     732'
+        '[3_C_CAR_2]DB420.DBB   23':
+        - '[3_C_CAR_2]DB420.DBB   23'
+        '[3_C_CAR_2]DB421.DBB    3':
+        - '[3_C_CAR_2]DB421.DBB    3'
+        - '[3_C_CAR_2]MB       0'
+        '[3_C_CAR_2]DB421.DBB   12':
+        - '[3_C_CAR_2]DB421.DBB   12'
+        - '[3_C_CAR_2]DB421.DBB   78'
+        '[3_C_CAR_2]DB421.DBB   13':
+        - '[3_C_CAR_2]DB421.DBB   13'
+        - '[3_C_CAR_2]DB421.DBB   52'
+        - '[3_C_CAR_2]MB      55'
+        '[3_C_CAR_2]DB421.DBB   17':
+        - '[3_C_CAR_2]DB421.DBB   17'
+        '[3_C_CAR_2]DB421.DBB   18':
+        - '[3_C_CAR_2]DB421.DBB   18'
+        '[3_C_CAR_2]DB421.DBB   19':
+        - '[3_C_CAR_2]DB421.DBB   19'
+        '[3_C_CAR_2]DB421.DBB   20':
+        - '[3_C_CAR_2]DB421.DBB   20'
+        '[3_C_CAR_2]DB421.DBB   21':
+        - '[3_C_CAR_2]DB421.DBB   21'
+        '[3_C_CAR_2]DB421.DBB   22':
+        - '[3_C_CAR_2]DB421.DBB   22'
+        '[3_C_CAR_2]DB421.DBB   23':
+        - '[3_C_CAR_2]DB421.DBB   23'
+        '[3_C_CAR_2]DB421.DBB   24':
+        - '[3_C_CAR_2]DB421.DBB   24'
+        '[3_C_CAR_2]DB421.DBB   29':
+        - '[3_C_CAR_2]DB421.DBB   29'
+        '[3_C_CAR_2]DB421.DBB   32':
+        - '[3_C_CAR_2]DB421.DBB   32'
+        '[3_C_CAR_2]DB421.DBB   33':
+        - '[3_C_CAR_2]DB421.DBB   33'
+        - '[3_C_CAR_2]DB421.DBB   92'
+        - '[3_C_CAR_2]DB421.DBB   93'
+        - '[3_C_CAR_2]IB      98'
+        - '[3_C_CAR_2]IB      99'
+        - '[3_C_CAR_2]MB     331'
+        - '[3_C_CAR_2]MB     333'
+        - '[3_C_CAR_2]QB       4'
+        '[3_C_CAR_2]DB421.DBB   35':
+        - '[3_C_CAR_2]DB421.DBB   35'
+        '[3_C_CAR_2]DB421.DBB   40':
+        - '[3_C_CAR_2]DB421.DBB   40'
+        '[3_C_CAR_2]DB421.DBB   44':
+        - '[3_C_CAR_2]DB421.DBB   44'
+        '[3_C_CAR_2]DB421.DBB   45':
+        - '[3_C_CAR_2]DB421.DBB   45'
+        '[3_C_CAR_2]DB421.DBB   47':
+        - '[3_C_CAR_2]DB421.DBB   47'
+        '[3_C_CAR_2]DB421.DBB   48':
+        - '[3_C_CAR_2]DB421.DBB   48'
+        '[3_C_CAR_2]DB421.DBB   49':
+        - '[3_C_CAR_2]DB421.DBB   49'
+        '[3_C_CAR_2]DB421.DBB   57':
+        - '[3_C_CAR_2]DB421.DBB   57'
+        '[3_C_CAR_2]DB421.DBB   58':
+        - '[3_C_CAR_2]DB421.DBB   58'
+        '[3_C_CAR_2]DB421.DBB   59':
+        - '[3_C_CAR_2]DB421.DBB   59'
+        - '[3_C_CAR_2]QB      31'
+        '[3_C_CAR_2]DB421.DBB   71':
+        - '[3_C_CAR_2]DB421.DBB   71'
+        '[3_C_CAR_2]DB421.DBB   79':
+        - '[3_C_CAR_2]DB421.DBB   79'
+        '[3_C_CAR_2]DB421.DBB  110':
+        - '[3_C_CAR_2]DB421.DBB  110'
+        - '[3_C_CAR_2]IB      96'
+        '[3_C_CAR_2]DB421.DBB  209':
+        - '[3_C_CAR_2]DB421.DBB  209'
+        '[3_C_CAR_2]DB421.DBB  218':
+        - '[3_C_CAR_2]DB421.DBB  218'
+        '[3_C_CAR_2]DB421.DBB  234':
+        - '[3_C_CAR_2]DB421.DBB  234'
+        '[3_C_CAR_2]DB421.DBB  269':
+        - '[3_C_CAR_2]DB421.DBB  268'
+        - '[3_C_CAR_2]DB421.DBB  269'
+        - '[3_C_CAR_2]DB421.DBB  274'
+        - '[3_C_CAR_2]DB421.DBB  310'
+        - '[3_C_CAR_2]DB421.DBB  311'
+        - '[3_C_CAR_2]IB      88'
+        - '[3_C_CAR_2]IB      90'
+        - '[3_C_CAR_2]IB      91'
+        - '[3_C_CAR_2]MB     114'
+        - '[3_C_CAR_2]MB     408'
+        - '[3_C_CAR_2]MB     414'
+        - '[3_C_CAR_2]MB     725'
+        - '[3_C_CAR_2]MB     727'
+        - '[3_C_CAR_2]MB     729'
+        - '[3_C_CAR_2]MB     733'
+        '[3_C_CAR_2]DB421.DBB  273':
+        - '[3_C_CAR_2]DB421.DBB  273'
+        - '[3_C_CAR_2]MB     156'
+        '[3_C_CAR_2]IB       5':
+        - '[3_C_CAR_2]DB421.DBB   70'
+        - '[3_C_CAR_2]IB       5'
+        - '[3_C_CAR_2]MB       6'
+        - '[3_C_CAR_2]QB       2'
+        '[3_C_CAR_2]IB       9':
+        - '[3_C_CAR_2]IB       9'
+        '[3_C_CAR_2]IB      17':
+        - '[3_C_CAR_2]IB      17'
+        '[3_C_CAR_2]IB      19':
+        - '[3_C_CAR_2]IB      19'
+        - '[3_C_CAR_2]MB      28'
+        '[3_C_CAR_2]IB      21':
+        - '[3_C_CAR_2]DB421.DBB   26'
+        - '[3_C_CAR_2]DB421.DBB   31'
+        - '[3_C_CAR_2]DB421.DBB  222'
+        - '[3_C_CAR_2]IB      21'
+        - '[3_C_CAR_2]IB      28'
+        - '[3_C_CAR_2]MB      11'
+        - '[3_C_CAR_2]MB      21'
+        - '[3_C_CAR_2]MB      31'
+        - '[3_C_CAR_2]MB      41'
+        - '[3_C_CAR_2]MB      52'
+        - '[3_C_CAR_2]MB      95'
+        - '[3_C_CAR_2]MB     173'
+        - '[3_C_CAR_2]MB     325'
+        - '[3_C_CAR_2]MB     330'
+        - '[3_C_CAR_2]MB     735'
+        - '[3_C_CAR_2]QB       7'
+        - '[3_C_CAR_2]QB      72'
+        '[3_C_CAR_2]IB      26':
+        - '[3_C_CAR_2]IB      26'
+        '[3_C_CAR_2]IB      30':
+        - '[3_C_CAR_2]DB421.DBB   27'
+        - '[3_C_CAR_2]DB421.DBB   51'
+        - '[3_C_CAR_2]DB421.DBB   91'
+        - '[3_C_CAR_2]DB421.DBB   94'
+        - '[3_C_CAR_2]IB      30'
+        - '[3_C_CAR_2]IB      33'
+        - '[3_C_CAR_2]IB      97'
+        - '[3_C_CAR_2]IB     100'
+        - '[3_C_CAR_2]MB     326'
+        - '[3_C_CAR_2]MB     335'
+        - '[3_C_CAR_2]QB      12'
+        '[3_C_CAR_2]IB      36':
+        - '[3_C_CAR_2]IB      36'
+        - '[3_C_CAR_2]QB      14'
+        '[3_C_CAR_2]IB      37':
+        - '[3_C_CAR_2]IB      37'
+        '[3_C_CAR_2]IB      38':
+        - '[3_C_CAR_2]IB      38'
+        '[3_C_CAR_2]IB      46':
+        - '[3_C_CAR_2]IB      46'
+        - '[3_C_CAR_2]IB      47'
+        '[3_C_CAR_2]IB      48':
+        - '[3_C_CAR_2]IB      48'
+        '[3_C_CAR_2]IB      61':
+        - '[3_C_CAR_2]IB      61'
+        - '[3_C_CAR_2]MB     413'
+        '[3_C_CAR_2]MB       1':
+        - '[3_C_CAR_2]MB       1'
+        '[3_C_CAR_2]MB       3':
+        - '[3_C_CAR_2]MB       3'
+        '[3_C_CAR_2]MB       4':
+        - '[3_C_CAR_2]MB       4'
+        '[3_C_CAR_2]MB      12':
+        - '[3_C_CAR_2]MB      12'
+        '[3_C_CAR_2]MB      13':
+        - '[3_C_CAR_2]MB      13'
+        - '[3_C_CAR_2]MB      23'
+        - '[3_C_CAR_2]MB      27'
+        '[3_C_CAR_2]MB      14':
+        - '[3_C_CAR_2]MB      14'
+        '[3_C_CAR_2]MB      16':
+        - '[3_C_CAR_2]DB421.DBB   11'
+        - '[3_C_CAR_2]DB421.DBB   14'
+        - '[3_C_CAR_2]DB421.DBB   15'
+        - '[3_C_CAR_2]DB421.DBB   16'
+        - '[3_C_CAR_2]DB421.DBB   28'
+        - '[3_C_CAR_2]DB421.DBB   38'
+        - '[3_C_CAR_2]DB421.DBB   42'
+        - '[3_C_CAR_2]DB421.DBB   43'
+        - '[3_C_CAR_2]DB421.DBB   46'
+        - '[3_C_CAR_2]DB421.DBB   55'
+        - '[3_C_CAR_2]DB421.DBB   56'
+        - '[3_C_CAR_2]DB421.DBB   60'
+        - '[3_C_CAR_2]DB421.DBB   81'
+        - '[3_C_CAR_2]DB421.DBB  102'
+        - '[3_C_CAR_2]IB      35'
+        - '[3_C_CAR_2]IB      40'
+        - '[3_C_CAR_2]IB      41'
+        - '[3_C_CAR_2]IB      44'
+        - '[3_C_CAR_2]IB      45'
+        - '[3_C_CAR_2]IB      89'
+        - '[3_C_CAR_2]MB      15'
+        - '[3_C_CAR_2]MB      16'
+        - '[3_C_CAR_2]MB      25'
+        - '[3_C_CAR_2]MB      35'
+        - '[3_C_CAR_2]MB      39'
+        - '[3_C_CAR_2]MB      42'
+        - '[3_C_CAR_2]MB      45'
+        - '[3_C_CAR_2]MB      47'
+        - '[3_C_CAR_2]MB      49'
+        - '[3_C_CAR_2]MB      58'
+        - '[3_C_CAR_2]MB      64'
+        - '[3_C_CAR_2]MB      74'
+        - '[3_C_CAR_2]MB      84'
+        - '[3_C_CAR_2]MB      94'
+        - '[3_C_CAR_2]MB     102'
+        - '[3_C_CAR_2]MB     103'
+        - '[3_C_CAR_2]MB     110'
+        - '[3_C_CAR_2]MB     116'
+        - '[3_C_CAR_2]MB     117'
+        - '[3_C_CAR_2]MB     124'
+        - '[3_C_CAR_2]MB     125'
+        - '[3_C_CAR_2]MB     129'
+        - '[3_C_CAR_2]MB     130'
+        - '[3_C_CAR_2]MB     131'
+        - '[3_C_CAR_2]MB     134'
+        - '[3_C_CAR_2]MB     135'
+        - '[3_C_CAR_2]MB     136'
+        - '[3_C_CAR_2]MB     138'
+        - '[3_C_CAR_2]MB     141'
+        - '[3_C_CAR_2]MB     144'
+        - '[3_C_CAR_2]MB     145'
+        - '[3_C_CAR_2]MB     150'
+        - '[3_C_CAR_2]MB     180'
+        - '[3_C_CAR_2]MB     181'
+        - '[3_C_CAR_2]MB     302'
+        - '[3_C_CAR_2]MB     304'
+        - '[3_C_CAR_2]MB     310'
+        - '[3_C_CAR_2]MB     323'
+        - '[3_C_CAR_2]MB     328'
+        - '[3_C_CAR_2]MB     717'
+        - '[3_C_CAR_2]MB     820'
+        - '[3_C_CAR_2]MB    3000'
+        - '[3_C_CAR_2]MB    3001'
+        - '[3_C_CAR_2]MB    3002'
+        - '[3_C_CAR_2]MB    3005'
+        - '[3_C_CAR_2]MB    5003'
+        - '[3_C_CAR_2]QB      18'
+        - '[3_C_CAR_2]QB      19'
+        - '[3_C_CAR_2]QB      28'
+        - '[3_C_CAR_2]QB      73'
+        '[3_C_CAR_2]MB      17':
+        - '[3_C_CAR_2]MB      17'
+        '[3_C_CAR_2]MB      19':
+        - '[3_C_CAR_2]MB      19'
+        '[3_C_CAR_2]MB      20':
+        - '[3_C_CAR_2]MB      20'
+        '[3_C_CAR_2]MB      22':
+        - '[3_C_CAR_2]MB      22'
+        '[3_C_CAR_2]MB      24':
+        - '[3_C_CAR_2]MB      24'
+        '[3_C_CAR_2]MB      26':
+        - '[3_C_CAR_2]MB      26'
+        '[3_C_CAR_2]MB      30':
+        - '[3_C_CAR_2]MB      30'
+        '[3_C_CAR_2]MB      32':
+        - '[3_C_CAR_2]MB      32'
+        '[3_C_CAR_2]MB      33':
+        - '[3_C_CAR_2]MB      33'
+        '[3_C_CAR_2]MB      34':
+        - '[3_C_CAR_2]MB      34'
+        '[3_C_CAR_2]MB      36':
+        - '[3_C_CAR_2]MB      36'
+        '[3_C_CAR_2]MB      37':
+        - '[3_C_CAR_2]MB      37'
+        '[3_C_CAR_2]MB      38':
+        - '[3_C_CAR_2]MB      38'
+        '[3_C_CAR_2]MB      40':
+        - '[3_C_CAR_2]MB      40'
+        '[3_C_CAR_2]MB      43':
+        - '[3_C_CAR_2]MB      43'
+        '[3_C_CAR_2]MB      44':
+        - '[3_C_CAR_2]MB      44'
+        '[3_C_CAR_2]MB      50':
+        - '[3_C_CAR_2]MB      50'
+        '[3_C_CAR_2]MB      51':
+        - '[3_C_CAR_2]MB      51'
+        '[3_C_CAR_2]MB      53':
+        - '[3_C_CAR_2]DB421.DBB   25'
+        - '[3_C_CAR_2]MB      53'
+        - '[3_C_CAR_2]MB     104'
+        - '[3_C_CAR_2]MB     182'
+        '[3_C_CAR_2]MB      54':
+        - '[3_C_CAR_2]MB      54'
+        '[3_C_CAR_2]MB      57':
+        - '[3_C_CAR_2]MB      57'
+        '[3_C_CAR_2]MB      59':
+        - '[3_C_CAR_2]MB      59'
+        '[3_C_CAR_2]MB      61':
+        - '[3_C_CAR_2]MB      61'
+        '[3_C_CAR_2]MB      63':
+        - '[3_C_CAR_2]MB      63'
+        - '[3_C_CAR_2]MB      93'
+        '[3_C_CAR_2]MB      65':
+        - '[3_C_CAR_2]MB      65'
+        '[3_C_CAR_2]MB      69':
+        - '[3_C_CAR_2]DB421.DBB   10'
+        - '[3_C_CAR_2]DB421.DBB   83'
+        - '[3_C_CAR_2]DB421.DBB   84'
+        - '[3_C_CAR_2]DB421.DBB   85'
+        - '[3_C_CAR_2]DB421.DBB   86'
+        - '[3_C_CAR_2]DB421.DBB   87'
+        - '[3_C_CAR_2]DB421.DBB   88'
+        - '[3_C_CAR_2]IB      92'
+        - '[3_C_CAR_2]IB      93'
+        - '[3_C_CAR_2]IB      94'
+        - '[3_C_CAR_2]IB      95'
+        - '[3_C_CAR_2]MB      69'
+        - '[3_C_CAR_2]MB     160'
+        - '[3_C_CAR_2]MB     403'
+        - '[3_C_CAR_2]MB     412'
+        '[3_C_CAR_2]MB      73':
+        - '[3_C_CAR_2]MB      73'
+        '[3_C_CAR_2]MB      75':
+        - '[3_C_CAR_2]MB      75'
+        '[3_C_CAR_2]MB      76':
+        - '[3_C_CAR_2]MB      76'
+        '[3_C_CAR_2]MB      81':
+        - '[3_C_CAR_2]MB      81'
+        '[3_C_CAR_2]MB      83':
+        - '[3_C_CAR_2]MB      83'
+        '[3_C_CAR_2]MB      85':
+        - '[3_C_CAR_2]MB      85'
+        '[3_C_CAR_2]MB      91':
+        - '[3_C_CAR_2]MB      91'
+        '[3_C_CAR_2]MB      96':
+        - '[3_C_CAR_2]MB      96'
+        '[3_C_CAR_2]MB      97':
+        - '[3_C_CAR_2]DB421.DBB   30'
+        - '[3_C_CAR_2]DB421.DBB   34'
+        - '[3_C_CAR_2]MB      46'
+        - '[3_C_CAR_2]MB      56'
+        - '[3_C_CAR_2]MB      62'
+        - '[3_C_CAR_2]MB      71'
+        - '[3_C_CAR_2]MB      72'
+        - '[3_C_CAR_2]MB      79'
+        - '[3_C_CAR_2]MB      82'
+        - '[3_C_CAR_2]MB      86'
+        - '[3_C_CAR_2]MB      90'
+        - '[3_C_CAR_2]MB      92'
+        - '[3_C_CAR_2]MB      97'
+        - '[3_C_CAR_2]MB      98'
+        - '[3_C_CAR_2]MB     169'
+        - '[3_C_CAR_2]MB     312'
+        - '[3_C_CAR_2]MB     321'
+        - '[3_C_CAR_2]MB     509'
+        - '[3_C_CAR_2]QB      22'
+        '[3_C_CAR_2]MB      99':
+        - '[3_C_CAR_2]MB      99'
+        '[3_C_CAR_2]MB     105':
+        - '[3_C_CAR_2]MB     105'
+        '[3_C_CAR_2]MB     113':
+        - '[3_C_CAR_2]MB     113'
+        '[3_C_CAR_2]MB     115':
+        - '[3_C_CAR_2]MB     115'
+        '[3_C_CAR_2]MB     120':
+        - '[3_C_CAR_2]MB     120'
+        '[3_C_CAR_2]MB     121':
+        - '[3_C_CAR_2]MB     121'
+        '[3_C_CAR_2]MB     122':
+        - '[3_C_CAR_2]MB     122'
+        '[3_C_CAR_2]MB     123':
+        - '[3_C_CAR_2]MB     123'
+        '[3_C_CAR_2]MB     126':
+        - '[3_C_CAR_2]MB     126'
+        '[3_C_CAR_2]MB     132':
+        - '[3_C_CAR_2]MB     132'
+        - '[3_C_CAR_2]MB    3003'
+        '[3_C_CAR_2]MB     133':
+        - '[3_C_CAR_2]MB     133'
+        '[3_C_CAR_2]MB     142':
+        - '[3_C_CAR_2]MB     142'
+        '[3_C_CAR_2]MB     143':
+        - '[3_C_CAR_2]MB     143'
+        '[3_C_CAR_2]MB     146':
+        - '[3_C_CAR_2]MB     146'
+        - '[3_C_CAR_2]MB    2000'
+        '[3_C_CAR_2]MB     155':
+        - '[3_C_CAR_2]MB     155'
+        '[3_C_CAR_2]MB     158':
+        - '[3_C_CAR_2]MB     158'
+        '[3_C_CAR_2]MB     159':
+        - '[3_C_CAR_2]MB     159'
+        '[3_C_CAR_2]MB     165':
+        - '[3_C_CAR_2]MB     165'
+        '[3_C_CAR_2]MB     174':
+        - '[3_C_CAR_2]MB     174'
+        '[3_C_CAR_2]MB     175':
+        - '[3_C_CAR_2]MB     175'
+        '[3_C_CAR_2]MB     177':
+        - '[3_C_CAR_2]MB     177'
+        '[3_C_CAR_2]MB     303':
+        - '[3_C_CAR_2]MB     303'
+        '[3_C_CAR_2]MB     305':
+        - '[3_C_CAR_2]MB     305'
+        '[3_C_CAR_2]MB     306':
+        - '[3_C_CAR_2]MB     306'
+        '[3_C_CAR_2]MB     307':
+        - '[3_C_CAR_2]MB     301'
+        - '[3_C_CAR_2]MB     307'
+        '[3_C_CAR_2]MB     311':
+        - '[3_C_CAR_2]MB     311'
+        '[3_C_CAR_2]MB     313':
+        - '[3_C_CAR_2]MB     313'
+        '[3_C_CAR_2]MB     314':
+        - '[3_C_CAR_2]MB     314'
+        '[3_C_CAR_2]MB     315':
+        - '[3_C_CAR_2]MB     315'
+        - '[3_C_CAR_2]MB     337'
+        '[3_C_CAR_2]MB     316':
+        - '[3_C_CAR_2]MB     316'
+        '[3_C_CAR_2]MB     320':
+        - '[3_C_CAR_2]MB     320'
+        '[3_C_CAR_2]MB     322':
+        - '[3_C_CAR_2]MB     322'
+        '[3_C_CAR_2]MB     324':
+        - '[3_C_CAR_2]MB     324'
+        '[3_C_CAR_2]MB     340':
+        - '[3_C_CAR_2]DB421.DBB   80'
+        - '[3_C_CAR_2]MB     340'
+        - '[3_C_CAR_2]MB     404'
+        - '[3_C_CAR_2]QB      66'
+        - '[3_C_CAR_2]QB      67'
+        '[3_C_CAR_2]MB     341':
+        - '[3_C_CAR_2]MB     341'
+        '[3_C_CAR_2]MB     346':
+        - '[3_C_CAR_2]MB     346'
+        '[3_C_CAR_2]MB     380':
+        - '[3_C_CAR_2]DB421.DBB   36'
+        - '[3_C_CAR_2]IB      84'
+        - '[3_C_CAR_2]IB      86'
+        - '[3_C_CAR_2]MB     380'
+        '[3_C_CAR_2]MB     399':
+        - '[3_C_CAR_2]MB     399'
+        '[3_C_CAR_2]MB     400':
+        - '[3_C_CAR_2]MB     400'
+        '[3_C_CAR_2]MB     401':
+        - '[3_C_CAR_2]MB     401'
+        '[3_C_CAR_2]MB     402':
+        - '[3_C_CAR_2]MB     402'
+        '[3_C_CAR_2]MB     406':
+        - '[3_C_CAR_2]MB     406'
+        '[3_C_CAR_2]MB     407':
+        - '[3_C_CAR_2]MB     407'
+        '[3_C_CAR_2]MB     409':
+        - '[3_C_CAR_2]MB     409'
+        '[3_C_CAR_2]MB     410':
+        - '[3_C_CAR_2]MB     410'
+        '[3_C_CAR_2]MB     434':
+        - '[3_C_CAR_2]DB421.DBB  275'
+        - '[3_C_CAR_2]MB     434'
+        '[3_C_CAR_2]MB     435':
+        - '[3_C_CAR_2]MB     435'
+        '[3_C_CAR_2]MB     440':
+        - '[3_C_CAR_2]MB     440'
+        '[3_C_CAR_2]MB     501':
+        - '[3_C_CAR_2]MB     501'
+        '[3_C_CAR_2]MB     502':
+        - '[3_C_CAR_2]MB     502'
+        '[3_C_CAR_2]MB     503':
+        - '[3_C_CAR_2]MB     503'
+        '[3_C_CAR_2]MB     504':
+        - '[3_C_CAR_2]MB     504'
+        '[3_C_CAR_2]MB     508':
+        - '[3_C_CAR_2]MB     508'
+        '[3_C_CAR_2]MB     514':
+        - '[3_C_CAR_2]MB     514'
+        - '[3_C_CAR_2]MB     708'
+        '[3_C_CAR_2]MB     515':
+        - '[3_C_CAR_2]MB     515'
+        '[3_C_CAR_2]MB     517':
+        - '[3_C_CAR_2]MB     517'
+        '[3_C_CAR_2]MB     518':
+        - '[3_C_CAR_2]MB     518'
+        '[3_C_CAR_2]MB     525':
+        - '[3_C_CAR_2]MB     525'
+        '[3_C_CAR_2]MB     702':
+        - '[3_C_CAR_2]MB     702'
+        '[3_C_CAR_2]MB     704':
+        - '[3_C_CAR_2]DB420.DBB   26'
+        - '[3_C_CAR_2]MB     704'
+        '[3_C_CAR_2]MB     719':
+        - '[3_C_CAR_2]DB421.DBB   99'
+        - '[3_C_CAR_2]MB     719'
+        '[3_C_CAR_2]MB     720':
+        - '[3_C_CAR_2]MB     720'
+        '[3_C_CAR_2]MB     728':
+        - '[3_C_CAR_2]DB421.DBB   67'
+        - '[3_C_CAR_2]MB     728'
+        '[3_C_CAR_2]MB     749':
+        - '[3_C_CAR_2]MB     749'
+        '[3_C_CAR_2]MB     780':
+        - '[3_C_CAR_2]MB     780'
+        '[3_C_CAR_2]MB     828':
+        - '[3_C_CAR_2]MB     300'
+        - '[3_C_CAR_2]MB     520'
+        - '[3_C_CAR_2]MB     521'
+        - '[3_C_CAR_2]MB     522'
+        - '[3_C_CAR_2]MB     523'
+        - '[3_C_CAR_2]MB     826'
+        - '[3_C_CAR_2]MB     827'
+        - '[3_C_CAR_2]MB     828'
+        - '[3_C_CAR_2]MB     829'
+        - '[3_C_CAR_2]MB     830'
+        - '[3_C_CAR_2]MB     831'
+        '[3_C_CAR_2]MB    1100':
+        - '[3_C_CAR_2]MB    1100'
+        '[3_C_CAR_2]MB    3008':
+        - '[3_C_CAR_2]DB421.DBB   72'
+        - '[3_C_CAR_2]DB421.DBB   76'
+        - '[3_C_CAR_2]IB      14'
+        - '[3_C_CAR_2]MB     172'
+        - '[3_C_CAR_2]MB    3008'
+        - '[3_C_CAR_2]MB    3010'
+        '[3_C_CAR_2]MB    3009':
+        - '[3_C_CAR_2]MB    3009'
+        '[3_C_CAR_2]MB    5004':
+        - '[3_C_CAR_2]MB    5004'
+        '[3_C_CAR_2]QB       3':
+        - '[3_C_CAR_2]QB       3'
+        '[3_C_CAR_2]QB       5':
+        - '[3_C_CAR_2]QB       5'
+        '[3_C_CAR_2]QB       6':
+        - '[3_C_CAR_2]DB421.DBB   39'
+        - '[3_C_CAR_2]DB421.DBB   41'
+        - '[3_C_CAR_2]DB421.DBB   64'
+        - '[3_C_CAR_2]DB421.DBB  111'
+        - '[3_C_CAR_2]DB421.DBB  112'
+        - '[3_C_CAR_2]DB421.DBB  113'
+        - '[3_C_CAR_2]QB       6'
+        - '[3_C_CAR_2]QB      16'
+        - '[3_C_CAR_2]QB      17'
+        - '[3_C_CAR_2]QB      20'
+        - '[3_C_CAR_2]QB      29'
+        - '[3_C_CAR_2]QB      32'
+        '[3_C_CAR_2]QB       8':
+        - '[3_C_CAR_2]QB       8'
+        '[3_C_CAR_2]QB       9':
+        - '[3_C_CAR_2]QB       9'
+        '[3_C_CAR_2]QB      10':
+        - '[3_C_CAR_2]QB      10'
+        '[3_C_CAR_2]QB      11':
+        - '[3_C_CAR_2]QB      11'
+        '[3_C_CAR_2]QB      13':
+        - '[3_C_CAR_2]QB      13'
+        '[3_C_CAR_2]QB      15':
+        - '[3_C_CAR_2]DB421.DBB   50'
+        - '[3_C_CAR_2]QB      15'
+        '[3_C_CAR_2]QB      64':
+        - '[3_C_CAR_2]QB      64'
+        '[3_C_CAR_2]QB      65':
+        - '[3_C_CAR_2]QB      65'
+        '[3_C_CAR_2]QB      68':
+        - '[3_C_CAR_2]QB      68'
+        '[3_C_CAR_2]QB      69':
+        - '[3_C_CAR_2]QB      69'
+      conditions:
+      - column: '[3_C_CAR_2]IB       8'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 8.000000000000014
+      confirmed: false
+    3_C_CAR_3:
+      clusters:
+        '[3_C_CAR_3]DB420.DBB    2':
+        - '[3_C_CAR_3]DB420.DBB    2'
+        - '[3_C_CAR_3]MB     732'
+        '[3_C_CAR_3]DB420.DBB   23':
+        - '[3_C_CAR_3]DB420.DBB   23'
+        '[3_C_CAR_3]DB421.DBB    3':
+        - '[3_C_CAR_3]DB421.DBB    3'
+        - '[3_C_CAR_3]MB       0'
+        '[3_C_CAR_3]DB421.DBB   13':
+        - '[3_C_CAR_3]DB421.DBB   13'
+        '[3_C_CAR_3]DB421.DBB   17':
+        - '[3_C_CAR_3]DB421.DBB   17'
+        '[3_C_CAR_3]DB421.DBB   18':
+        - '[3_C_CAR_3]DB421.DBB   18'
+        '[3_C_CAR_3]DB421.DBB   19':
+        - '[3_C_CAR_3]DB421.DBB   19'
+        '[3_C_CAR_3]DB421.DBB   21':
+        - '[3_C_CAR_3]DB421.DBB   21'
+        - '[3_C_CAR_3]DB421.DBB   22'
+        '[3_C_CAR_3]DB421.DBB   23':
+        - '[3_C_CAR_3]DB421.DBB   23'
+        - '[3_C_CAR_3]DB421.DBB   24'
+        '[3_C_CAR_3]DB421.DBB   25':
+        - '[3_C_CAR_3]DB421.DBB   25'
+        '[3_C_CAR_3]DB421.DBB   31':
+        - '[3_C_CAR_3]DB421.DBB   31'
+        - '[3_C_CAR_3]DB421.DBB   32'
+        '[3_C_CAR_3]DB421.DBB   36':
+        - '[3_C_CAR_3]DB421.DBB   36'
+        '[3_C_CAR_3]DB421.DBB   37':
+        - '[3_C_CAR_3]DB421.DBB   37'
+        - '[3_C_CAR_3]DB421.DBB   41'
+        - '[3_C_CAR_3]IB      85'
+        '[3_C_CAR_3]DB421.DBB   39':
+        - '[3_C_CAR_3]DB421.DBB   39'
+        '[3_C_CAR_3]DB421.DBB   40':
+        - '[3_C_CAR_3]DB421.DBB   40'
+        '[3_C_CAR_3]DB421.DBB   43':
+        - '[3_C_CAR_3]DB421.DBB   43'
+        '[3_C_CAR_3]DB421.DBB   44':
+        - '[3_C_CAR_3]DB421.DBB   44'
+        '[3_C_CAR_3]DB421.DBB   45':
+        - '[3_C_CAR_3]DB421.DBB   45'
+        '[3_C_CAR_3]DB421.DBB   47':
+        - '[3_C_CAR_3]DB421.DBB   47'
+        '[3_C_CAR_3]DB421.DBB   49':
+        - '[3_C_CAR_3]DB421.DBB   49'
+        '[3_C_CAR_3]DB421.DBB   57':
+        - '[3_C_CAR_3]DB421.DBB   57'
+        '[3_C_CAR_3]DB421.DBB   58':
+        - '[3_C_CAR_3]DB421.DBB   58'
+        '[3_C_CAR_3]DB421.DBB   59':
+        - '[3_C_CAR_3]DB421.DBB   59'
+        - '[3_C_CAR_3]QB      31'
+        '[3_C_CAR_3]DB421.DBB   68':
+        - '[3_C_CAR_3]DB421.DBB   68'
+        - '[3_C_CAR_3]IB       9'
+        - '[3_C_CAR_3]MB       9'
+        - '[3_C_CAR_3]QB       3'
+        '[3_C_CAR_3]DB421.DBB   71':
+        - '[3_C_CAR_3]DB421.DBB   71'
+        '[3_C_CAR_3]DB421.DBB   72':
+        - '[3_C_CAR_3]DB421.DBB   72'
+        '[3_C_CAR_3]DB421.DBB   76':
+        - '[3_C_CAR_3]DB421.DBB   52'
+        - '[3_C_CAR_3]DB421.DBB   75'
+        - '[3_C_CAR_3]DB421.DBB   76'
+        - '[3_C_CAR_3]MB      57'
+        '[3_C_CAR_3]DB421.DBB   79':
+        - '[3_C_CAR_3]DB421.DBB   79'
+        '[3_C_CAR_3]DB421.DBB   81':
+        - '[3_C_CAR_3]DB421.DBB   81'
+        - '[3_C_CAR_3]IB      89'
+        '[3_C_CAR_3]DB421.DBB  110':
+        - '[3_C_CAR_3]DB421.DBB  110'
+        '[3_C_CAR_3]DB421.DBB  112':
+        - '[3_C_CAR_3]DB421.DBB  112'
+        '[3_C_CAR_3]DB421.DBB  113':
+        - '[3_C_CAR_3]DB421.DBB  113'
+        - '[3_C_CAR_3]QB      32'
+        '[3_C_CAR_3]DB421.DBB  205':
+        - '[3_C_CAR_3]DB421.DBB  205'
+        - '[3_C_CAR_3]DB421.DBB  207'
+        - '[3_C_CAR_3]DB421.DBB  229'
+        - '[3_C_CAR_3]MB     431'
+        '[3_C_CAR_3]DB421.DBB  274':
+        - '[3_C_CAR_3]DB421.DBB  274'
+        '[3_C_CAR_3]IB      17':
+        - '[3_C_CAR_3]IB      17'
+        - '[3_C_CAR_3]IB      48'
+        '[3_C_CAR_3]IB      19':
+        - '[3_C_CAR_3]IB      19'
+        '[3_C_CAR_3]IB      21':
+        - '[3_C_CAR_3]DB421.DBB   16'
+        - '[3_C_CAR_3]DB421.DBB   26'
+        - '[3_C_CAR_3]DB421.DBB   27'
+        - '[3_C_CAR_3]DB421.DBB   28'
+        - '[3_C_CAR_3]DB421.DBB   29'
+        - '[3_C_CAR_3]DB421.DBB   30'
+        - '[3_C_CAR_3]DB421.DBB   46'
+        - '[3_C_CAR_3]DB421.DBB   55'
+        - '[3_C_CAR_3]DB421.DBB   56'
+        - '[3_C_CAR_3]DB421.DBB   60'
+        - '[3_C_CAR_3]IB      21'
+        - '[3_C_CAR_3]IB      28'
+        - '[3_C_CAR_3]IB      36'
+        - '[3_C_CAR_3]IB      37'
+        - '[3_C_CAR_3]IB      41'
+        - '[3_C_CAR_3]IB      44'
+        - '[3_C_CAR_3]IB      45'
+        - '[3_C_CAR_3]MB      11'
+        - '[3_C_CAR_3]MB      20'
+        - '[3_C_CAR_3]MB      21'
+        - '[3_C_CAR_3]MB      26'
+        - '[3_C_CAR_3]MB      30'
+        - '[3_C_CAR_3]MB      31'
+        - '[3_C_CAR_3]MB      40'
+        - '[3_C_CAR_3]MB      41'
+        - '[3_C_CAR_3]MB      50'
+        - '[3_C_CAR_3]MB      52'
+        - '[3_C_CAR_3]MB      95'
+        - '[3_C_CAR_3]MB      96'
+        - '[3_C_CAR_3]MB     121'
+        - '[3_C_CAR_3]MB     130'
+        - '[3_C_CAR_3]MB     131'
+        - '[3_C_CAR_3]MB     141'
+        - '[3_C_CAR_3]MB     145'
+        - '[3_C_CAR_3]MB     325'
+        - '[3_C_CAR_3]MB     330'
+        - '[3_C_CAR_3]MB     503'
+        - '[3_C_CAR_3]MB     717'
+        - '[3_C_CAR_3]MB     735'
+        - '[3_C_CAR_3]MB    3000'
+        - '[3_C_CAR_3]MB    3002'
+        - '[3_C_CAR_3]MB    5003'
+        - '[3_C_CAR_3]QB       7'
+        - '[3_C_CAR_3]QB      14'
+        - '[3_C_CAR_3]QB      18'
+        - '[3_C_CAR_3]QB      19'
+        - '[3_C_CAR_3]QB      73'
+        '[3_C_CAR_3]IB      35':
+        - '[3_C_CAR_3]IB      35'
+        '[3_C_CAR_3]IB      38':
+        - '[3_C_CAR_3]IB      38'
+        '[3_C_CAR_3]IB      42':
+        - '[3_C_CAR_3]IB      42'
+        '[3_C_CAR_3]IB      43':
+        - '[3_C_CAR_3]IB      43'
+        '[3_C_CAR_3]IB      46':
+        - '[3_C_CAR_3]IB      46'
+        - '[3_C_CAR_3]IB      47'
+        '[3_C_CAR_3]IB      61':
+        - '[3_C_CAR_3]IB      61'
+        '[3_C_CAR_3]IB      96':
+        - '[3_C_CAR_3]IB      86'
+        - '[3_C_CAR_3]IB      96'
+        - '[3_C_CAR_3]MB      89'
+        - '[3_C_CAR_3]MB     381'
+        '[3_C_CAR_3]MB       1':
+        - '[3_C_CAR_3]MB       1'
+        '[3_C_CAR_3]MB       3':
+        - '[3_C_CAR_3]MB       3'
+        '[3_C_CAR_3]MB       7':
+        - '[3_C_CAR_3]MB       7'
+        '[3_C_CAR_3]MB      10':
+        - '[3_C_CAR_3]MB      10'
+        '[3_C_CAR_3]MB      16':
+        - '[3_C_CAR_3]DB421.DBB   10'
+        - '[3_C_CAR_3]DB421.DBB   35'
+        - '[3_C_CAR_3]DB421.DBB   80'
+        - '[3_C_CAR_3]DB421.DBB   83'
+        - '[3_C_CAR_3]DB421.DBB   84'
+        - '[3_C_CAR_3]DB421.DBB   85'
+        - '[3_C_CAR_3]DB421.DBB   86'
+        - '[3_C_CAR_3]DB421.DBB   87'
+        - '[3_C_CAR_3]DB421.DBB   88'
+        - '[3_C_CAR_3]IB      88'
+        - '[3_C_CAR_3]IB      92'
+        - '[3_C_CAR_3]IB      93'
+        - '[3_C_CAR_3]IB      94'
+        - '[3_C_CAR_3]IB      95'
+        - '[3_C_CAR_3]MB      16'
+        - '[3_C_CAR_3]MB      69'
+        - '[3_C_CAR_3]MB     160'
+        - '[3_C_CAR_3]MB     340'
+        - '[3_C_CAR_3]MB     400'
+        - '[3_C_CAR_3]MB     403'
+        - '[3_C_CAR_3]MB     404'
+        - '[3_C_CAR_3]MB     406'
+        - '[3_C_CAR_3]MB     410'
+        - '[3_C_CAR_3]MB     412'
+        - '[3_C_CAR_3]MB     414'
+        - '[3_C_CAR_3]QB      66'
+        - '[3_C_CAR_3]QB      67'
+        - '[3_C_CAR_3]QB      69'
+        '[3_C_CAR_3]MB      17':
+        - '[3_C_CAR_3]MB      17'
+        '[3_C_CAR_3]MB      19':
+        - '[3_C_CAR_3]MB      19'
+        '[3_C_CAR_3]MB      28':
+        - '[3_C_CAR_3]MB      28'
+        '[3_C_CAR_3]MB      36':
+        - '[3_C_CAR_3]MB      36'
+        '[3_C_CAR_3]MB      37':
+        - '[3_C_CAR_3]MB      37'
+        '[3_C_CAR_3]MB      42':
+        - '[3_C_CAR_3]MB      42'
+        '[3_C_CAR_3]MB      44':
+        - '[3_C_CAR_3]MB      14'
+        - '[3_C_CAR_3]MB      24'
+        - '[3_C_CAR_3]MB      34'
+        - '[3_C_CAR_3]MB      44'
+        '[3_C_CAR_3]MB      46':
+        - '[3_C_CAR_3]MB      46'
+        '[3_C_CAR_3]MB      51':
+        - '[3_C_CAR_3]MB      51'
+        '[3_C_CAR_3]MB      53':
+        - '[3_C_CAR_3]DB421.DBB   99'
+        - '[3_C_CAR_3]MB      53'
+        - '[3_C_CAR_3]MB     104'
+        - '[3_C_CAR_3]MB     736'
+        '[3_C_CAR_3]MB      54':
+        - '[3_C_CAR_3]MB      54'
+        '[3_C_CAR_3]MB      58':
+        - '[3_C_CAR_3]MB      58'
+        '[3_C_CAR_3]MB      61':
+        - '[3_C_CAR_3]MB      61'
+        '[3_C_CAR_3]MB      62':
+        - '[3_C_CAR_3]MB      62'
+        - '[3_C_CAR_3]MB      71'
+        - '[3_C_CAR_3]MB      92'
+        '[3_C_CAR_3]MB      64':
+        - '[3_C_CAR_3]MB      64'
+        - '[3_C_CAR_3]MB      74'
+        - '[3_C_CAR_3]MB      84'
+        - '[3_C_CAR_3]MB      94'
+        '[3_C_CAR_3]MB      76':
+        - '[3_C_CAR_3]MB      27'
+        - '[3_C_CAR_3]MB      76'
+        - '[3_C_CAR_3]MB     120'
+        - '[3_C_CAR_3]MB     320'
+        '[3_C_CAR_3]MB      81':
+        - '[3_C_CAR_3]MB      81'
+        '[3_C_CAR_3]MB      83':
+        - '[3_C_CAR_3]MB      63'
+        - '[3_C_CAR_3]MB      73'
+        - '[3_C_CAR_3]MB      83'
+        - '[3_C_CAR_3]MB      93'
+        '[3_C_CAR_3]MB      91':
+        - '[3_C_CAR_3]MB      91'
+        '[3_C_CAR_3]MB      99':
+        - '[3_C_CAR_3]MB      99'
+        '[3_C_CAR_3]MB     103':
+        - '[3_C_CAR_3]MB     103'
+        '[3_C_CAR_3]MB     111':
+        - '[3_C_CAR_3]MB     111'
+        '[3_C_CAR_3]MB     112':
+        - '[3_C_CAR_3]MB     112'
+        '[3_C_CAR_3]MB     113':
+        - '[3_C_CAR_3]MB     113'
+        '[3_C_CAR_3]MB     114':
+        - '[3_C_CAR_3]MB     114'
+        '[3_C_CAR_3]MB     115':
+        - '[3_C_CAR_3]MB     115'
+        '[3_C_CAR_3]MB     117':
+        - '[3_C_CAR_3]DB421.DBB   38'
+        - '[3_C_CAR_3]MB     117'
+        '[3_C_CAR_3]MB     122':
+        - '[3_C_CAR_3]MB     122'
+        '[3_C_CAR_3]MB     123':
+        - '[3_C_CAR_3]MB     123'
+        '[3_C_CAR_3]MB     124':
+        - '[3_C_CAR_3]MB     124'
+        '[3_C_CAR_3]MB     125':
+        - '[3_C_CAR_3]MB     125'
+        '[3_C_CAR_3]MB     126':
+        - '[3_C_CAR_3]MB     126'
+        '[3_C_CAR_3]MB     133':
+        - '[3_C_CAR_3]MB     133'
+        '[3_C_CAR_3]MB     135':
+        - '[3_C_CAR_3]MB     134'
+        - '[3_C_CAR_3]MB     135'
+        - '[3_C_CAR_3]MB    3001'
+        '[3_C_CAR_3]MB     143':
+        - '[3_C_CAR_3]MB     143'
+        '[3_C_CAR_3]MB     144':
+        - '[3_C_CAR_3]MB     144'
+        '[3_C_CAR_3]MB     158':
+        - '[3_C_CAR_3]MB     158'
+        '[3_C_CAR_3]MB     159':
+        - '[3_C_CAR_3]MB     159'
+        '[3_C_CAR_3]MB     164':
+        - '[3_C_CAR_3]MB     164'
+        '[3_C_CAR_3]MB     167':
+        - '[3_C_CAR_3]MB     167'
+        '[3_C_CAR_3]MB     173':
+        - '[3_C_CAR_3]MB     173'
+        '[3_C_CAR_3]MB     175':
+        - '[3_C_CAR_3]MB     175'
+        '[3_C_CAR_3]MB     177':
+        - '[3_C_CAR_3]MB     177'
+        '[3_C_CAR_3]MB     180':
+        - '[3_C_CAR_3]MB      38'
+        - '[3_C_CAR_3]MB     180'
+        '[3_C_CAR_3]MB     181':
+        - '[3_C_CAR_3]MB     181'
+        '[3_C_CAR_3]MB     182':
+        - '[3_C_CAR_3]MB     182'
+        '[3_C_CAR_3]MB     183':
+        - '[3_C_CAR_3]MB     183'
+        '[3_C_CAR_3]MB     300':
+        - '[3_C_CAR_3]MB     300'
+        '[3_C_CAR_3]MB     301':
+        - '[3_C_CAR_3]MB     301'
+        '[3_C_CAR_3]MB     306':
+        - '[3_C_CAR_3]MB     306'
+        '[3_C_CAR_3]MB     307':
+        - '[3_C_CAR_3]MB     307'
+        '[3_C_CAR_3]MB     311':
+        - '[3_C_CAR_3]MB     311'
+        '[3_C_CAR_3]MB     312':
+        - '[3_C_CAR_3]MB     312'
+        '[3_C_CAR_3]MB     313':
+        - '[3_C_CAR_3]MB     313'
+        '[3_C_CAR_3]MB     314':
+        - '[3_C_CAR_3]MB     314'
+        '[3_C_CAR_3]MB     316':
+        - '[3_C_CAR_3]MB     316'
+        '[3_C_CAR_3]MB     321':
+        - '[3_C_CAR_3]DB421.DBB   11'
+        - '[3_C_CAR_3]DB421.DBB   14'
+        - '[3_C_CAR_3]DB421.DBB   15'
+        - '[3_C_CAR_3]DB421.DBB   42'
+        - '[3_C_CAR_3]DB421.DBB   48'
+        - '[3_C_CAR_3]DB421.DBB  102'
+        - '[3_C_CAR_3]MB      13'
+        - '[3_C_CAR_3]MB      15'
+        - '[3_C_CAR_3]MB      23'
+        - '[3_C_CAR_3]MB      25'
+        - '[3_C_CAR_3]MB      33'
+        - '[3_C_CAR_3]MB      35'
+        - '[3_C_CAR_3]MB      39'
+        - '[3_C_CAR_3]MB      43'
+        - '[3_C_CAR_3]MB      45'
+        - '[3_C_CAR_3]MB      47'
+        - '[3_C_CAR_3]MB      49'
+        - '[3_C_CAR_3]MB      59'
+        - '[3_C_CAR_3]MB      79'
+        - '[3_C_CAR_3]MB      86'
+        - '[3_C_CAR_3]MB      97'
+        - '[3_C_CAR_3]MB      98'
+        - '[3_C_CAR_3]MB     102'
+        - '[3_C_CAR_3]MB     110'
+        - '[3_C_CAR_3]MB     116'
+        - '[3_C_CAR_3]MB     129'
+        - '[3_C_CAR_3]MB     136'
+        - '[3_C_CAR_3]MB     138'
+        - '[3_C_CAR_3]MB     142'
+        - '[3_C_CAR_3]MB     150'
+        - '[3_C_CAR_3]MB     302'
+        - '[3_C_CAR_3]MB     303'
+        - '[3_C_CAR_3]MB     304'
+        - '[3_C_CAR_3]MB     305'
+        - '[3_C_CAR_3]MB     310'
+        - '[3_C_CAR_3]MB     321'
+        '[3_C_CAR_3]MB     322':
+        - '[3_C_CAR_3]MB     322'
+        '[3_C_CAR_3]MB     328':
+        - '[3_C_CAR_3]MB     328'
+        '[3_C_CAR_3]MB     329':
+        - '[3_C_CAR_3]MB     329'
+        '[3_C_CAR_3]MB     346':
+        - '[3_C_CAR_3]DB421.DBB  272'
+        - '[3_C_CAR_3]MB     346'
+        '[3_C_CAR_3]MB     380':
+        - '[3_C_CAR_3]IB      84'
+        - '[3_C_CAR_3]MB     380'
+        '[3_C_CAR_3]MB     398':
+        - '[3_C_CAR_3]DB421.DBB  276'
+        - '[3_C_CAR_3]MB     398'
+        '[3_C_CAR_3]MB     399':
+        - '[3_C_CAR_3]MB     399'
+        '[3_C_CAR_3]MB     401':
+        - '[3_C_CAR_3]MB     401'
+        '[3_C_CAR_3]MB     402':
+        - '[3_C_CAR_3]MB     402'
+        '[3_C_CAR_3]MB     407':
+        - '[3_C_CAR_3]MB     407'
+        - '[3_C_CAR_3]MB     411'
+        - '[3_C_CAR_3]QB       4'
+        '[3_C_CAR_3]MB     409':
+        - '[3_C_CAR_3]MB     409'
+        - '[3_C_CAR_3]MB     517'
+        '[3_C_CAR_3]MB     413':
+        - '[3_C_CAR_3]MB     413'
+        '[3_C_CAR_3]MB     432':
+        - '[3_C_CAR_3]DB421.DBB  222'
+        - '[3_C_CAR_3]MB     432'
+        '[3_C_CAR_3]MB     434':
+        - '[3_C_CAR_3]DB421.DBB   78'
+        - '[3_C_CAR_3]DB421.DBB  275'
+        - '[3_C_CAR_3]MB     341'
+        - '[3_C_CAR_3]MB     434'
+        '[3_C_CAR_3]MB     435':
+        - '[3_C_CAR_3]MB     435'
+        '[3_C_CAR_3]MB     500':
+        - '[3_C_CAR_3]MB     500'
+        '[3_C_CAR_3]MB     502':
+        - '[3_C_CAR_3]MB     502'
+        '[3_C_CAR_3]MB     504':
+        - '[3_C_CAR_3]MB     504'
+        '[3_C_CAR_3]MB     505':
+        - '[3_C_CAR_3]MB     505'
+        '[3_C_CAR_3]MB     508':
+        - '[3_C_CAR_3]MB     508'
+        '[3_C_CAR_3]MB     509':
+        - '[3_C_CAR_3]MB     509'
+        '[3_C_CAR_3]MB     511':
+        - '[3_C_CAR_3]MB     511'
+        '[3_C_CAR_3]MB     514':
+        - '[3_C_CAR_3]MB     514'
+        '[3_C_CAR_3]MB     515':
+        - '[3_C_CAR_3]MB     515'
+        '[3_C_CAR_3]MB     518':
+        - '[3_C_CAR_3]MB     518'
+        '[3_C_CAR_3]MB     522':
+        - '[3_C_CAR_3]MB     522'
+        '[3_C_CAR_3]MB     525':
+        - '[3_C_CAR_3]MB     525'
+        '[3_C_CAR_3]MB     702':
+        - '[3_C_CAR_3]MB     702'
+        '[3_C_CAR_3]MB     708':
+        - '[3_C_CAR_3]MB     708'
+        '[3_C_CAR_3]MB     713':
+        - '[3_C_CAR_3]MB     713'
+        '[3_C_CAR_3]MB     718':
+        - '[3_C_CAR_3]MB     718'
+        '[3_C_CAR_3]MB     720':
+        - '[3_C_CAR_3]MB     720'
+        '[3_C_CAR_3]MB     729':
+        - '[3_C_CAR_3]DB420.DBB   51'
+        - '[3_C_CAR_3]MB     729'
+        '[3_C_CAR_3]MB     733':
+        - '[3_C_CAR_3]MB     733'
+        '[3_C_CAR_3]MB     749':
+        - '[3_C_CAR_3]MB     749'
+        '[3_C_CAR_3]MB     780':
+        - '[3_C_CAR_3]MB     780'
+        '[3_C_CAR_3]MB     820':
+        - '[3_C_CAR_3]MB     820'
+        '[3_C_CAR_3]MB     826':
+        - '[3_C_CAR_3]MB     520'
+        - '[3_C_CAR_3]MB     826'
+        '[3_C_CAR_3]MB     828':
+        - '[3_C_CAR_3]DB421.DBB   12'
+        - '[3_C_CAR_3]MB     521'
+        - '[3_C_CAR_3]MB     523'
+        - '[3_C_CAR_3]MB     827'
+        - '[3_C_CAR_3]MB     828'
+        - '[3_C_CAR_3]MB     829'
+        - '[3_C_CAR_3]MB     830'
+        - '[3_C_CAR_3]MB     831'
+        '[3_C_CAR_3]MB    1100':
+        - '[3_C_CAR_3]MB    1100'
+        '[3_C_CAR_3]MB    3003':
+        - '[3_C_CAR_3]MB    3003'
+        '[3_C_CAR_3]MB    3005':
+        - '[3_C_CAR_3]MB    3005'
+        '[3_C_CAR_3]MB    3008':
+        - '[3_C_CAR_3]IB      14'
+        - '[3_C_CAR_3]MB       4'
+        - '[3_C_CAR_3]MB     172'
+        - '[3_C_CAR_3]MB    3008'
+        - '[3_C_CAR_3]MB    3010'
+        '[3_C_CAR_3]MB    3009':
+        - '[3_C_CAR_3]MB    3009'
+        '[3_C_CAR_3]MB    5004':
+        - '[3_C_CAR_3]MB    5004'
+        '[3_C_CAR_3]MB    5010':
+        - '[3_C_CAR_3]MB    5010'
+        '[3_C_CAR_3]QB       5':
+        - '[3_C_CAR_3]QB       5'
+        '[3_C_CAR_3]QB       6':
+        - '[3_C_CAR_3]DB421.DBB   64'
+        - '[3_C_CAR_3]QB       6'
+        - '[3_C_CAR_3]QB      20'
+        '[3_C_CAR_3]QB       8':
+        - '[3_C_CAR_3]QB       8'
+        '[3_C_CAR_3]QB       9':
+        - '[3_C_CAR_3]QB       9'
+        '[3_C_CAR_3]QB      10':
+        - '[3_C_CAR_3]QB      10'
+        '[3_C_CAR_3]QB      15':
+        - '[3_C_CAR_3]QB      15'
+        '[3_C_CAR_3]QB      16':
+        - '[3_C_CAR_3]QB      16'
+        '[3_C_CAR_3]QB      17':
+        - '[3_C_CAR_3]QB      17'
+        '[3_C_CAR_3]QB      22':
+        - '[3_C_CAR_3]DB421.DBB   20'
+        - '[3_C_CAR_3]DB421.DBB   50'
+        - '[3_C_CAR_3]DB421.DBB  269'
+        - '[3_C_CAR_3]MB      55'
+        - '[3_C_CAR_3]MB      56'
+        - '[3_C_CAR_3]QB      22'
+        '[3_C_CAR_3]QB      28':
+        - '[3_C_CAR_3]QB      28'
+        '[3_C_CAR_3]QB      29':
+        - '[3_C_CAR_3]DB421.DBB  111'
+        - '[3_C_CAR_3]QB      29'
+        '[3_C_CAR_3]QB      68':
+        - '[3_C_CAR_3]QB      68'
+        '[3_C_CAR_3]QB      72':
+        - '[3_C_CAR_3]QB      72'
+      conditions:
+      - column: '[3_C_CAR_3]IB      40'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 67.99999999999996
+      confirmed: false
+    3_ECS_PLC_A:
+      clusters:
+        '[3_ECS_PLC_A]MB       0':
+        - '[3_ECS_PLC_A]MB       0'
+        '[3_ECS_PLC_A]MB       1':
+        - '[3_ECS_PLC_A]MB       1'
+        '[3_ECS_PLC_A]MB      10':
+        - '[3_ECS_PLC_A]MB      10'
+        '[3_ECS_PLC_A]MB     155':
+        - '[3_ECS_PLC_A]MB     155'
+        '[3_ECS_PLC_A]QB      23':
+        - '[3_ECS_PLC_A]QB      23'
+      conditions:
+      - column: '[3_ECS_PLC_A]QB      19'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 5.000000000000002
+      confirmed: false
+    3_ECS_PLC_B:
+      clusters:
+        '[3_ECS_PLC_B]DB401.DBB   16':
+        - '[3_ECS_PLC_B]DB401.DBB   16'
+        - '[3_ECS_PLC_B]IB      18'
+        '[3_ECS_PLC_B]DB401.DBB   22':
+        - '[3_ECS_PLC_B]DB401.DBB   22'
+        - '[3_ECS_PLC_B]DB401.DBB   43'
+        - '[3_ECS_PLC_B]IB       8'
+        '[3_ECS_PLC_B]DB401.DBB  116':
+        - '[3_ECS_PLC_B]DB401.DBB   25'
+        - '[3_ECS_PLC_B]DB401.DBB   42'
+        - '[3_ECS_PLC_B]DB401.DBB  116'
+        - '[3_ECS_PLC_B]DB401.DBB  117'
+        - '[3_ECS_PLC_B]IB      13'
+        - '[3_ECS_PLC_B]QB       3'
+        '[3_ECS_PLC_B]DB401.DBB  123':
+        - '[3_ECS_PLC_B]DB401.DBB  123'
+        - '[3_ECS_PLC_B]IB      21'
+        '[3_ECS_PLC_B]DB401.DBB  124':
+        - '[3_ECS_PLC_B]DB401.DBB   12'
+        - '[3_ECS_PLC_B]DB401.DBB  124'
+        - '[3_ECS_PLC_B]IB      20'
+        '[3_ECS_PLC_B]IB      14':
+        - '[3_ECS_PLC_B]IB      14'
+        '[3_ECS_PLC_B]IB      15':
+        - '[3_ECS_PLC_B]IB      15'
+        '[3_ECS_PLC_B]IB      17':
+        - '[3_ECS_PLC_B]DB401.DBB   17'
+        - '[3_ECS_PLC_B]IB      17'
+        '[3_ECS_PLC_B]IB      19':
+        - '[3_ECS_PLC_B]DB401.DBB   13'
+        - '[3_ECS_PLC_B]IB      19'
+        '[3_ECS_PLC_B]IB      25':
+        - '[3_ECS_PLC_B]DB401.DBB  109'
+        - '[3_ECS_PLC_B]IB      25'
+        - '[3_ECS_PLC_B]QB       9'
+        '[3_ECS_PLC_B]MB       0':
+        - '[3_ECS_PLC_B]MB       0'
+        '[3_ECS_PLC_B]MB       1':
+        - '[3_ECS_PLC_B]MB       1'
+        '[3_ECS_PLC_B]MB      10':
+        - '[3_ECS_PLC_B]DB401.DBB   18'
+        - '[3_ECS_PLC_B]DB401.DBB  112'
+        - '[3_ECS_PLC_B]MB      10'
+        - '[3_ECS_PLC_B]MB     103'
+        - '[3_ECS_PLC_B]MB     140'
+        - '[3_ECS_PLC_B]MB     155'
+        - '[3_ECS_PLC_B]QB      27'
+        '[3_ECS_PLC_B]MB      11':
+        - '[3_ECS_PLC_B]MB      11'
+        '[3_ECS_PLC_B]MB      19':
+        - '[3_ECS_PLC_B]DB401.DBB   19'
+        - '[3_ECS_PLC_B]IB      26'
+        - '[3_ECS_PLC_B]MB      18'
+        - '[3_ECS_PLC_B]MB      19'
+        - '[3_ECS_PLC_B]MB      43'
+        - '[3_ECS_PLC_B]MB      44'
+        - '[3_ECS_PLC_B]QB       5'
+        '[3_ECS_PLC_B]MB      31':
+        - '[3_ECS_PLC_B]MB      31'
+        '[3_ECS_PLC_B]MB      42':
+        - '[3_ECS_PLC_B]MB      42'
+        '[3_ECS_PLC_B]MB     104':
+        - '[3_ECS_PLC_B]MB     104'
+        '[3_ECS_PLC_B]MB     142':
+        - '[3_ECS_PLC_B]MB     142'
+        '[3_ECS_PLC_B]QB       2':
+        - '[3_ECS_PLC_B]QB       2'
+        '[3_ECS_PLC_B]QB       8':
+        - '[3_ECS_PLC_B]DB401.DBB  108'
+        - '[3_ECS_PLC_B]QB       8'
+        '[3_ECS_PLC_B]QB      10':
+        - '[3_ECS_PLC_B]DB401.DBB  110'
+        - '[3_ECS_PLC_B]QB      10'
+        '[3_ECS_PLC_B]QB      11':
+        - '[3_ECS_PLC_B]DB401.DBB  111'
+        - '[3_ECS_PLC_B]QB      11'
+        '[3_ECS_PLC_B]QB      12':
+        - '[3_ECS_PLC_B]QB      12'
+        '[3_ECS_PLC_B]QB      22':
+        - '[3_ECS_PLC_B]QB      22'
+      conditions:
+      - column: '[3_ECS_PLC_B]IB      10'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 214.00000000000003
+      confirmed: false
+    3_LOCO_A:
+      clusters:
+        '[3_LOCO_A]DB421.DBB   18':
+        - '[3_LOCO_A]DB421.DBB   18'
+        - '[3_LOCO_A]DB421.DBB   29'
+        - '[3_LOCO_A]DB421.DBB   32'
+        - '[3_LOCO_A]DB421.DBB   70'
+        - '[3_LOCO_A]DB421.DBB   74'
+        - '[3_LOCO_A]MB      43'
+        - '[3_LOCO_A]MB     100'
+        - '[3_LOCO_A]MB     106'
+        - '[3_LOCO_A]MB     290'
+        - '[3_LOCO_A]MB     293'
+        - '[3_LOCO_A]MB     294'
+        - '[3_LOCO_A]MB     297'
+        '[3_LOCO_A]DB421.DBB   19':
+        - '[3_LOCO_A]DB421.DBB   19'
+        '[3_LOCO_A]DB421.DBB   25':
+        - '[3_LOCO_A]DB421.DBB   25'
+        - '[3_LOCO_A]DB421.DBB   92'
+        - '[3_LOCO_A]MB      23'
+        - '[3_LOCO_A]MB      35'
+        - '[3_LOCO_A]MB     102'
+        - '[3_LOCO_A]MB     408'
+        - '[3_LOCO_A]QB       4'
+        '[3_LOCO_A]DB421.DBB   31':
+        - '[3_LOCO_A]DB421.DBB   31'
+        '[3_LOCO_A]DB421.DBB   33':
+        - '[3_LOCO_A]DB421.DBB   33'
+        '[3_LOCO_A]DB421.DBB   76':
+        - '[3_LOCO_A]DB421.DBB   76'
+        '[3_LOCO_A]DB421.DBB   95':
+        - '[3_LOCO_A]DB421.DBB   95'
+        '[3_LOCO_A]IB      25':
+        - '[3_LOCO_A]DB421.DBB   49'
+        - '[3_LOCO_A]IB      25'
+        '[3_LOCO_A]IB      26':
+        - '[3_LOCO_A]IB      26'
+        '[3_LOCO_A]MB      22':
+        - '[3_LOCO_A]MB      22'
+        '[3_LOCO_A]MB      25':
+        - '[3_LOCO_A]MB      25'
+        '[3_LOCO_A]MB      27':
+        - '[3_LOCO_A]MB      27'
+        '[3_LOCO_A]MB     101':
+        - '[3_LOCO_A]MB     101'
+        '[3_LOCO_A]MB     103':
+        - '[3_LOCO_A]MB      16'
+        - '[3_LOCO_A]MB     103'
+        - '[3_LOCO_A]QB       7'
+        - '[3_LOCO_A]QB       8'
+        '[3_LOCO_A]MB     105':
+        - '[3_LOCO_A]DB421.DBB   54'
+        - '[3_LOCO_A]MB      45'
+        - '[3_LOCO_A]MB     105'
+        '[3_LOCO_A]MB     107':
+        - '[3_LOCO_A]MB     107'
+        '[3_LOCO_A]MB     172':
+        - '[3_LOCO_A]MB     172'
+        - '[3_LOCO_A]MB     178'
+        '[3_LOCO_A]MB     200':
+        - '[3_LOCO_A]MB     200'
+        '[3_LOCO_A]MB     202':
+        - '[3_LOCO_A]MB     202'
+        '[3_LOCO_A]MB     287':
+        - '[3_LOCO_A]MB     287'
+        '[3_LOCO_A]MB     296':
+        - '[3_LOCO_A]MB     296'
+        '[3_LOCO_A]MB     411':
+        - '[3_LOCO_A]MB     411'
+        '[3_LOCO_A]QB       0':
+        - '[3_LOCO_A]MB      13'
+        - '[3_LOCO_A]QB       0'
+        '[3_LOCO_A]QB       1':
+        - '[3_LOCO_A]QB       1'
+        '[3_LOCO_A]QB       2':
+        - '[3_LOCO_A]QB       2'
+        '[3_LOCO_A]QB       5':
+        - '[3_LOCO_A]QB       5'
+        '[3_LOCO_A]QB       6':
+        - '[3_LOCO_A]QB       6'
+        '[3_LOCO_A]QB      10':
+        - '[3_LOCO_A]DB421.DBB   59'
+        - '[3_LOCO_A]QB      10'
+        '[3_LOCO_A]QB      12':
+        - '[3_LOCO_A]QB      12'
+      conditions:
+      - column: '[3_LOCO_A]IB      18'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 250.0
+      confirmed: false
+    3_LOCO_B:
+      clusters:
+        '[3_LOCO_B]DB421.DBB   19':
+        - '[3_LOCO_B]DB421.DBB   19'
+        '[3_LOCO_B]DB421.DBB   31':
+        - '[3_LOCO_B]DB421.DBB   31'
+        '[3_LOCO_B]DB421.DBB   33':
+        - '[3_LOCO_B]DB421.DBB   33'
+        '[3_LOCO_B]DB421.DBB   76':
+        - '[3_LOCO_B]DB421.DBB   76'
+        '[3_LOCO_B]IB      25':
+        - '[3_LOCO_B]DB421.DBB   49'
+        - '[3_LOCO_B]IB      25'
+        '[3_LOCO_B]IB      26':
+        - '[3_LOCO_B]IB      26'
+        '[3_LOCO_B]MB      13':
+        - '[3_LOCO_B]MB      13'
+        '[3_LOCO_B]MB      16':
+        - '[3_LOCO_B]DB421.DBB   18'
+        - '[3_LOCO_B]DB421.DBB   25'
+        - '[3_LOCO_B]DB421.DBB   29'
+        - '[3_LOCO_B]DB421.DBB   32'
+        - '[3_LOCO_B]DB421.DBB   70'
+        - '[3_LOCO_B]DB421.DBB   74'
+        - '[3_LOCO_B]MB      16'
+        - '[3_LOCO_B]MB      23'
+        - '[3_LOCO_B]MB      43'
+        - '[3_LOCO_B]MB     100'
+        - '[3_LOCO_B]MB     102'
+        - '[3_LOCO_B]MB     106'
+        - '[3_LOCO_B]MB     290'
+        - '[3_LOCO_B]MB     293'
+        - '[3_LOCO_B]MB     294'
+        - '[3_LOCO_B]MB     297'
+        - '[3_LOCO_B]QB       7'
+        - '[3_LOCO_B]QB       8'
+        '[3_LOCO_B]MB      22':
+        - '[3_LOCO_B]MB      22'
+        '[3_LOCO_B]MB      25':
+        - '[3_LOCO_B]MB      25'
+        '[3_LOCO_B]MB      27':
+        - '[3_LOCO_B]MB      27'
+        '[3_LOCO_B]MB      44':
+        - '[3_LOCO_B]MB      44'
+        '[3_LOCO_B]MB      45':
+        - '[3_LOCO_B]DB421.DBB   54'
+        - '[3_LOCO_B]MB      45'
+        '[3_LOCO_B]MB     101':
+        - '[3_LOCO_B]MB     101'
+        '[3_LOCO_B]MB     103':
+        - '[3_LOCO_B]MB     103'
+        '[3_LOCO_B]MB     105':
+        - '[3_LOCO_B]MB     105'
+        '[3_LOCO_B]MB     107':
+        - '[3_LOCO_B]MB     107'
+        '[3_LOCO_B]MB     172':
+        - '[3_LOCO_B]MB     172'
+        - '[3_LOCO_B]MB     178'
+        '[3_LOCO_B]MB     200':
+        - '[3_LOCO_B]MB     200'
+        '[3_LOCO_B]MB     201':
+        - '[3_LOCO_B]DB421.DBB   92'
+        - '[3_LOCO_B]DB421.DBB  106'
+        - '[3_LOCO_B]MB     201'
+        - '[3_LOCO_B]MB     408'
+        '[3_LOCO_B]MB     202':
+        - '[3_LOCO_B]MB     202'
+        '[3_LOCO_B]MB     287':
+        - '[3_LOCO_B]MB     287'
+        '[3_LOCO_B]MB     296':
+        - '[3_LOCO_B]MB     296'
+        '[3_LOCO_B]QB       2':
+        - '[3_LOCO_B]QB       2'
+        '[3_LOCO_B]QB       5':
+        - '[3_LOCO_B]QB       5'
+        '[3_LOCO_B]QB       6':
+        - '[3_LOCO_B]QB       6'
+        '[3_LOCO_B]QB      10':
+        - '[3_LOCO_B]DB421.DBB   59'
+        - '[3_LOCO_B]QB      10'
+        '[3_LOCO_B]QB      13':
+        - '[3_LOCO_B]QB       0'
+        - '[3_LOCO_B]QB      13'
+        '[3_LOCO_B]QB      20':
+        - '[3_LOCO_B]DB421.DBB   27'
+        - '[3_LOCO_B]DB421.DBB   75'
+        - '[3_LOCO_B]MB       2'
+        - '[3_LOCO_B]QB      20'
+      conditions:
+      - column: '[3_LOCO_B]IB      18'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 122.0
+      confirmed: false
+    3_P_CAR_1:
+      clusters:
+        '[3_P_CAR_1]DB420.DBB    2':
+        - '[3_P_CAR_1]DB420.DBB    2'
+        - '[3_P_CAR_1]MB     730'
+        '[3_P_CAR_1]DB421.DBB    3':
+        - '[3_P_CAR_1]DB421.DBB    3'
+        '[3_P_CAR_1]DB421.DBB   11':
+        - '[3_P_CAR_1]DB421.DBB   11'
+        '[3_P_CAR_1]DB421.DBB   13':
+        - '[3_P_CAR_1]DB421.DBB   13'
+        - '[3_P_CAR_1]MB       9'
+        - '[3_P_CAR_1]MB     150'
+        - '[3_P_CAR_1]MB     283'
+        '[3_P_CAR_1]DB421.DBB   14':
+        - '[3_P_CAR_1]DB421.DBB   14'
+        - '[3_P_CAR_1]MB      53'
+        - '[3_P_CAR_1]MB      57'
+        '[3_P_CAR_1]DB421.DBB   15':
+        - '[3_P_CAR_1]DB421.DBB   15'
+        '[3_P_CAR_1]DB421.DBB   26':
+        - '[3_P_CAR_1]DB421.DBB   26'
+        '[3_P_CAR_1]DB421.DBB   27':
+        - '[3_P_CAR_1]DB421.DBB   27'
+        '[3_P_CAR_1]DB421.DBB   29':
+        - '[3_P_CAR_1]DB421.DBB   29'
+        '[3_P_CAR_1]DB421.DBB   47':
+        - '[3_P_CAR_1]DB421.DBB   47'
+        '[3_P_CAR_1]DB421.DBB   58':
+        - '[3_P_CAR_1]DB421.DBB   58'
+        '[3_P_CAR_1]DB421.DBB   75':
+        - '[3_P_CAR_1]DB421.DBB   75'
+        '[3_P_CAR_1]DB421.DBB   81':
+        - '[3_P_CAR_1]DB421.DBB   81'
+        '[3_P_CAR_1]DB421.DBB   84':
+        - '[3_P_CAR_1]DB421.DBB   84'
+        '[3_P_CAR_1]DB421.DBB   89':
+        - '[3_P_CAR_1]DB421.DBB   89'
+        '[3_P_CAR_1]DB421.DBB   97':
+        - '[3_P_CAR_1]DB421.DBB   95'
+        - '[3_P_CAR_1]DB421.DBB   97'
+        - '[3_P_CAR_1]MB     243'
+        - '[3_P_CAR_1]QB     101'
+        '[3_P_CAR_1]DB421.DBB  101':
+        - '[3_P_CAR_1]DB421.DBB  101'
+        - '[3_P_CAR_1]QB     102'
+        '[3_P_CAR_1]DB421.DBB  106':
+        - '[3_P_CAR_1]DB421.DBB  105'
+        - '[3_P_CAR_1]DB421.DBB  106'
+        - '[3_P_CAR_1]MB      58'
+        - '[3_P_CAR_1]MB     134'
+        - '[3_P_CAR_1]MB    1000'
+        - '[3_P_CAR_1]MB    1001'
+        - '[3_P_CAR_1]QB      29'
+        - '[3_P_CAR_1]QB      51'
+        '[3_P_CAR_1]DB421.DBB  124':
+        - '[3_P_CAR_1]DB421.DBB  124'
+        '[3_P_CAR_1]DB421.DBB  162':
+        - '[3_P_CAR_1]DB421.DBB  162'
+        '[3_P_CAR_1]DB421.DBB  212':
+        - '[3_P_CAR_1]DB421.DBB  212'
+        - '[3_P_CAR_1]MB      64'
+        '[3_P_CAR_1]DB421.DBB  251':
+        - '[3_P_CAR_1]DB421.DBB  251'
+        '[3_P_CAR_1]IB       0':
+        - '[3_P_CAR_1]IB       0'
+        '[3_P_CAR_1]IB       1':
+        - '[3_P_CAR_1]IB       1'
+        '[3_P_CAR_1]IB       3':
+        - '[3_P_CAR_1]IB       3'
+        '[3_P_CAR_1]IB      11':
+        - '[3_P_CAR_1]DB421.DBB   55'
+        - '[3_P_CAR_1]IB      11'
+        '[3_P_CAR_1]IB      22':
+        - '[3_P_CAR_1]IB      22'
+        '[3_P_CAR_1]IB      38':
+        - '[3_P_CAR_1]IB      38'
+        '[3_P_CAR_1]IB     110':
+        - '[3_P_CAR_1]IB     110'
+        '[3_P_CAR_1]IB     111':
+        - '[3_P_CAR_1]IB     111'
+        '[3_P_CAR_1]IB     112':
+        - '[3_P_CAR_1]DB421.DBB   96'
+        - '[3_P_CAR_1]IB     112'
+        '[3_P_CAR_1]MB       1':
+        - '[3_P_CAR_1]MB       1'
+        '[3_P_CAR_1]MB      10':
+        - '[3_P_CAR_1]MB      10'
+        '[3_P_CAR_1]MB      12':
+        - '[3_P_CAR_1]MB      12'
+        '[3_P_CAR_1]MB      13':
+        - '[3_P_CAR_1]MB      13'
+        '[3_P_CAR_1]MB      14':
+        - '[3_P_CAR_1]MB      14'
+        '[3_P_CAR_1]MB      17':
+        - '[3_P_CAR_1]MB      17'
+        '[3_P_CAR_1]MB      21':
+        - '[3_P_CAR_1]MB      21'
+        '[3_P_CAR_1]MB      30':
+        - '[3_P_CAR_1]MB      30'
+        '[3_P_CAR_1]MB      31':
+        - '[3_P_CAR_1]MB      31'
+        '[3_P_CAR_1]MB      32':
+        - '[3_P_CAR_1]MB      32'
+        '[3_P_CAR_1]MB      35':
+        - '[3_P_CAR_1]MB      35'
+        '[3_P_CAR_1]MB      36':
+        - '[3_P_CAR_1]MB      36'
+        '[3_P_CAR_1]MB      39':
+        - '[3_P_CAR_1]MB      39'
+        '[3_P_CAR_1]MB      40':
+        - '[3_P_CAR_1]MB      40'
+        '[3_P_CAR_1]MB      41':
+        - '[3_P_CAR_1]MB      41'
+        '[3_P_CAR_1]MB      42':
+        - '[3_P_CAR_1]DB421.DBB  163'
+        - '[3_P_CAR_1]MB      42'
+        '[3_P_CAR_1]MB      44':
+        - '[3_P_CAR_1]MB      44'
+        '[3_P_CAR_1]MB      61':
+        - '[3_P_CAR_1]MB      61'
+        '[3_P_CAR_1]MB      65':
+        - '[3_P_CAR_1]MB      65'
+        '[3_P_CAR_1]MB      66':
+        - '[3_P_CAR_1]MB      66'
+        '[3_P_CAR_1]MB      67':
+        - '[3_P_CAR_1]DB421.DBB   57'
+        - '[3_P_CAR_1]MB      67'
+        '[3_P_CAR_1]MB      68':
+        - '[3_P_CAR_1]MB      68'
+        '[3_P_CAR_1]MB      70':
+        - '[3_P_CAR_1]MB      70'
+        '[3_P_CAR_1]MB      71':
+        - '[3_P_CAR_1]MB      71'
+        '[3_P_CAR_1]MB      72':
+        - '[3_P_CAR_1]MB      72'
+        '[3_P_CAR_1]MB      73':
+        - '[3_P_CAR_1]MB      73'
+        '[3_P_CAR_1]MB      75':
+        - '[3_P_CAR_1]MB      75'
+        '[3_P_CAR_1]MB      76':
+        - '[3_P_CAR_1]DB421.DBB   54'
+        - '[3_P_CAR_1]MB      69'
+        - '[3_P_CAR_1]MB      76'
+        - '[3_P_CAR_1]MB     125'
+        - '[3_P_CAR_1]MB     303'
+        - '[3_P_CAR_1]QB      22'
+        '[3_P_CAR_1]MB      81':
+        - '[3_P_CAR_1]MB      81'
+        '[3_P_CAR_1]MB      82':
+        - '[3_P_CAR_1]MB      82'
+        '[3_P_CAR_1]MB      84':
+        - '[3_P_CAR_1]MB      84'
+        '[3_P_CAR_1]MB     117':
+        - '[3_P_CAR_1]MB     117'
+        '[3_P_CAR_1]MB     140':
+        - '[3_P_CAR_1]DB421.DBB   24'
+        - '[3_P_CAR_1]MB     124'
+        - '[3_P_CAR_1]MB     140'
+        - '[3_P_CAR_1]MB     182'
+        - '[3_P_CAR_1]MB     301'
+        - '[3_P_CAR_1]QB       4'
+        - '[3_P_CAR_1]QB      21'
+        '[3_P_CAR_1]MB     153':
+        - '[3_P_CAR_1]MB     152'
+        - '[3_P_CAR_1]MB     153'
+        - '[3_P_CAR_1]QB      10'
+        '[3_P_CAR_1]MB     171':
+        - '[3_P_CAR_1]MB     171'
+        '[3_P_CAR_1]MB     181':
+        - '[3_P_CAR_1]MB     181'
+        - '[3_P_CAR_1]MB     284'
+        - '[3_P_CAR_1]MB     285'
+        - '[3_P_CAR_1]MB     706'
+        '[3_P_CAR_1]MB     195':
+        - '[3_P_CAR_1]MB     194'
+        - '[3_P_CAR_1]MB     195'
+        - '[3_P_CAR_1]MB     500'
+        '[3_P_CAR_1]MB     240':
+        - '[3_P_CAR_1]MB     240'
+        '[3_P_CAR_1]MB     259':
+        - '[3_P_CAR_1]MB     259'
+        '[3_P_CAR_1]MB     260':
+        - '[3_P_CAR_1]DB421.DBB   10'
+        - '[3_P_CAR_1]DB421.DBB  108'
+        - '[3_P_CAR_1]DB421.DBB  109'
+        - '[3_P_CAR_1]DB421.DBB  118'
+        - '[3_P_CAR_1]DB421.DBB  119'
+        - '[3_P_CAR_1]DB421.DBB  120'
+        - '[3_P_CAR_1]DB421.DBB  121'
+        - '[3_P_CAR_1]DB421.DBB  122'
+        - '[3_P_CAR_1]IB      60'
+        - '[3_P_CAR_1]IB      61'
+        - '[3_P_CAR_1]IB      62'
+        - '[3_P_CAR_1]IB      63'
+        - '[3_P_CAR_1]IB      64'
+        - '[3_P_CAR_1]MB      23'
+        - '[3_P_CAR_1]MB     260'
+        - '[3_P_CAR_1]MB     266'
+        - '[3_P_CAR_1]MB     270'
+        - '[3_P_CAR_1]MB     272'
+        - '[3_P_CAR_1]MB     281'
+        - '[3_P_CAR_1]QB      46'
+        - '[3_P_CAR_1]QB      47'
+        - '[3_P_CAR_1]QB      49'
+        '[3_P_CAR_1]MB     261':
+        - '[3_P_CAR_1]MB     261'
+        '[3_P_CAR_1]MB     262':
+        - '[3_P_CAR_1]MB     262'
+        '[3_P_CAR_1]MB     263':
+        - '[3_P_CAR_1]DB421.DBB  205'
+        - '[3_P_CAR_1]MB     263'
+        '[3_P_CAR_1]MB     264':
+        - '[3_P_CAR_1]MB     264'
+        '[3_P_CAR_1]MB     267':
+        - '[3_P_CAR_1]MB     267'
+        '[3_P_CAR_1]MB     290':
+        - '[3_P_CAR_1]MB     290'
+        '[3_P_CAR_1]MB     291':
+        - '[3_P_CAR_1]DB421.DBB   44'
+        - '[3_P_CAR_1]MB      59'
+        - '[3_P_CAR_1]MB     121'
+        - '[3_P_CAR_1]MB     222'
+        - '[3_P_CAR_1]MB     291'
+        '[3_P_CAR_1]MB     292':
+        - '[3_P_CAR_1]MB     292'
+        '[3_P_CAR_1]MB     297':
+        - '[3_P_CAR_1]DB421.DBB   12'
+        - '[3_P_CAR_1]DB421.DBB   25'
+        - '[3_P_CAR_1]DB421.DBB   49'
+        - '[3_P_CAR_1]DB421.DBB   99'
+        - '[3_P_CAR_1]DB421.DBB  102'
+        - '[3_P_CAR_1]DB421.DBB  116'
+        - '[3_P_CAR_1]DB421.DBB  150'
+        - '[3_P_CAR_1]IB       2'
+        - '[3_P_CAR_1]IB      32'
+        - '[3_P_CAR_1]IB      52'
+        - '[3_P_CAR_1]IB      65'
+        - '[3_P_CAR_1]MB      16'
+        - '[3_P_CAR_1]MB      26'
+        - '[3_P_CAR_1]MB      27'
+        - '[3_P_CAR_1]MB      37'
+        - '[3_P_CAR_1]MB      43'
+        - '[3_P_CAR_1]MB      47'
+        - '[3_P_CAR_1]MB      51'
+        - '[3_P_CAR_1]MB      54'
+        - '[3_P_CAR_1]MB      63'
+        - '[3_P_CAR_1]MB     175'
+        - '[3_P_CAR_1]MB     244'
+        - '[3_P_CAR_1]MB     245'
+        - '[3_P_CAR_1]MB     269'
+        - '[3_P_CAR_1]MB     280'
+        - '[3_P_CAR_1]MB     297'
+        - '[3_P_CAR_1]QB      19'
+        - '[3_P_CAR_1]QB      25'
+        '[3_P_CAR_1]MB     300':
+        - '[3_P_CAR_1]MB      15'
+        - '[3_P_CAR_1]MB     300'
+        '[3_P_CAR_1]MB     304':
+        - '[3_P_CAR_1]MB     304'
+        '[3_P_CAR_1]MB     402':
+        - '[3_P_CAR_1]DB421.DBB  216'
+        - '[3_P_CAR_1]MB     402'
+        '[3_P_CAR_1]MB     410':
+        - '[3_P_CAR_1]DB421.DBB  224'
+        - '[3_P_CAR_1]MB     410'
+        '[3_P_CAR_1]MB     411':
+        - '[3_P_CAR_1]DB421.DBB  225'
+        - '[3_P_CAR_1]MB     411'
+        '[3_P_CAR_1]MB     439':
+        - '[3_P_CAR_1]MB     404'
+        - '[3_P_CAR_1]MB     415'
+        - '[3_P_CAR_1]MB     439'
+        '[3_P_CAR_1]MB     456':
+        - '[3_P_CAR_1]DB421.DBB  270'
+        - '[3_P_CAR_1]MB     456'
+        '[3_P_CAR_1]MB     739':
+        - '[3_P_CAR_1]MB     739'
+        '[3_P_CAR_1]MB     814':
+        - '[3_P_CAR_1]MB     814'
+        '[3_P_CAR_1]QB       1':
+        - '[3_P_CAR_1]QB       1'
+        '[3_P_CAR_1]QB       2':
+        - '[3_P_CAR_1]DB421.DBB   28'
+        - '[3_P_CAR_1]QB       2'
+        - '[3_P_CAR_1]QB      12'
+        '[3_P_CAR_1]QB       3':
+        - '[3_P_CAR_1]QB       3'
+        '[3_P_CAR_1]QB       5':
+        - '[3_P_CAR_1]QB       5'
+        '[3_P_CAR_1]QB       6':
+        - '[3_P_CAR_1]QB       6'
+        '[3_P_CAR_1]QB       7':
+        - '[3_P_CAR_1]QB       7'
+        '[3_P_CAR_1]QB       8':
+        - '[3_P_CAR_1]DB421.DBB   56'
+        - '[3_P_CAR_1]IB      12'
+        - '[3_P_CAR_1]QB       8'
+        '[3_P_CAR_1]QB      15':
+        - '[3_P_CAR_1]QB      15'
+        '[3_P_CAR_1]QB      23':
+        - '[3_P_CAR_1]DB421.DBB   45'
+        - '[3_P_CAR_1]DB421.DBB   46'
+        - '[3_P_CAR_1]DB421.DBB   48'
+        - '[3_P_CAR_1]DB421.DBB   70'
+        - '[3_P_CAR_1]DB421.DBB  103'
+        - '[3_P_CAR_1]DB421.DBB  151'
+        - '[3_P_CAR_1]DB421.DBB  152'
+        - '[3_P_CAR_1]DB421.DBB  153'
+        - '[3_P_CAR_1]DB421.DBB  160'
+        - '[3_P_CAR_1]DB421.DBB  161'
+        - '[3_P_CAR_1]DB421.DBB  164'
+        - '[3_P_CAR_1]DB421.DBB  214'
+        - '[3_P_CAR_1]DB421.DBB  215'
+        - '[3_P_CAR_1]DB421.DBB  250'
+        - '[3_P_CAR_1]IB      21'
+        - '[3_P_CAR_1]IB      33'
+        - '[3_P_CAR_1]IB      34'
+        - '[3_P_CAR_1]IB      37'
+        - '[3_P_CAR_1]IB      40'
+        - '[3_P_CAR_1]IB      43'
+        - '[3_P_CAR_1]IB      44'
+        - '[3_P_CAR_1]IB      45'
+        - '[3_P_CAR_1]IB      47'
+        - '[3_P_CAR_1]IB      49'
+        - '[3_P_CAR_1]IB      58'
+        - '[3_P_CAR_1]MB      33'
+        - '[3_P_CAR_1]MB      46'
+        - '[3_P_CAR_1]MB      49'
+        - '[3_P_CAR_1]MB      52'
+        - '[3_P_CAR_1]MB      55'
+        - '[3_P_CAR_1]MB      62'
+        - '[3_P_CAR_1]MB      85'
+        - '[3_P_CAR_1]MB      87'
+        - '[3_P_CAR_1]MB      88'
+        - '[3_P_CAR_1]MB      93'
+        - '[3_P_CAR_1]MB     116'
+        - '[3_P_CAR_1]MB     118'
+        - '[3_P_CAR_1]MB     126'
+        - '[3_P_CAR_1]MB     165'
+        - '[3_P_CAR_1]MB     166'
+        - '[3_P_CAR_1]MB     167'
+        - '[3_P_CAR_1]MB     169'
+        - '[3_P_CAR_1]MB     176'
+        - '[3_P_CAR_1]MB     295'
+        - '[3_P_CAR_1]MB     400'
+        - '[3_P_CAR_1]MB     401'
+        - '[3_P_CAR_1]MB     436'
+        - '[3_P_CAR_1]QB       9'
+        - '[3_P_CAR_1]QB      11'
+        - '[3_P_CAR_1]QB      13'
+        - '[3_P_CAR_1]QB      14'
+        - '[3_P_CAR_1]QB      16'
+        - '[3_P_CAR_1]QB      17'
+        - '[3_P_CAR_1]QB      18'
+        - '[3_P_CAR_1]QB      23'
+        - '[3_P_CAR_1]QB      24'
+        - '[3_P_CAR_1]QB      28'
+        '[3_P_CAR_1]QB      48':
+        - '[3_P_CAR_1]QB      48'
+        '[3_P_CAR_1]QB      50':
+        - '[3_P_CAR_1]QB      50'
+        '[3_P_CAR_1]QB      52':
+        - '[3_P_CAR_1]QB      52'
+        '[3_P_CAR_1]QB      53':
+        - '[3_P_CAR_1]QB      53'
+        '[3_P_CAR_1]QB     103':
+        - '[3_P_CAR_1]QB     103'
+      conditions:
+      - column: '[3_P_CAR_1]IB      20'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 86.0
+      confirmed: false
+    3_P_CAR_2:
+      clusters:
+        '[3_P_CAR_2]IB       1':
+        - '[3_P_CAR_2]IB       1'
+        '[3_P_CAR_2]IB       2':
+        - '[3_P_CAR_2]IB       2'
+        '[3_P_CAR_2]IB       3':
+        - '[3_P_CAR_2]IB       3'
+        '[3_P_CAR_2]IB      11':
+        - '[3_P_CAR_2]IB      11'
+        '[3_P_CAR_2]IB      12':
+        - '[3_P_CAR_2]IB      12'
+        '[3_P_CAR_2]IB      19':
+        - '[3_P_CAR_2]IB      19'
+        '[3_P_CAR_2]IB      22':
+        - '[3_P_CAR_2]IB      22'
+        '[3_P_CAR_2]IB      25':
+        - '[3_P_CAR_2]IB      25'
+        '[3_P_CAR_2]IB      38':
+        - '[3_P_CAR_2]IB      38'
+        '[3_P_CAR_2]IB      47':
+        - '[3_P_CAR_2]IB      47'
+        '[3_P_CAR_2]IB      49':
+        - '[3_P_CAR_2]IB      49'
+        '[3_P_CAR_2]IB      52':
+        - '[3_P_CAR_2]IB      32'
+        - '[3_P_CAR_2]IB      52'
+        '[3_P_CAR_2]IB     101':
+        - '[3_P_CAR_2]IB     101'
+        '[3_P_CAR_2]IB     107':
+        - '[3_P_CAR_2]IB     107'
+        '[3_P_CAR_2]IB     112':
+        - '[3_P_CAR_2]IB     112'
+        '[3_P_CAR_2]MB       1':
+        - '[3_P_CAR_2]MB       1'
+        '[3_P_CAR_2]MB      10':
+        - '[3_P_CAR_2]MB      10'
+        '[3_P_CAR_2]MB      11':
+        - '[3_P_CAR_2]MB      11'
+        '[3_P_CAR_2]MB      12':
+        - '[3_P_CAR_2]MB      12'
+        '[3_P_CAR_2]MB      13':
+        - '[3_P_CAR_2]MB      13'
+        '[3_P_CAR_2]MB      14':
+        - '[3_P_CAR_2]MB      14'
+        '[3_P_CAR_2]MB      16':
+        - '[3_P_CAR_2]MB      16'
+        '[3_P_CAR_2]MB      18':
+        - '[3_P_CAR_2]MB      18'
+        '[3_P_CAR_2]MB      19':
+        - '[3_P_CAR_2]MB      19'
+        '[3_P_CAR_2]MB      21':
+        - '[3_P_CAR_2]MB      21'
+        '[3_P_CAR_2]MB      22':
+        - '[3_P_CAR_2]MB      22'
+        '[3_P_CAR_2]MB      25':
+        - '[3_P_CAR_2]MB      25'
+        '[3_P_CAR_2]MB      26':
+        - '[3_P_CAR_2]MB      26'
+        - '[3_P_CAR_2]MB      29'
+        - '[3_P_CAR_2]MB      87'
+        '[3_P_CAR_2]MB      30':
+        - '[3_P_CAR_2]MB      30'
+        '[3_P_CAR_2]MB      31':
+        - '[3_P_CAR_2]MB      31'
+        '[3_P_CAR_2]MB      32':
+        - '[3_P_CAR_2]MB      32'
+        '[3_P_CAR_2]MB      33':
+        - '[3_P_CAR_2]IB      21'
+        - '[3_P_CAR_2]MB      33'
+        - '[3_P_CAR_2]MB     165'
+        '[3_P_CAR_2]MB      35':
+        - '[3_P_CAR_2]MB      35'
+        '[3_P_CAR_2]MB      36':
+        - '[3_P_CAR_2]MB      36'
+        '[3_P_CAR_2]MB      37':
+        - '[3_P_CAR_2]MB      37'
+        '[3_P_CAR_2]MB      39':
+        - '[3_P_CAR_2]MB      39'
+        '[3_P_CAR_2]MB      40':
+        - '[3_P_CAR_2]MB      40'
+        '[3_P_CAR_2]MB      41':
+        - '[3_P_CAR_2]MB      41'
+        '[3_P_CAR_2]MB      42':
+        - '[3_P_CAR_2]MB      42'
+        '[3_P_CAR_2]MB      43':
+        - '[3_P_CAR_2]MB      43'
+        - '[3_P_CAR_2]MB      47'
+        '[3_P_CAR_2]MB      44':
+        - '[3_P_CAR_2]MB      44'
+        '[3_P_CAR_2]MB      46':
+        - '[3_P_CAR_2]MB      46'
+        - '[3_P_CAR_2]MB      49'
+        - '[3_P_CAR_2]MB     176'
+        - '[3_P_CAR_2]MB     295'
+        - '[3_P_CAR_2]QB      23'
+        '[3_P_CAR_2]MB      52':
+        - '[3_P_CAR_2]IB      44'
+        - '[3_P_CAR_2]MB      52'
+        - '[3_P_CAR_2]MB      55'
+        - '[3_P_CAR_2]MB      93'
+        - '[3_P_CAR_2]MB     166'
+        - '[3_P_CAR_2]MB     169'
+        - '[3_P_CAR_2]QB      17'
+        - '[3_P_CAR_2]QB      18'
+        '[3_P_CAR_2]MB      53':
+        - '[3_P_CAR_2]MB      53'
+        - '[3_P_CAR_2]MB      57'
+        '[3_P_CAR_2]MB      59':
+        - '[3_P_CAR_2]MB      59'
+        '[3_P_CAR_2]MB      61':
+        - '[3_P_CAR_2]MB      61'
+        '[3_P_CAR_2]MB      62':
+        - '[3_P_CAR_2]MB      62'
+        '[3_P_CAR_2]MB      63':
+        - '[3_P_CAR_2]MB      63'
+        '[3_P_CAR_2]MB      65':
+        - '[3_P_CAR_2]MB      65'
+        '[3_P_CAR_2]MB      66':
+        - '[3_P_CAR_2]MB      66'
+        - '[3_P_CAR_2]MB     152'
+        '[3_P_CAR_2]MB      67':
+        - '[3_P_CAR_2]MB      67'
+        '[3_P_CAR_2]MB      68':
+        - '[3_P_CAR_2]MB      68'
+        '[3_P_CAR_2]MB      69':
+        - '[3_P_CAR_2]MB      69'
+        '[3_P_CAR_2]MB      70':
+        - '[3_P_CAR_2]MB      70'
+        '[3_P_CAR_2]MB      71':
+        - '[3_P_CAR_2]MB      71'
+        '[3_P_CAR_2]MB      72':
+        - '[3_P_CAR_2]MB      72'
+        '[3_P_CAR_2]MB      73':
+        - '[3_P_CAR_2]MB      73'
+        '[3_P_CAR_2]MB      75':
+        - '[3_P_CAR_2]MB      75'
+        '[3_P_CAR_2]MB      76':
+        - '[3_P_CAR_2]MB      76'
+        '[3_P_CAR_2]MB      81':
+        - '[3_P_CAR_2]MB      81'
+        '[3_P_CAR_2]MB      82':
+        - '[3_P_CAR_2]MB      82'
+        '[3_P_CAR_2]MB      84':
+        - '[3_P_CAR_2]MB      84'
+        '[3_P_CAR_2]MB      85':
+        - '[3_P_CAR_2]IB      43'
+        - '[3_P_CAR_2]IB      58'
+        - '[3_P_CAR_2]MB      85'
+        - '[3_P_CAR_2]QB      11'
+        '[3_P_CAR_2]MB     116':
+        - '[3_P_CAR_2]MB     116'
+        '[3_P_CAR_2]MB     117':
+        - '[3_P_CAR_2]MB     117'
+        '[3_P_CAR_2]MB     121':
+        - '[3_P_CAR_2]MB     121'
+        '[3_P_CAR_2]MB     126':
+        - '[3_P_CAR_2]IB      40'
+        - '[3_P_CAR_2]MB     126'
+        '[3_P_CAR_2]MB     140':
+        - '[3_P_CAR_2]MB     140'
+        '[3_P_CAR_2]MB     150':
+        - '[3_P_CAR_2]MB     150'
+        - '[3_P_CAR_2]QB      35'
+        '[3_P_CAR_2]MB     153':
+        - '[3_P_CAR_2]MB     153'
+        - '[3_P_CAR_2]QB      10'
+        '[3_P_CAR_2]MB     167':
+        - '[3_P_CAR_2]MB     167'
+        '[3_P_CAR_2]MB     171':
+        - '[3_P_CAR_2]MB     171'
+        '[3_P_CAR_2]MB     181':
+        - '[3_P_CAR_2]MB     181'
+        '[3_P_CAR_2]MB     195':
+        - '[3_P_CAR_2]MB     194'
+        - '[3_P_CAR_2]MB     195'
+        '[3_P_CAR_2]MB     222':
+        - '[3_P_CAR_2]MB     222'
+        '[3_P_CAR_2]MB     243':
+        - '[3_P_CAR_2]MB     243'
+        '[3_P_CAR_2]MB     244':
+        - '[3_P_CAR_2]MB     244'
+        '[3_P_CAR_2]MB     245':
+        - '[3_P_CAR_2]MB     245'
+        '[3_P_CAR_2]MB     261':
+        - '[3_P_CAR_2]MB     261'
+        '[3_P_CAR_2]MB     262':
+        - '[3_P_CAR_2]MB     262'
+        '[3_P_CAR_2]MB     269':
+        - '[3_P_CAR_2]IB      65'
+        - '[3_P_CAR_2]MB     263'
+        - '[3_P_CAR_2]MB     269'
+        - '[3_P_CAR_2]MB     281'
+        '[3_P_CAR_2]MB     280':
+        - '[3_P_CAR_2]MB     280'
+        '[3_P_CAR_2]MB     283':
+        - '[3_P_CAR_2]MB     283'
+        '[3_P_CAR_2]MB     284':
+        - '[3_P_CAR_2]MB     284'
+        '[3_P_CAR_2]MB     285':
+        - '[3_P_CAR_2]MB     285'
+        '[3_P_CAR_2]MB     290':
+        - '[3_P_CAR_2]MB     290'
+        '[3_P_CAR_2]MB     291':
+        - '[3_P_CAR_2]MB     291'
+        '[3_P_CAR_2]MB     292':
+        - '[3_P_CAR_2]MB     292'
+        '[3_P_CAR_2]MB     297':
+        - '[3_P_CAR_2]MB      27'
+        - '[3_P_CAR_2]MB      51'
+        - '[3_P_CAR_2]MB      54'
+        - '[3_P_CAR_2]MB     175'
+        - '[3_P_CAR_2]MB     297'
+        '[3_P_CAR_2]MB     300':
+        - '[3_P_CAR_2]MB      15'
+        - '[3_P_CAR_2]MB      17'
+        - '[3_P_CAR_2]MB     300'
+        - '[3_P_CAR_2]QB      43'
+        '[3_P_CAR_2]MB     301':
+        - '[3_P_CAR_2]MB     124'
+        - '[3_P_CAR_2]MB     182'
+        - '[3_P_CAR_2]MB     301'
+        - '[3_P_CAR_2]QB      21'
+        '[3_P_CAR_2]MB     304':
+        - '[3_P_CAR_2]MB     125'
+        - '[3_P_CAR_2]MB     303'
+        - '[3_P_CAR_2]MB     304'
+        '[3_P_CAR_2]MB     306':
+        - '[3_P_CAR_2]MB     306'
+        '[3_P_CAR_2]MB     400':
+        - '[3_P_CAR_2]MB     400'
+        '[3_P_CAR_2]MB     401':
+        - '[3_P_CAR_2]MB     401'
+        '[3_P_CAR_2]MB     402':
+        - '[3_P_CAR_2]MB     402'
+        '[3_P_CAR_2]MB     403':
+        - '[3_P_CAR_2]MB     403'
+        '[3_P_CAR_2]MB     404':
+        - '[3_P_CAR_2]MB     404'
+        '[3_P_CAR_2]MB     405':
+        - '[3_P_CAR_2]MB     405'
+        '[3_P_CAR_2]MB     406':
+        - '[3_P_CAR_2]MB     406'
+        '[3_P_CAR_2]MB     407':
+        - '[3_P_CAR_2]MB     407'
+        '[3_P_CAR_2]MB     409':
+        - '[3_P_CAR_2]MB     409'
+        '[3_P_CAR_2]MB     410':
+        - '[3_P_CAR_2]MB     410'
+        '[3_P_CAR_2]MB     411':
+        - '[3_P_CAR_2]MB     411'
+        '[3_P_CAR_2]MB     412':
+        - '[3_P_CAR_2]MB     412'
+        '[3_P_CAR_2]MB     413':
+        - '[3_P_CAR_2]MB     413'
+        '[3_P_CAR_2]MB     414':
+        - '[3_P_CAR_2]MB     414'
+        '[3_P_CAR_2]MB     415':
+        - '[3_P_CAR_2]MB     415'
+        '[3_P_CAR_2]MB     416':
+        - '[3_P_CAR_2]MB     416'
+        '[3_P_CAR_2]MB     417':
+        - '[3_P_CAR_2]MB     417'
+        '[3_P_CAR_2]MB     418':
+        - '[3_P_CAR_2]MB     418'
+        '[3_P_CAR_2]MB     420':
+        - '[3_P_CAR_2]MB     420'
+        '[3_P_CAR_2]MB     421':
+        - '[3_P_CAR_2]MB     421'
+        '[3_P_CAR_2]MB     422':
+        - '[3_P_CAR_2]MB     422'
+        '[3_P_CAR_2]MB     423':
+        - '[3_P_CAR_2]MB     423'
+        '[3_P_CAR_2]MB     424':
+        - '[3_P_CAR_2]MB     424'
+        '[3_P_CAR_2]MB     425':
+        - '[3_P_CAR_2]MB     425'
+        '[3_P_CAR_2]MB     426':
+        - '[3_P_CAR_2]MB     426'
+        '[3_P_CAR_2]MB     427':
+        - '[3_P_CAR_2]MB     427'
+        '[3_P_CAR_2]MB     428':
+        - '[3_P_CAR_2]MB     428'
+        '[3_P_CAR_2]MB     429':
+        - '[3_P_CAR_2]MB     429'
+        '[3_P_CAR_2]MB     430':
+        - '[3_P_CAR_2]MB     430'
+        '[3_P_CAR_2]MB     431':
+        - '[3_P_CAR_2]MB     431'
+        '[3_P_CAR_2]MB     434':
+        - '[3_P_CAR_2]MB     434'
+        '[3_P_CAR_2]MB     435':
+        - '[3_P_CAR_2]MB     435'
+        '[3_P_CAR_2]MB     436':
+        - '[3_P_CAR_2]MB     436'
+        '[3_P_CAR_2]MB     438':
+        - '[3_P_CAR_2]MB     438'
+        '[3_P_CAR_2]MB     439':
+        - '[3_P_CAR_2]MB     439'
+        '[3_P_CAR_2]MB     440':
+        - '[3_P_CAR_2]MB     440'
+        '[3_P_CAR_2]MB     442':
+        - '[3_P_CAR_2]MB     442'
+        '[3_P_CAR_2]MB     443':
+        - '[3_P_CAR_2]MB     443'
+        '[3_P_CAR_2]MB     444':
+        - '[3_P_CAR_2]MB     347'
+        - '[3_P_CAR_2]MB     408'
+        - '[3_P_CAR_2]MB     444'
+        '[3_P_CAR_2]MB     446':
+        - '[3_P_CAR_2]MB     446'
+        '[3_P_CAR_2]MB     447':
+        - '[3_P_CAR_2]MB     447'
+        '[3_P_CAR_2]MB     448':
+        - '[3_P_CAR_2]MB     448'
+        '[3_P_CAR_2]MB     450':
+        - '[3_P_CAR_2]MB     450'
+        '[3_P_CAR_2]MB     452':
+        - '[3_P_CAR_2]MB     452'
+        '[3_P_CAR_2]MB     453':
+        - '[3_P_CAR_2]MB     453'
+        '[3_P_CAR_2]MB     454':
+        - '[3_P_CAR_2]MB     454'
+        '[3_P_CAR_2]MB     455':
+        - '[3_P_CAR_2]MB     455'
+        '[3_P_CAR_2]MB     456':
+        - '[3_P_CAR_2]MB     456'
+        '[3_P_CAR_2]MB     457':
+        - '[3_P_CAR_2]MB     457'
+        '[3_P_CAR_2]MB     458':
+        - '[3_P_CAR_2]MB     458'
+        '[3_P_CAR_2]MB     500':
+        - '[3_P_CAR_2]MB     500'
+        '[3_P_CAR_2]MB     704':
+        - '[3_P_CAR_2]MB     704'
+        '[3_P_CAR_2]MB     705':
+        - '[3_P_CAR_2]MB     705'
+        '[3_P_CAR_2]MB     706':
+        - '[3_P_CAR_2]MB     706'
+        '[3_P_CAR_2]MB     707':
+        - '[3_P_CAR_2]MB     707'
+        '[3_P_CAR_2]MB     709':
+        - '[3_P_CAR_2]MB     709'
+        '[3_P_CAR_2]MB     710':
+        - '[3_P_CAR_2]MB     710'
+        '[3_P_CAR_2]MB     713':
+        - '[3_P_CAR_2]MB     713'
+        '[3_P_CAR_2]MB     714':
+        - '[3_P_CAR_2]MB     714'
+        '[3_P_CAR_2]MB     715':
+        - '[3_P_CAR_2]MB     715'
+        '[3_P_CAR_2]MB     716':
+        - '[3_P_CAR_2]MB     716'
+        '[3_P_CAR_2]MB     717':
+        - '[3_P_CAR_2]MB     717'
+        '[3_P_CAR_2]MB     718':
+        - '[3_P_CAR_2]MB     718'
+        '[3_P_CAR_2]MB     719':
+        - '[3_P_CAR_2]MB     719'
+        '[3_P_CAR_2]MB     720':
+        - '[3_P_CAR_2]MB     720'
+        '[3_P_CAR_2]MB     721':
+        - '[3_P_CAR_2]MB     721'
+        '[3_P_CAR_2]MB     722':
+        - '[3_P_CAR_2]MB     722'
+        '[3_P_CAR_2]MB     723':
+        - '[3_P_CAR_2]MB     723'
+        '[3_P_CAR_2]MB     724':
+        - '[3_P_CAR_2]MB     724'
+        '[3_P_CAR_2]MB     726':
+        - '[3_P_CAR_2]MB     726'
+        '[3_P_CAR_2]MB     727':
+        - '[3_P_CAR_2]MB     727'
+        '[3_P_CAR_2]MB     729':
+        - '[3_P_CAR_2]MB     729'
+        '[3_P_CAR_2]MB     730':
+        - '[3_P_CAR_2]MB     730'
+        '[3_P_CAR_2]MB     732':
+        - '[3_P_CAR_2]MB     732'
+        '[3_P_CAR_2]MB     734':
+        - '[3_P_CAR_2]MB     734'
+        '[3_P_CAR_2]MB     735':
+        - '[3_P_CAR_2]MB     735'
+        '[3_P_CAR_2]MB     736':
+        - '[3_P_CAR_2]MB     736'
+        '[3_P_CAR_2]MB     738':
+        - '[3_P_CAR_2]MB     738'
+        '[3_P_CAR_2]MB     739':
+        - '[3_P_CAR_2]MB     739'
+        '[3_P_CAR_2]MB     741':
+        - '[3_P_CAR_2]MB     741'
+        '[3_P_CAR_2]MB     742':
+        - '[3_P_CAR_2]MB     742'
+        '[3_P_CAR_2]MB     745':
+        - '[3_P_CAR_2]MB     745'
+        '[3_P_CAR_2]MB     746':
+        - '[3_P_CAR_2]MB     746'
+        '[3_P_CAR_2]MB     748':
+        - '[3_P_CAR_2]MB     748'
+        '[3_P_CAR_2]MB     750':
+        - '[3_P_CAR_2]MB     750'
+        '[3_P_CAR_2]MB     751':
+        - '[3_P_CAR_2]MB     751'
+        '[3_P_CAR_2]MB     752':
+        - '[3_P_CAR_2]MB     752'
+        '[3_P_CAR_2]MB     753':
+        - '[3_P_CAR_2]MB     753'
+        '[3_P_CAR_2]MB     754':
+        - '[3_P_CAR_2]MB     754'
+        '[3_P_CAR_2]MB     755':
+        - '[3_P_CAR_2]MB     755'
+        '[3_P_CAR_2]MB     756':
+        - '[3_P_CAR_2]MB     756'
+        '[3_P_CAR_2]MB     790':
+        - '[3_P_CAR_2]MB     790'
+        '[3_P_CAR_2]MB     791':
+        - '[3_P_CAR_2]MB     791'
+        '[3_P_CAR_2]QB       1':
+        - '[3_P_CAR_2]QB       1'
+        '[3_P_CAR_2]QB       2':
+        - '[3_P_CAR_2]QB       2'
+        '[3_P_CAR_2]QB       3':
+        - '[3_P_CAR_2]QB       3'
+        '[3_P_CAR_2]QB       4':
+        - '[3_P_CAR_2]IB       8'
+        - '[3_P_CAR_2]QB       4'
+        '[3_P_CAR_2]QB       5':
+        - '[3_P_CAR_2]QB       5'
+        '[3_P_CAR_2]QB       6':
+        - '[3_P_CAR_2]QB       6'
+        '[3_P_CAR_2]QB       7':
+        - '[3_P_CAR_2]IB      20'
+        - '[3_P_CAR_2]IB      60'
+        - '[3_P_CAR_2]IB      61'
+        - '[3_P_CAR_2]IB      62'
+        - '[3_P_CAR_2]IB      63'
+        - '[3_P_CAR_2]IB      64'
+        - '[3_P_CAR_2]MB      23'
+        - '[3_P_CAR_2]MB     260'
+        - '[3_P_CAR_2]MB     264'
+        - '[3_P_CAR_2]MB     266'
+        - '[3_P_CAR_2]MB     270'
+        - '[3_P_CAR_2]MB     272'
+        - '[3_P_CAR_2]QB       7'
+        - '[3_P_CAR_2]QB      46'
+        - '[3_P_CAR_2]QB      47'
+        - '[3_P_CAR_2]QB      49'
+        '[3_P_CAR_2]QB       8':
+        - '[3_P_CAR_2]QB       8'
+        '[3_P_CAR_2]QB       9':
+        - '[3_P_CAR_2]IB      33'
+        - '[3_P_CAR_2]IB      34'
+        - '[3_P_CAR_2]MB      88'
+        - '[3_P_CAR_2]MB     118'
+        - '[3_P_CAR_2]QB       9'
+        - '[3_P_CAR_2]QB      13'
+        - '[3_P_CAR_2]QB      28'
+        '[3_P_CAR_2]QB      12':
+        - '[3_P_CAR_2]QB      12'
+        '[3_P_CAR_2]QB      14':
+        - '[3_P_CAR_2]QB      14'
+        '[3_P_CAR_2]QB      15':
+        - '[3_P_CAR_2]QB      15'
+        '[3_P_CAR_2]QB      16':
+        - '[3_P_CAR_2]QB      16'
+        '[3_P_CAR_2]QB      19':
+        - '[3_P_CAR_2]QB      19'
+        '[3_P_CAR_2]QB      20':
+        - '[3_P_CAR_2]QB      20'
+        '[3_P_CAR_2]QB      22':
+        - '[3_P_CAR_2]QB      22'
+        '[3_P_CAR_2]QB      24':
+        - '[3_P_CAR_2]QB      24'
+        '[3_P_CAR_2]QB      25':
+        - '[3_P_CAR_2]QB      25'
+        '[3_P_CAR_2]QB      26':
+        - '[3_P_CAR_2]QB      26'
+        '[3_P_CAR_2]QB      48':
+        - '[3_P_CAR_2]QB      48'
+        '[3_P_CAR_2]QB      52':
+        - '[3_P_CAR_2]QB      52'
+        '[3_P_CAR_2]QB      53':
+        - '[3_P_CAR_2]QB      51'
+        - '[3_P_CAR_2]QB      53'
+        '[3_P_CAR_2]QB     100':
+        - '[3_P_CAR_2]QB     100'
+        '[3_P_CAR_2]QB     101':
+        - '[3_P_CAR_2]QB     101'
+        '[3_P_CAR_2]QB     102':
+        - '[3_P_CAR_2]QB     102'
+        '[3_P_CAR_2]QB     103':
+        - '[3_P_CAR_2]QB     103'
+      conditions:
+      - column: '[3_P_CAR_2]IB       9'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 1.0
+      confirmed: false
+    4_CO_PLC_A:
+      clusters:
+        '[4_CO_PLC_A]DB421.DBB    3':
+        - '[4_CO_PLC_A]DB421.DBB    3'
+        - '[4_CO_PLC_A]MB    1003'
+        - '[4_CO_PLC_A]MB    1005'
+        '[4_CO_PLC_A]DB421.DBB   26':
+        - '[4_CO_PLC_A]DB421.DBB   26'
+        - '[4_CO_PLC_A]IB      13'
+        - '[4_CO_PLC_A]IB      15'
+        '[4_CO_PLC_A]DB421.DBB   28':
+        - '[4_CO_PLC_A]DB421.DBB   28'
+        '[4_CO_PLC_A]DB421.DBB   34':
+        - '[4_CO_PLC_A]DB421.DBB   34'
+        '[4_CO_PLC_A]DB421.DBB   60':
+        - '[4_CO_PLC_A]DB421.DBB   60'
+        '[4_CO_PLC_A]DB421.DBB   61':
+        - '[4_CO_PLC_A]DB421.DBB   61'
+        - '[4_CO_PLC_A]MB      21'
+        - '[4_CO_PLC_A]MB      41'
+        '[4_CO_PLC_A]IB      14':
+        - '[4_CO_PLC_A]DB421.DBB   27'
+        - '[4_CO_PLC_A]IB      14'
+        '[4_CO_PLC_A]MB      19':
+        - '[4_CO_PLC_A]MB      19'
+        '[4_CO_PLC_A]MB      20':
+        - '[4_CO_PLC_A]MB      20'
+        '[4_CO_PLC_A]MB      42':
+        - '[4_CO_PLC_A]MB      42'
+        '[4_CO_PLC_A]MB      43':
+        - '[4_CO_PLC_A]MB      43'
+        - '[4_CO_PLC_A]QB      15'
+        '[4_CO_PLC_A]MB      63':
+        - '[4_CO_PLC_A]DB421.DBB   35'
+        - '[4_CO_PLC_A]MB      63'
+        '[4_CO_PLC_A]MB     130':
+        - '[4_CO_PLC_A]MB     130'
+        '[4_CO_PLC_A]MB    1000':
+        - '[4_CO_PLC_A]MB    1000'
+        '[4_CO_PLC_A]MB    1001':
+        - '[4_CO_PLC_A]MB    1001'
+        '[4_CO_PLC_A]MB    1006':
+        - '[4_CO_PLC_A]MB    1006'
+        '[4_CO_PLC_A]QB      13':
+        - '[4_CO_PLC_A]QB      13'
+        '[4_CO_PLC_A]QB      40':
+        - '[4_CO_PLC_A]IB      12'
+        - '[4_CO_PLC_A]QB      40'
+        '[4_CO_PLC_A]QB      41':
+        - '[4_CO_PLC_A]QB      41'
+      conditions:
+      - column: '[4_CO_PLC_A]MB      40'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 2.5
+      confirmed: false
+    4_CO_PLC_B:
+      clusters:
+        '[4_CO_PLC_B]DB421.DBB    3':
+        - '[4_CO_PLC_B]DB421.DBB    3'
+        - '[4_CO_PLC_B]MB    1003'
+        - '[4_CO_PLC_B]MB    1005'
+        '[4_CO_PLC_B]DB421.DBB   26':
+        - '[4_CO_PLC_B]DB421.DBB   26'
+        - '[4_CO_PLC_B]IB      13'
+        - '[4_CO_PLC_B]IB      15'
+        '[4_CO_PLC_B]DB421.DBB   28':
+        - '[4_CO_PLC_B]DB421.DBB   28'
+        '[4_CO_PLC_B]DB421.DBB   34':
+        - '[4_CO_PLC_B]DB421.DBB   34'
+        '[4_CO_PLC_B]DB421.DBB   60':
+        - '[4_CO_PLC_B]DB421.DBB   60'
+        - '[4_CO_PLC_B]MB      40'
+        '[4_CO_PLC_B]DB421.DBB   61':
+        - '[4_CO_PLC_B]DB421.DBB   61'
+        '[4_CO_PLC_B]IB      12':
+        - '[4_CO_PLC_B]IB      12'
+        - '[4_CO_PLC_B]QB      40'
+        '[4_CO_PLC_B]IB      14':
+        - '[4_CO_PLC_B]DB421.DBB   27'
+        - '[4_CO_PLC_B]IB      14'
+        '[4_CO_PLC_B]MB      19':
+        - '[4_CO_PLC_B]MB      19'
+        '[4_CO_PLC_B]MB      20':
+        - '[4_CO_PLC_B]MB      20'
+        '[4_CO_PLC_B]MB      21':
+        - '[4_CO_PLC_B]MB      21'
+        '[4_CO_PLC_B]MB      41':
+        - '[4_CO_PLC_B]MB      41'
+        '[4_CO_PLC_B]MB      42':
+        - '[4_CO_PLC_B]MB      42'
+        '[4_CO_PLC_B]MB      63':
+        - '[4_CO_PLC_B]DB421.DBB   35'
+        - '[4_CO_PLC_B]MB      63'
+        '[4_CO_PLC_B]MB     130':
+        - '[4_CO_PLC_B]MB     130'
+        '[4_CO_PLC_B]MB    1000':
+        - '[4_CO_PLC_B]MB    1000'
+        '[4_CO_PLC_B]QB      13':
+        - '[4_CO_PLC_B]QB      13'
+        '[4_CO_PLC_B]QB      41':
+        - '[4_CO_PLC_B]QB      41'
+      conditions:
+      - column: '[4_CO_PLC_B]IB       6'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 2.0
+      confirmed: false
+    4_ECS_PLC_A:
+      clusters:
+        '[4_ECS_PLC_A]IB      14':
+        - '[4_ECS_PLC_A]IB      14'
+        '[4_ECS_PLC_A]MB       1':
+        - '[4_ECS_PLC_A]MB       1'
+        '[4_ECS_PLC_A]QB      26':
+        - '[4_ECS_PLC_A]QB      26'
+      conditions:
+      - column: '[4_ECS_PLC_A]IB      17'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 191.0
+      confirmed: false
+    4_ECS_PLC_B:
+      clusters:
+        '[4_ECS_PLC_B]DB401.DBB   13':
+        - '[4_ECS_PLC_B]DB401.DBB   13'
+        '[4_ECS_PLC_B]DB401.DBB   16':
+        - '[4_ECS_PLC_B]DB401.DBB   16'
+        - '[4_ECS_PLC_B]IB      18'
+        '[4_ECS_PLC_B]DB401.DBB   22':
+        - '[4_ECS_PLC_B]DB401.DBB   22'
+        - '[4_ECS_PLC_B]DB401.DBB   43'
+        '[4_ECS_PLC_B]DB401.DBB  116':
+        - '[4_ECS_PLC_B]DB401.DBB   25'
+        - '[4_ECS_PLC_B]DB401.DBB   42'
+        - '[4_ECS_PLC_B]DB401.DBB  116'
+        - '[4_ECS_PLC_B]DB401.DBB  117'
+        - '[4_ECS_PLC_B]IB      13'
+        - '[4_ECS_PLC_B]QB       3'
+        '[4_ECS_PLC_B]DB401.DBB  123':
+        - '[4_ECS_PLC_B]DB401.DBB  123'
+        - '[4_ECS_PLC_B]IB      21'
+        '[4_ECS_PLC_B]DB401.DBB  124':
+        - '[4_ECS_PLC_B]DB401.DBB   12'
+        - '[4_ECS_PLC_B]DB401.DBB  124'
+        - '[4_ECS_PLC_B]IB      20'
+        '[4_ECS_PLC_B]IB       8':
+        - '[4_ECS_PLC_B]IB       8'
+        '[4_ECS_PLC_B]IB      14':
+        - '[4_ECS_PLC_B]IB      14'
+        '[4_ECS_PLC_B]IB      15':
+        - '[4_ECS_PLC_B]IB      15'
+        '[4_ECS_PLC_B]IB      19':
+        - '[4_ECS_PLC_B]IB      19'
+        '[4_ECS_PLC_B]MB       0':
+        - '[4_ECS_PLC_B]MB       0'
+        '[4_ECS_PLC_B]MB       1':
+        - '[4_ECS_PLC_B]MB       1'
+        '[4_ECS_PLC_B]MB      44':
+        - '[4_ECS_PLC_B]DB401.DBB   19'
+        - '[4_ECS_PLC_B]IB      26'
+        - '[4_ECS_PLC_B]MB      18'
+        - '[4_ECS_PLC_B]MB      19'
+        - '[4_ECS_PLC_B]MB      42'
+        - '[4_ECS_PLC_B]MB      43'
+        - '[4_ECS_PLC_B]MB      44'
+        - '[4_ECS_PLC_B]QB       5'
+        - '[4_ECS_PLC_B]QB      12'
+        '[4_ECS_PLC_B]QB       8':
+        - '[4_ECS_PLC_B]DB401.DBB  108'
+        - '[4_ECS_PLC_B]IB      25'
+        - '[4_ECS_PLC_B]QB       8'
+        '[4_ECS_PLC_B]QB       9':
+        - '[4_ECS_PLC_B]DB401.DBB  109'
+        - '[4_ECS_PLC_B]QB       9'
+        '[4_ECS_PLC_B]QB      10':
+        - '[4_ECS_PLC_B]DB401.DBB  110'
+        - '[4_ECS_PLC_B]QB      10'
+        '[4_ECS_PLC_B]QB      11':
+        - '[4_ECS_PLC_B]DB401.DBB  111'
+        - '[4_ECS_PLC_B]DB401.DBB  112'
+        - '[4_ECS_PLC_B]QB       2'
+        - '[4_ECS_PLC_B]QB      11'
+        '[4_ECS_PLC_B]QB      22':
+        - '[4_ECS_PLC_B]QB      22'
+      conditions:
+      - column: '[4_ECS_PLC_B]IB      44'
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 47.000000000000014
+      confirmed: false
+    __default__:
+      clusters:
+        DB 421.DBW 130_1:
+        - DB 421.DBW 130_1
+        DB 421.DBW 132:
+        - DB 421.DBW 130
+        - DB 421.DBW 132
+        - DB 421.DBW 134
+        DB 421.DBW 132_1:
+        - DB 421.DBW 132_1
+        - DB 421.DBW 134_1
+        DB201.DBX 15.1:
+        - DB201.DBX 15.1
+        DB401.DBD 200_3:
+        - DB401.DBD 200_3
+        DB401.DBD 208_2:
+        - DB401.DBD 208_2
+        DB401.DBD 212_1:
+        - DB401.DBD 212_1
+        DB401.DBD 212_2:
+        - DB401.DBD 212_2
+        DB401.DBD 216:
+        - DB401.DBD 216
+        - DB401.DBD 240
+        DB401.DBD 224_1:
+        - DB401.DBD 200_1
+        - DB401.DBD 224_1
+        - DB401.DBD 228_1
+        DB401.DBD 224_2:
+        - DB401.DBD 224_2
+        DB401.DBD 228:
+        - DB401.DBD 204
+        - DB401.DBD 224
+        - DB401.DBD 228
+        DB401.DBD 228_2:
+        - DB401.DBD 228_2
+        DB401.DBD 228_3:
+        - DB401.DBD 228_3
+        DB401.DBD 232_2:
+        - DB401.DBD 232_2
+        DB401.DBD 232_3:
+        - 4B ECS ���� Bearing �µ�
+        - DB401.DBD 208_1
+        - DB401.DBD 216_1
+        - DB401.DBD 220_3
+        - DB401.DBD 232_3
+        - DB401.DBD 240_1
+        - DB401.DBD 240_3
+        - DB401.DBD 244_1
+        - DB401.DBD 244_3
+        - DB401.DBD 248_2
+        - DB401.DBD 248_3
+        - DB401.DBD 252
+        - DB401.DBD 252_2
+        - DB401.DBD 252_3
+        - DB401.DBD 276
+        - DB401.DBD 276_1
+        - DB401.DBD 276_3
+        - DB401.DBD 280
+        - DB401.DBD 280_1
+        - DB401.DBD 284
+        - DB401.DBD 288
+        - DB401.DBD 288_1
+        - DB401.DBD 288_2
+        - DB401.DBD 292
+        - DB401.DBD 292_1
+        - DB401.DBD 300
+        - DB401.DBD 300_2
+        - DB401.DBD 300_3
+        - DB401.DBD 308
+        - DB401.DBD 308_1
+        - DB401.DBD 308_3
+        - DB401.DBD 312
+        - DB401.DBD 312_1
+        - DB401.DBD 316
+        - DB401.DBD 316_2
+        - DB401.DBD 320_1
+        - DB401.DBD 324_3
+        - DB401.DBD 328_3
+        - DB420.DBB 16_1
+        - DB420.DBB 18_1
+        - DB421.DBB 4_3
+        - DB421.DBB 4_4
+        - DB421.DBB 5_4
+        - DB421.DBB 6_1
+        - DB421.DBB 7_1
+        - DB421.DBB 7_2
+        - DB421.DBD 10
+        - DB421.DBD 10_1
+        - DB421.DBD 112_1
+        - DB421.DBD 196_1
+        - DB421.DBD 6
+        - DB421.DBD 6_1
+        - DB421.DBW   52
+        - DB421.DBW 124_1
+        - DB421.DBW 14
+        - DB421.DBW 14_1
+        - DB421.DBW 16_2
+        - DB421.DBW 174_3
+        - DB421.DBW 178_3
+        - DB421.DBW 184_2
+        - DB421.DBW 186_2
+        - DB421.DBW 188_2
+        - DB421.DBW 190_2
+        - DB421.DBW 192_2
+        - DB421.DBW 194_3
+        - DB421.DBW 20
+        - DB421.DBW 20_1
+        - DB421.DBW 276_2
+        - DB421.DBW 30
+        - DB421.DBW 36_5
+        - DB421.DBW 38_3
+        - DB421.DBW 40_5
+        - DB421.DBW 48_1
+        - DB421.DBW 56
+        - DB421.DBW 56_1
+        - DB421.DBW 62
+        - DB421.DBW 62_1
+        - DB421.DBW 64
+        - DB421.DBW 64_1
+        - DB421.DBW 66
+        - DB421.DBW 66_1
+        - DB421.DBW 68
+        - DB421.DBW 68_1
+        - DB421.DBW 70
+        - DB421.DBW 70_1
+        - DB421.DBW 72
+        - DB421.DBW 76_1
+        - DB421.DBW 90_4
+        - DB421.DBW10
+        - DB421.DBW104_1
+        - DB421.DBW106_1
+        - DB421.DBW108_1
+        - DB421.DBW12
+        - DB421.DBW14
+        - DB421.DBW20
+        - DB421.DBW20_1
+        - DB421.DBW22
+        - DB421.DBW38
+        - DB421.DBW40
+        - DB421.DBW42
+        - DB421.DBW44
+        - DB421.DBW46
+        - DB421.DBW48_1
+        - DB421.DBW50
+        - DB421.DBW50_1
+        - DB421.DBW52
+        - DB421.DBW52_1
+        - DB421.DBW54
+        - DB421.DBW54_1
+        - DB421.DBW56
+        - DB421.DBW6
+        - DB421.DBW64
+        - DB421.DBW64_1
+        - DB421.DBW66
+        - DB421.DBW66_1
+        - DB421.DBW68
+        - DB421.DBW68_1
+        - DB421.DBW70
+        - DB421.DBW70_1
+        - DB421.DBW72_1
+        - DB421.DBW76_1
+        - DB421.DBW8
+        - DB421.DBW88_1
+        - DB421.DBW90_1
+        - DB421.DBW92_1
+        - DB422.DBB 312_1
+        - DB422.DBB 313_1
+        - DB422.DBB 315_1
+        - DB422.DBB 316_1
+        - DB422.DBB 317_1
+        - DB422.DBB 318_1
+        - DB422.DBB 323_1
+        - DB422.DBB 324_1
+        - DB422.DBD 160
+        - DB422.DBD 160_1
+        - DB422.DBD 164_1
+        - DB422.DBD 164_2
+        - DB422.DBD 168_1
+        - DB422.DBD 168_2
+        - DB422.DBD 172
+        - DB422.DBD 172_1
+        - DB422.DBD 172_2
+        - DB422.DBD 180_2
+        - DB422.DBD 184_2
+        - DB422.DBD 188_2
+        - DB422.DBD 212_2
+        - DB422.DBD 216_2
+        - DB422.DBD 220_2
+        - DB422.DBD 232_1
+        - DB422.DBD 236_1
+        - DB422.DBD 240_1
+        - DB422.DBD 244_1
+        - DB422.DBD 248_1
+        - DB422.DBD 252_1
+        - DB422.DBD 272_1
+        - DB422.DBD 276_1
+        - DB422.DBD 276_2
+        - DB422.DBD 280_2
+        - DB422.DBD 284_1
+        - DB422.DBD 284_2
+        - DB422.DBD 288_1
+        - DB422.DBD 292_1
+        - DB422.DBD 300_1
+        - DB422.DBW 10_2
+        - DB422.DBW 12_2
+        - DB422.DBW 14_2
+        - DB422.DBW 16_2
+        - DB422.DBW 18_2
+        - DB422.DBW 20_2
+        - DB422.DBW 26_1
+        - DB422.DBW 30_1
+        - DB422.DBW 48_1
+        - DB422.DBW 4_1
+        - DB422.DBW 4_2
+        - DB422.DBW 52_2
+        - DB422.DBW 8_1
+        - DB422.DBW 8_2
+        - DB423.DBD 100_1
+        - DB423.DBD 38
+        - DB423.DBD 38_1
+        - DB423.DBD 42
+        - DB423.DBD 42_1
+        - DB423.DBD 580
+        - DB423.DBD 584
+        - MB    118_2
+        - MB    119_2
+        - MD    110
+        - MD    110_1
+        - MD    110_2
+        - MD    110_3
+        - MD    114_2
+        - MD    300
+        - MD    300_1
+        - MD    306
+        - MD    306_1
+        - MD    312
+        - MD    312_1
+        - MD    336
+        - MD    336_1
+        - MW     12_1
+        - MW     80
+        - MW     80_1
+        - MW    164
+        - MW    168
+        - MW    200_2
+        - MW    220
+        - MW    224
+        - MW    260_1
+        - MW    260_2
+        - MW    262_1
+        - MW    262_2
+        - MW    264_1
+        - MW    264_2
+        - MW    266_1
+        - MW    266_2
+        - MW    280_1
+        - MW    280_2
+        - MW    282_1
+        - MW    282_2
+        - MW    298_1
+        - MW    310
+        - MW    310_1
+        - MW    310_2
+        - MW    312
+        - MW    334_1
+        - MW    342_1
+        - MW    360
+        - MW    820_2
+        - MW   2008
+        - MW   2008_1
+        - MW   2008_3
+        - MW   2010
+        - MW   2010_1
+        - MW   2010_2
+        - MW   2010_3
+        - MW   3004_1
+        - MW   3004_2
+        - PIW   576
+        - PIW   576_1
+        - PIW   578_1
+        - PIW   582
+        - PIW   582_1
+        - PIW   616
+        - PIW   618
+        - QW      5_1
+        - QW      7
+        - QW      7_1
+        DB401.DBD 236:
+        - DB401.DBD 236
+        DB401.DBD 236_1:
+        - DB401.DBD 236_1
+        DB401.DBD 236_2:
+        - DB401.DBD 236_2
+        - DB421.DBW 72_2
+        DB401.DBD 236_3:
+        - DB401.DBD 236_3
+        DB401.DBD 240_2:
+        - DB401.DBD 216_2
+        - DB401.DBD 220_2
+        - DB401.DBD 240_2
+        - DB401.DBD 276_2
+        - DB401.DBD 308_2
+        - DB421.DBW 100_1
+        - DB421.DBW 102_1
+        - DB421.DBW 104_1
+        - DB421.DBW 106_1
+        - DB421.DBW 108_1
+        - DB421.DBW 112_1
+        - DB421.DBW 114_1
+        - DB421.DBW 118_1
+        - DB421.DBW 120_1
+        - DB421.DBW 128_4
+        - DB421.DBW 130
+        - DB421.DBW 88_1
+        - DB421.DBW 90_1
+        - DB421.DBW 92_1
+        - DB421.DBW 94_1
+        - DB421.DBW 96_1
+        - DB421.DBW14_1
+        - DB421.DBW76
+        - DB421.DBW78
+        - DB422.DBD 236_2
+        - DB422.DBD 240_2
+        - DB423.DBD 116
+        - DB423.DBD 124
+        - DB423.DBD 132
+        - DB423.DBD 140
+        - MW    140
+        DB401.DBD 244_2:
+        - DB401.DBD 244_2
+        DB401.DBD 248:
+        - DB401.DBD 248
+        DB401.DBD 248_1:
+        - DB401.DBD 248_1
+        DB401.DBD 252_1:
+        - DB401.DBD 252_1
+        DB401.DBD 256:
+        - DB401.DBD 256
+        DB401.DBD 256_1:
+        - DB401.DBD 256_1
+        DB401.DBD 256_2:
+        - DB401.DBD 256_2
+        DB401.DBD 256_3:
+        - DB401.DBD 256_3
+        DB401.DBD 260_1:
+        - DB401.DBD 260_1
+        DB401.DBD 260_2:
+        - DB401.DBD 260_2
+        DB401.DBD 260_3:
+        - DB401.DBD 260_3
+        DB401.DBD 264_1:
+        - DB401.DBD 264_1
+        DB401.DBD 280_3:
+        - DB401.DBD 280_3
+        DB401.DBD 284_1:
+        - DB401.DBD 284_1
+        DB401.DBD 284_2:
+        - DB401.DBD 284_2
+        - DB401.DBD 312_2
+        DB401.DBD 284_3:
+        - DB401.DBD 284_3
+        DB401.DBD 288_3:
+        - DB401.DBD 288_3
+        - DB401.DBD 292_3
+        DB401.DBD 292_2:
+        - DB401.DBD 292_2
+        DB401.DBD 296:
+        - DB401.DBD 296
+        DB401.DBD 296_1:
+        - DB401.DBD 296_1
+        DB401.DBD 296_3:
+        - DB401.DBD 296_3
+        DB401.DBD 300_1:
+        - DB401.DBD 300_1
+        DB401.DBD 304_3:
+        - DB401.DBD 272_3
+        - DB401.DBD 304_3
+        DB401.DBD 312_3:
+        - DB401.DBD 312_3
+        DB401.DBD 316_1:
+        - DB401.DBD 316_1
+        DB401.DBD 316_3:
+        - DB401.DBD 316_3
+        DB401.DBD 320:
+        - DB401.DBD 320
+        DB401.DBD 320_2:
+        - DB401.DBD 296_2
+        - DB401.DBD 320_2
+        DB401.DBD 320_3:
+        - DB401.DBD 320_3
+        DB401.DBD 328_1:
+        - DB401.DBD 324_1
+        - DB401.DBD 328_1
+        - DB401.DBD 332_1
+        DB401.DBD 328_2:
+        - DB401.DBD 324_2
+        - DB401.DBD 328_2
+        - DB401.DBD 332_2
+        DB401.DBD 336:
+        - DB401.DBD 336
+        DB420.DBB 0:
+        - DB420.DBB 0
+        - DB420.DBB 0_4
+        - DB420.DBB 1
+        - DB420.DBB 1_1
+        - DB420.DBB 1_5
+        DB420.DBB 0_2:
+        - DB420.DBB 0_2
+        - DB420.DBB 1_3
+        DB420.DBB 0_5:
+        - DB420.DBB 0_5
+        - DB420.DBB 1_6
+        DB420.DBB 14_1:
+        - DB420.DBB 14_1
+        - DB420.DBB 19_1
+        - DB422.DBW 22_1
+        - DB422.DBW 32_1
+        DB420.DBB 1_2:
+        - DB420.DBB 0_1
+        - DB420.DBB 1_2
+        DB420.DBW 0_1:
+        - DB420.DBW 0
+        - DB420.DBW 0_1
+        DB420.DBW 0_2:
+        - DB420.DBW 0_2
+        DB420.DBW0:
+        - DB420.DBW0
+        DB421.DBB 8_3:
+        - DB421.DBB 8_3
+        DB421.DBD 112:
+        - DB421.DBB 111
+        - DB421.DBB 9_3
+        - DB421.DBD 112
+        - DB421.DBW 24_1
+        - DB421.DBW 50_1
+        - DB421.DBW 52_1
+        - DB421.DBW 54_1
+        - DB421.DBW 60_2
+        - DB421.DBW24
+        - DB423.DBD 100
+        - MW     34
+        - QB      4
+        DB421.DBD 170:
+        - DB421.DBD 170
+        - DB423.DBD 104
+        DB421.DBD 50:
+        - DB421.DBD 50
+        DB421.DBD 50_1:
+        - DB421.DBD 50_1
+        DB421.DBW   50:
+        - DB421.DBW   50
+        DB421.DBW 0:
+        - DB421.DBW 0
+        DB421.DBW 0_1:
+        - DB421.DBW 0_1
+        DB421.DBW 0_2:
+        - DB421.DBW 0_2
+        DB421.DBW 0_3:
+        - DB421.DBW 0_3
+        DB421.DBW 0_4:
+        - DB421.DBW 0_4
+        DB421.DBW 0_5:
+        - DB421.DBW 0_5
+        DB421.DBW 0_6:
+        - DB421.DBW 0_6
+        DB421.DBW 0_7:
+        - DB421.DBW 0_7
+        DB421.DBW 0_8:
+        - DB421.DBW 0_8
+        DB421.DBW 110_2:
+        - DB421.DBW 110_2
+        - DB421.DBW 114_5
+        - DB421.DBW 20_2
+        - DB421.DBW 22_2
+        - DB423.DBW 24
+        - DB423.DBW 26
+        - DB423.DBW 28
+        - MD    320
+        - MD    324
+        - MD    330
+        DB421.DBW 110_3:
+        - DB421.DBW 110_3
+        - DB421.DBW 114_6
+        - DB421.DBW 22_3
+        - DB423.DBW 26_1
+        - DB423.DBW 28_1
+        - MD    324_1
+        - MD    330_1
+        DB421.DBW 112_3:
+        - DB421.DBW 112_3
+        - DB421.DBW 116_1
+        DB421.DBW 130_1:
+        - DB421.DBW 130_1
+        DB421.DBW 132_1:
+        - DB421.DBW 132_1
+        DB421.DBW 134_1:
+        - DB421.DBW 134_1
+        DB421.DBW 136_1:
+        - DB421.DBW 136_1
+        DB421.DBW 138_3:
+        - DB421.DBW 138_3
+        DB421.DBW 140_3:
+        - DB421.DBW 140_3
+        DB421.DBW 142_3:
+        - DB421.DBW 142_3
+        DB421.DBW 146_2:
+        - DB421.DBW 146_2
+        DB421.DBW 148_2:
+        - DB421.DBW 148_2
+        DB421.DBW 148_3:
+        - DB421.DBW 148_3
+        DB421.DBW 154_2:
+        - DB421.DBW 154_2
+        DB421.DBW 156_3:
+        - DB421.DBW 156_3
+        DB421.DBW 168_3:
+        - DB421.DBW 168_3
+        DB421.DBW 176_3:
+        - DB421.DBW 176_3
+        DB421.DBW 182_3:
+        - DB421.DBW 182_3
+        DB421.DBW 184_3:
+        - DB421.DBW 184_3
+        DB421.DBW 18_3:
+        - DB421.DBW 18_3
+        - MW    108
+        DB421.DBW 192_3:
+        - DB421.DBW 192_3
+        DB421.DBW 194_2:
+        - DB421.DBW 194_2
+        DB421.DBW 20_3:
+        - DB421.DBW 20_3
+        - DB423.DBW 24_1
+        - MD    320_1
+        DB421.DBW 20_5:
+        - DB421.DBW 20_5
+        - MW    104
+        DB421.DBW 22_1:
+        - DB421.DBB 110_1
+        - DB421.DBB 5_2
+        - DB421.DBB 5_6
+        - DB421.DBB 6_4
+        - DB421.DBB 7_4
+        - DB421.DBB 8_4
+        - DB421.DBW 10_1
+        - DB421.DBW 12_1
+        - DB421.DBW 22_1
+        - DB421.DBW 22_5
+        - DB421.DBW 34_1
+        - DB421.DBW 36_3
+        - DB421.DBW 38_1
+        - DB421.DBW 40_1
+        - DB421.DBW 42_1
+        - DB421.DBW 44_1
+        - DB421.DBW 46_1
+        - DB421.DBW 6_1
+        - DB421.DBW 8_1
+        - MB    118_1
+        - MB    119_1
+        - MB    144
+        - MB    146
+        - MD    114_1
+        - MW    200_1
+        - MW    340_1
+        - QW     30_1
+        DB421.DBW 22_4:
+        - DB421.DBB 110
+        - DB421.DBB 4_5
+        - DB421.DBB 5_5
+        - DB421.DBB 6_3
+        - DB421.DBW 22_4
+        - QW     30
+        DB421.DBW 24:
+        - DB421.DBW 24
+        DB421.DBW 278_2:
+        - DB401.DBD 280_2
+        - DB421.DBW 180_3
+        - DB421.DBW 186_3
+        - DB421.DBW 188_3
+        - DB421.DBW 190_3
+        - DB421.DBW 278_2
+        - DB421.DBW 42_5
+        - DB423.DBD 580_1
+        - DB423.DBD 584_1
+        - MB     97
+        - MW     96
+        - MW     98
+        DB421.DBW 30_1:
+        - DB421.DBW 30_1
+        DB421.DBW 38_5:
+        - DB421.DBW 38_5
+        DB421.DBW 60:
+        - DB421.DBW 60
+        DB421.DBW 60_1:
+        - DB421.DBW 60_1
+        DB421.DBW 74:
+        - DB421.DBW 74
+        DB421.DBW 76:
+        - DB421.DBW 76
+        DB421.DBW 78_1:
+        - DB421.DBW 78_1
+        DB421.DBW 90_5:
+        - DB421.DBW 90_5
+        DB421.DBW0:
+        - DB421.DBW0
+        DB421.DBW0_1:
+        - DB421.DBW0_1
+        DB421.DBW24_1:
+        - DB421.DBW24_1
+        DB421.DBW56_1:
+        - DB421.DBW56_1
+        DB421.DBW78_1:
+        - DB421.DBW78_1
+        DB422.DBD 100_2:
+        - DB422.DBD 100_2
+        - DB422.DBD 104_2
+        - DB422.DBD 108_2
+        - DB422.DBD 96_2
+        DB422.DBD 112_2:
+        - DB422.DBD 112_2
+        - DB422.DBD 116_2
+        - DB422.DBD 120_2
+        - DB422.DBD 124_2
+        DB422.DBD 120:
+        - DB422.DBD 120
+        DB422.DBD 196_2:
+        - DB422.DBD 132_2
+        - DB422.DBD 148_2
+        - DB422.DBD 196_2
+        DB422.DBD 200_2:
+        - DB422.DBD 136_2
+        - DB422.DBD 152_2
+        - DB422.DBD 200_2
+        DB422.DBD 204_2:
+        - DB422.DBD 128_2
+        - DB422.DBD 140_2
+        - DB422.DBD 144_2
+        - DB422.DBD 156_2
+        - DB422.DBD 192_2
+        - DB422.DBD 204_2
+        DB422.DBD 224_2:
+        - DB422.DBD 224_2
+        DB422.DBD 256_1:
+        - DB422.DBD 256_1
+        DB422.DBD 264_1:
+        - DB422.DBD 260_1
+        - DB422.DBD 264_1
+        - DB422.DBD 268_1
+        DB422.DBD 92_1:
+        - DB421.DBB 8_2
+        - DB421.DBB 9_1
+        - DB422.DBD 92_1
+        - DB422.DBW 6_1
+        DB422.DBD 92_2:
+        - DB421.DBB 9_2
+        - DB422.DBD 176_1
+        - DB422.DBD 180_1
+        - DB422.DBD 184_1
+        - DB422.DBD 188_1
+        - DB422.DBD 92_2
+        - DB422.DBW 6_2
+        DB422.DBW 42_1:
+        - DB422.DBW 42_1
+        DB422.DBW 42_2:
+        - DB422.DBW 42_2
+        DB422.DBW 48_2:
+        - DB422.DBD 244_2
+        - DB422.DBW 48_2
+        DB422.DBW 62_1:
+        - DB422.DBW 62_1
+        DB422.DBW 62_2:
+        - DB422.DBW 62_2
+        DB422.DBW 64:
+        - DB422.DBW 64
+        DB422.DBW 64_1:
+        - DB422.DBW 64_1
+        DB422.DBW 64_2:
+        - DB422.DBW 64_2
+        DB422.DBW 66:
+        - DB422.DBW 66
+        DB422.DBW 66_1:
+        - DB422.DBW 66_1
+        DB422.DBW 66_2:
+        - DB422.DBW 66_2
+        DB423.DBD 108:
+        - DB423.DBD 108
+        DB423.DBD 112_1:
+        - DB423.DBD 112_1
+        DB423.DBD 120_1:
+        - DB423.DBD 120_1
+        DB423.DBD 128_1:
+        - DB423.DBD 128_1
+        DB423.DBD 136:
+        - DB421.DBW 126_4
+        - DB423.DBD 112
+        - DB423.DBD 120
+        - DB423.DBD 128
+        - DB423.DBD 136
+        DB423.DBD 136_1:
+        - DB423.DBD 136_1
+        MD    356:
+        - DB421.DBB 5_3
+        - DB421.DBW 112_2
+        - DB421.DBW 116
+        - DB421.DBW 60_3
+        - MD    348
+        - MD    356
+        - MW    334
+        - QW      5
+        MD    356_1:
+        - MD    348_1
+        - MD    356_1
+        MW     30:
+        - MW     30
+        MW     44:
+        - MW     44
+        MW    102:
+        - DB421.DBW 32_1
+        - DB421.DBW 34_3
+        - MB    101
+        - MW    100
+        - MW    102
+        MW    150:
+        - MW    150
+        MW    152:
+        - MW    152
+        MW    158:
+        - MW    158
+        MW    158_1:
+        - MW    158_1
+        MW    158_2:
+        - MW    158_2
+        MW    166:
+        - DB421.DBW 154_3
+        - MW    166
+        MW    170:
+        - MW    170
+        MW    268_2:
+        - DB422.DBD 248_2
+        - DB422.DBD 252_2
+        - MW    268_2
+        - MW    274_2
+        MW    270_2:
+        - MW    270_2
+        - MW    272_2
+        MW    276_2:
+        - MW    276_2
+        MW    278_1:
+        - DB422.DBB 311_1
+        - MW    278_1
+        MW    278_2:
+        - MW    278_2
+        MW    298_2:
+        - MW    298_2
+        MW    462:
+        - MW    462
+        MW    508_1:
+        - MW    508_1
+        MW    508_2:
+        - MW    508_2
+        MW    510_2:
+        - MW    510_2
+        MW   2002_3:
+        - MW   2002_3
+        MW   2012:
+        - MW   2012
+        MW   2012_1:
+        - MW   2012_1
+        MW   2012_2:
+        - MW   2012_2
+        MW   2012_3:
+        - MW   2012_3
+        MW   3006_1:
+        - MW   3006_1
+        MW   4002:
+        - MW   4002
+        MW   4002_1:
+        - MW   4002_1
+        MW   4002_2:
+        - MW   4002_2
+        PIW   578:
+        - PIW   578
+        PIW   580:
+        - PIW   580
+        PIW   580_1:
+        - PIW   580_1
+        PIW   584:
+        - PIW   584
+        PIW   584_1:
+        - DB422.DBD 224_1
+        - PIW   584_1
+        PIW   586:
+        - PIW   586
+        PIW   586_1:
+        - PIW   586_1
+        PIW   592:
+        - PIW   592
+        PIW   592_1:
+        - PIW   592_1
+        PIW   616_1:
+        - PIW   616_1
+        PIW   618_1:
+        - PIW   618_1
+        PIW   622:
+        - DB422.DBD 96
+        - PIW   622
+        PIW   622_1:
+        - DB422.DBD 96_1
+        - PIW   622_1
+        PIW   626_1:
+        - DB422.DBD 100_1
+        - DB422.DBD 104_1
+        - DB422.DBD 108_1
+        - PIW   626_1
+        - PIW   630_1
+        - PIW   634_1
+        PIW   628:
+        - DB422.DBD 100
+        - DB422.DBD 112
+        - DB422.DBD 116
+        - DB422.DBD 124
+        - PIW   624
+        - PIW   626
+        - PIW   628
+        - PIW   630
+        - PIW   632
+        - PIW   636
+        - PIW   652
+        - PIW   660
+        PIW   632_1:
+        - DB422.DBD 112_1
+        - DB422.DBD 116_1
+        - DB422.DBD 120_1
+        - DB422.DBD 124_1
+        - PIW   624_1
+        - PIW   628_1
+        - PIW   632_1
+        - PIW   636_1
+        PIW   634:
+        - DB422.DBD 108
+        - PIW   634
+        PIW   650_1:
+        - DB422.DBD 128_1
+        - DB422.DBD 132_1
+        - DB422.DBD 136_1
+        - PIW   650_1
+        - PIW   654_1
+        - PIW   658_1
+        PIW   652_1:
+        - PIW   652_1
+        PIW   656:
+        - PIW   656
+        PIW   656_1:
+        - PIW   656_1
+        PIW   660_1:
+        - PIW   660_1
+        PIW   662_1:
+        - DB422.DBD 140_1
+        - PIW   662_1
+        PIW   664:
+        - PIW   664
+        PIW   664_1:
+        - PIW   664_1
+        QB      4_1:
+        - QB      4_1
+        QW     26_1:
+        - QW     26_1
+        QW     42_1:
+        - QW     42_1
+      conditions:
+      - column: MB    119
+        confidence: 1.0
+        op: '>'
+        source: bimodal
+        value: 29.49999999999999
+      confirmed: false
