@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import os
 from pathlib import Path
@@ -108,6 +108,38 @@ def render_sidebar(
 
         st.divider()
         run_btn = st.button("분석 실행", type="primary", use_container_width=True)
+
+        st.divider()
+        st.subheader("장치 프로필")
+        csv_val = csv_input.strip()
+        if csv_val:
+            from src.services.equipment_profile_store import EquipmentProfileStore
+
+            eq_id = EquipmentProfileStore.extract_id(Path(csv_val).name)
+            ep_store = EquipmentProfileStore()
+            all_groups = ep_store.load_all_groups(eq_id)
+
+            if all_groups:
+                st.caption(f"`{eq_id}` · 그룹 {len(all_groups)}개")
+                for gid, gdata in all_groups.items():
+                    gconds = gdata.get("conditions") or []
+                    gconf = bool(gdata.get("confirmed", False))
+                    gclusters = gdata.get("clusters")
+                    status = "확정" if gconf else "미확정"
+                    with st.expander(f"{gid} · 조건 {len(gconds)}개 [{status}]"):
+                        for cond in gconds:
+                            st.caption(
+                                f"`{cond.get('column', '?')}` {cond.get('op', '?')} "
+                                f"{cond.get('value', 0)} [{cond.get('source', '?')}]"
+                            )
+                        if gclusters:
+                            st.caption(f"클러스터 대표 신호: {len(gclusters)}개")
+                            if st.button("클러스터 초기화", key=f"clr_cluster_{gid}"):
+                                ep_store.clear_group_clusters(eq_id, gid)
+                                clear_detection_cache_fn()
+                                st.rerun()
+            else:
+                st.caption(f"`{eq_id}` 프로필 없음 (분석 시 자동 생성)")
 
         excl, ovrd, _ = load_signal_config()
         if excl or ovrd:

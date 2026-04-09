@@ -51,7 +51,7 @@ class IsolationForestAdapter(AnomalyDetector):
             contamination=self.contamination,
             n_estimators=self.n_estimators,
             random_state=42,
-            n_jobs=-1,
+            n_jobs=1,
         )
         preds = iso.fit_predict(windowed)    # 1: normal, -1: anomaly
         scores = iso.score_samples(windowed) # 낮을수록 이상
@@ -67,7 +67,11 @@ class IsolationForestAdapter(AnomalyDetector):
             ts = df.index[df_idx]
 
             # 윈도우 내 컬럼별 표준편차 → top_n 기여 신호
-            window_slice = matrix[i: i + self.window_size]  # (W, M)
+            contrib_window = max(self.window_size, 5)
+            start_idx = max(0, df_idx - contrib_window // 2)
+            end_idx = min(N, start_idx + contrib_window)
+            start_idx = max(0, end_idx - contrib_window)
+            window_slice = matrix[start_idx:end_idx]  # (W, M)
             col_stds = window_slice.std(axis=0)
             top_idx = np.argsort(col_stds)[::-1][: self.top_n]
             top_signals = [(analog_cols[j], float(col_stds[j])) for j in top_idx]

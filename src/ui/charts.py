@@ -40,7 +40,7 @@ def render_metrics_hitl(
     """HITL 파이프라인 정보 포함 메트릭 카드 8개."""
     c1, c2, c3, c4, c5, c6, c7, c8 = st.columns(8)
     c1.metric("총 샘플", f"{len(df):,}")
-    running_pct = running_rows / max(len(df), 1) * 100
+    running_pct = min(100.0, running_rows / max(len(df), 1) * 100)
     c2.metric("가동 구간", f"{running_rows:,}행", f"{running_pct:.0f}%")
     c3.metric("장치 그룹", f"{group_count}개" if group_count else "-")
     c4.metric("원본 신호", f"{len(df.columns):,}")

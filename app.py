@@ -100,9 +100,10 @@ def detect_anomalies_hitl(
     groups_profile: dict = json.loads(groups_profile_json)
     device_groups = DeviceGroupParser.parse(df.columns.tolist())
 
-    total_running_rows = 0
     total_reduced_cols = 0
     all_candidates: list = []
+    running_index_union = pd.Index([])
+    all_feature_frames: list[pd.DataFrame] = []
 
     for group_id, group_cols in device_groups.items():
         if len(group_cols) < 5:
@@ -117,7 +118,7 @@ def detect_anomalies_hitl(
         if df_running.empty:
             continue
 
-        total_running_rows += len(df_running)
+        running_index_union = running_index_union.union(df_running.index)
 
         clusters = profile.get("clusters")
         if clusters:
@@ -136,6 +137,7 @@ def detect_anomalies_hitl(
         df_feat = RollingFeatureExtractor(
             window=int(roll_cfg.get("window_rows", 30))
         ).transform(df_reduced)
+        all_feature_frames.append(df_feat)
 
         candidates = IsolationForestAdapter(
             window_size=int(det_cfg.get("window_size", 1)),
@@ -150,10 +152,17 @@ def detect_anomalies_hitl(
 
         all_candidates.extend(candidates)
 
-    llm_filter = build_llm_filter(settings)
-    events = llm_filter.filter(all_candidates, df)
+    if all_feature_frames:
+        llm_input_df = pd.concat(all_feature_frames, axis=1)
+        llm_input_df = llm_input_df.loc[:, ~llm_input_df.columns.duplicated()]
+        llm_input_df = llm_input_df.sort_index()
+    else:
+        llm_input_df = df
 
-    return all_candidates, events, len(df), total_running_rows, total_reduced_cols
+    llm_filter = build_llm_filter(settings)
+    events = llm_filter.filter(all_candidates, llm_input_df)
+
+    return all_candidates, events, len(df), len(running_index_union), total_reduced_cols
 
 
 # ── 사이드바 ──────────────────────────────────────────────────────────────────
