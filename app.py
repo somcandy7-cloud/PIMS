@@ -49,6 +49,7 @@ from src.utils.operation_filter import OperationFilter
 from src.utils.preprocessor import Preprocessor
 from src.utils.rolling_features import RollingFeatureExtractor
 from src.utils.signal_reducer import SignalReducer
+from src.utils.signal_type_filter import SignalTypeFilter, classify_signal
 
 KST = "Asia/Seoul"
 
@@ -124,10 +125,15 @@ def detect_anomalies_hitl(
 
         running_index_union = running_index_union.union(df_running.index)
 
+        # PLC 플래그·제어 신호 제거 — DBW/DBD 실측값만 이상 탐지에 사용
+        df_running, _ = SignalTypeFilter().filter(df_running)
+        if df_running.empty:
+            continue
+
         clusters = profile.get("clusters")
         if clusters:
             rep_cols = [c for c in clusters if c in df_running.columns]
-            df_reduced = df_running[rep_cols].copy()
+            df_reduced = df_running[rep_cols].copy() if rep_cols else pd.DataFrame(index=df_running.index)
         else:
             df_reduced, _ = SignalReducer.from_config(hitl_cfg).fit_transform(df_running)
 
@@ -234,10 +240,14 @@ if run_btn:
                     clusters = None
                 else:
                     clusters = gp.get("clusters")
-                    # 클러스터 캐시도 현재 파일 컬럼 기준으로 검증
+                    # 클러스터 캐시 검증: 현재 파일 컬럼 없거나 플래그 신호가 대표로 있으면 재계산
                     if clusters is not None:
                         group_col_set = set(group_cols)
-                        if not any(c in group_col_set for c in clusters):
+                        stale = (
+                            not any(c in group_col_set for c in clusters)
+                            or any(classify_signal(c) == "flag" for c in clusters)
+                        )
+                        if stale:
                             clusters = None
                             ep_store.clear_group_clusters(equipment_id, group_id)
 

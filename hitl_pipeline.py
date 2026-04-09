@@ -96,6 +96,7 @@ def run_hitl_pipeline(csv_path: str, interactive: bool = True) -> list[dict]:
     from src.utils.signal_reducer import SignalReducer
     from src.utils.operation_filter import OperationFilter
     from src.utils.rolling_features import RollingFeatureExtractor
+    from src.utils.signal_type_filter import SignalTypeFilter
     from src.agents.isolation_forest_adapter import IsolationForestAdapter
 
     settings = _load_settings()
@@ -130,6 +131,13 @@ def run_hitl_pipeline(csv_path: str, interactive: bool = True) -> list[dict]:
         df_running = OperationFilter(conditions).filter(group_df) if conditions else group_df.copy()
         pct = len(df_running) / max(len(group_df), 1) * 100
         print(f"     running rows={len(df_running)} ({pct:.1f}%)")
+
+        if df_running.empty:
+            continue
+
+        # PLC 플래그·제어 신호 제거 — DBW/DBD 실측값만 이상 탐지에 사용
+        df_running, type_stats = SignalTypeFilter().filter(df_running)
+        print(f"     signal type filter: {type_stats['kept']}kept / {type_stats['excluded']}excluded")
 
         if df_running.empty:
             continue
