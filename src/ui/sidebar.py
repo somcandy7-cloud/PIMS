@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import os
 from pathlib import Path
 from typing import Callable
@@ -37,19 +38,30 @@ def render_sidebar(
 
         default_local = str(root / "반출데이터" / "2603201549_oven.csv")
         use_default = (not os.getenv("RAILWAY_ENVIRONMENT")) and Path(default_local).exists()
-        csv_input = st.text_input(
+        default_input = default_local if use_default else ""
+        if "csv_path_input" not in st.session_state:
+            st.session_state["csv_path_input"] = default_input
+
+        st.text_input(
             "데이터 파일 경로 (.csv / .xlsx)",
-            value=(default_local if use_default else ""),
+            key="csv_path_input",
             help="로컬 실행 시 절대경로를 직접 입력해도 됩니다.",
         )
 
         if uploaded is not None:
             upload_dir = root / ".runtime_uploads"
             upload_dir.mkdir(parents=True, exist_ok=True)
-            upload_path = upload_dir / uploaded.name
-            upload_path.write_bytes(uploaded.getbuffer())
-            csv_input = str(upload_path)
-            st.caption(f"업로드 파일 사용 중: `{uploaded.name}`")
+            file_bytes = bytes(uploaded.getbuffer())
+            digest = hashlib.sha1(file_bytes).hexdigest()[:10]
+            src_name = Path(uploaded.name)
+            upload_name = f"{src_name.stem}_{digest}{src_name.suffix.lower()}"
+            upload_path = upload_dir / upload_name
+            if not upload_path.exists():
+                upload_path.write_bytes(file_bytes)
+            st.session_state["csv_path_input"] = str(upload_path)
+            st.caption(f"업로드 파일 사용 중: `{uploaded.name}` → `{upload_name}`")
+
+        csv_input = str(st.session_state.get("csv_path_input", "")).strip()
 
         with open(SETTINGS_YAML, encoding="utf-8") as f:
             settings_now = yaml.safe_load(f) or {}

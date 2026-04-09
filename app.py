@@ -192,60 +192,67 @@ if run_btn:
     ep_store = EquipmentProfileStore()
 
     with st.spinner("분석 중..."):
-        excluded, _, model_params = load_signal_config()
-        settings_cfg = load_settings()
-        hitl_cfg = settings_cfg.get("hitl", {})
-        if_params = hitl_cfg.get("detector", model_params.get("isolation_forest", {}))
-        if_params_key = json.dumps(if_params, sort_keys=True)
-        settings_key = json.dumps(settings_cfg, sort_keys=True)
+        try:
+            excluded, _, model_params = load_signal_config()
+            settings_cfg = load_settings()
+            hitl_cfg = settings_cfg.get("hitl", {})
+            if_params = hitl_cfg.get("detector", model_params.get("isolation_forest", {}))
+            if_params_key = json.dumps(if_params, sort_keys=True)
+            settings_key = json.dumps(settings_cfg, sort_keys=True)
 
-        df_temp = load_and_process(csv_path)
-        device_groups = DeviceGroupParser.parse(df_temp.columns.tolist())
-        all_groups = ep_store.load_all_groups(equipment_id)
-        disc_cfg = hitl_cfg.get("discovery", {})
-        sr = SignalReducer.from_config(hitl_cfg)
+            df_temp = load_and_process(csv_path)
+            if df_temp.empty or len(df_temp.columns) == 0:
+                st.error("파일을 읽었지만 데이터가 비어 있습니다. CSV 형식/내용을 확인해 주세요.")
+                st.stop()
+            device_groups = DeviceGroupParser.parse(df_temp.columns.tolist())
+            all_groups = ep_store.load_all_groups(equipment_id)
+            disc_cfg = hitl_cfg.get("discovery", {})
+            sr = SignalReducer.from_config(hitl_cfg)
 
-        groups_profile: dict = {}
-        for group_id, group_cols in device_groups.items():
-            if len(group_cols) < 5:
-                continue
+            groups_profile: dict = {}
+            for group_id, group_cols in device_groups.items():
+                if len(group_cols) < 5:
+                    continue
 
-            gp = all_groups.get(group_id, {})
-            raw_conds = gp.get("conditions")
+                gp = all_groups.get(group_id, {})
+                raw_conds = gp.get("conditions")
 
-            if raw_conds is None:
-                group_df = df_temp[group_cols]
-                new_conds = AutoOperationDiscovery(
-                    top_binary_n=int(disc_cfg.get("top_binary_n", 1)),
-                    top_bimodal_n=int(disc_cfg.get("top_bimodal_n", 1)),
-                ).discover(group_df)
-                ep_store.save_group(equipment_id, group_id, new_conds, confirmed=False)
-                raw_conds = [c.to_dict() for c in new_conds]
-                clusters = None
-            else:
-                clusters = gp.get("clusters")
+                if raw_conds is None:
+                    group_df = df_temp[group_cols]
+                    new_conds = AutoOperationDiscovery(
+                        top_binary_n=int(disc_cfg.get("top_binary_n", 1)),
+                        top_bimodal_n=int(disc_cfg.get("top_bimodal_n", 1)),
+                    ).discover(group_df)
+                    ep_store.save_group(equipment_id, group_id, new_conds, confirmed=False)
+                    raw_conds = [c.to_dict() for c in new_conds]
+                    clusters = None
+                else:
+                    clusters = gp.get("clusters")
 
-            if clusters is None and raw_conds:
-                conds_objs = [OperationCondition.from_dict(c) for c in raw_conds]
-                df_grp = df_temp[group_cols]
-                df_running_grp = OperationFilter(conds_objs).filter(df_grp) if conds_objs else df_grp.copy()
-                if not df_running_grp.empty:
-                    _, clusters = sr.fit_transform(df_running_grp)
-                    ep_store.save_group_clusters(equipment_id, group_id, clusters)
+                if clusters is None and raw_conds:
+                    conds_objs = [OperationCondition.from_dict(c) for c in raw_conds]
+                    df_grp = df_temp[group_cols]
+                    df_running_grp = OperationFilter(conds_objs).filter(df_grp) if conds_objs else df_grp.copy()
+                    if not df_running_grp.empty:
+                        _, clusters = sr.fit_transform(df_running_grp)
+                        ep_store.save_group_clusters(equipment_id, group_id, clusters)
 
-            groups_profile[group_id] = {"conditions": raw_conds, "clusters": clusters}
+                groups_profile[group_id] = {"conditions": raw_conds, "clusters": clusters}
 
-        groups_profile_json = json.dumps(groups_profile, sort_keys=True)
-        candidates, events, total_rows, running_rows, reduced_cols = detect_anomalies_hitl(
-            csv_path,
-            groups_profile_json,
-            if_params_key,
-            top_n,
-            tuple(excluded),
-            settings_key,
-        )
-        group_count = len([g for g, cols in device_groups.items() if len(cols) >= 5])
-        df = load_and_process(csv_path)
+            groups_profile_json = json.dumps(groups_profile, sort_keys=True)
+            candidates, events, total_rows, running_rows, reduced_cols = detect_anomalies_hitl(
+                csv_path,
+                groups_profile_json,
+                if_params_key,
+                top_n,
+                tuple(excluded),
+                settings_key,
+            )
+            group_count = len([g for g, cols in device_groups.items() if len(cols) >= 5])
+            df = load_and_process(csv_path)
+        except Exception as exc:
+            st.error(f"분석 실패: {exc}")
+            st.stop()
 
     st.session_state.update(
         df=df,
