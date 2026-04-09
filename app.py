@@ -159,21 +159,6 @@ def detect_anomalies_hitl(
 # ── 사이드바 ──────────────────────────────────────────────────────────────────
 csv_input, top_n, run_btn = render_sidebar(ROOT, clear_detection_cache_fn=detect_anomalies_hitl.clear)
 
-# Railway/Cloud 환경에서는 로컬 절대경로를 사용할 수 없으므로
-# 업로드 파일을 임시 경로에 저장해 같은 파이프라인으로 처리한다.
-with st.sidebar:
-    uploaded_data_file = st.file_uploader(
-        "데이터 파일 업로드 (.csv / .xlsx)",
-        type=["csv", "xlsx"],
-        key="uploaded_data_file",
-    )
-if uploaded_data_file is not None:
-    upload_dir = ROOT / ".runtime_uploads"
-    upload_dir.mkdir(parents=True, exist_ok=True)
-    upload_path = upload_dir / uploaded_data_file.name
-    upload_path.write_bytes(uploaded_data_file.getbuffer())
-    csv_input = str(upload_path)
-
 # ── 메인 영역 ─────────────────────────────────────────────────────────────────
 st.title("PIMS 장애 분석 대시보드")
 
