@@ -30,6 +30,7 @@ env/
 
 # Streamlit / local DB / logs
 .streamlit/secrets.toml
+.runtime_uploads/
 *.db
 *.sqlite
 *.sqlite3
