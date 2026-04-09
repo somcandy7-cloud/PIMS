@@ -173,11 +173,22 @@ if not run_btn and "df" not in st.session_state:
 
 if run_btn:
     csv_path = csv_input.strip()
-    if not Path(csv_path).exists():
-        st.error(f"파일을 찾을 수 없습니다: {csv_path}")
+    if not csv_path:
+        st.error("분석할 파일 경로를 입력하거나 파일을 업로드해 주세요.")
         st.stop()
 
-    equipment_id = EquipmentProfileStore.extract_id(Path(csv_path).name)
+    csv_file = Path(csv_path)
+    if not csv_file.exists():
+        st.error(f"파일을 찾을 수 없습니다: {csv_path}")
+        st.stop()
+    if not csv_file.is_file():
+        st.error(f"파일이 아니라 폴더입니다: {csv_path}")
+        st.stop()
+    if csv_file.suffix.lower() not in {".csv", ".xlsx", ".xls"}:
+        st.error(f"지원하지 않는 확장자입니다: {csv_file.suffix}")
+        st.stop()
+
+    equipment_id = EquipmentProfileStore.extract_id(csv_file.name)
     ep_store = EquipmentProfileStore()
 
     with st.spinner("분석 중..."):
