@@ -1,6 +1,7 @@
 """PIMS 장애 분석 대시보드.
 
-실행: streamlit run app.py
+실행:
+    streamlit run app.py
 """
 from __future__ import annotations
 
@@ -17,43 +18,52 @@ sys.path.insert(0, str(ROOT))
 
 from src.agents.base_detector import AnomalyEvent
 from src.agents.fault_classifier import FaultClassifier
+from src.services.analysis_report_exporter import (
+    build_report_frames,
+    frames_to_excel_bytes,
+    save_report_file,
+)
 from src.services.config_service import load_settings, load_signal_config
+from src.services.equipment_profile_store import EquipmentProfileStore
+from src.services.feedback_store import FeedbackStore
 from src.services.pipeline_builder import build_llm_filter, get_loader
 from src.services.signal_label_mapper import SignalLabelMapper
 from src.ui.charts import (
-    render_event_selector,
     render_event_summary_and_bar,
     render_metrics_hitl,
     render_stats_table,
     render_timeline,
     render_trend_chart,
 )
+from src.ui.industrial_panels import (
+    render_alarm_logic_panel,
+    render_anomaly_score_board,
+    render_event_image_panel,
+    render_llm_chat_panel,
+)
 from src.ui.sidebar import render_sidebar
-from src.utils.preprocessor import Preprocessor
-from src.utils.operation_filter import OperationFilter
-from src.utils.operation_discovery import AutoOperationDiscovery, OperationCondition
-from src.utils.signal_reducer import SignalReducer
-from src.utils.rolling_features import RollingFeatureExtractor
-from src.utils.context_formatter import AnomalyContextFormatter
-from src.services.equipment_profile_store import EquipmentProfileStore
-from src.services.feedback_store import FeedbackStore
+from src.ui.theme import apply_dashboard_theme
 from src.utils.device_group_parser import DeviceGroupParser
+from src.utils.operation_discovery import AutoOperationDiscovery, OperationCondition
+from src.utils.operation_filter import OperationFilter
+from src.utils.preprocessor import Preprocessor
+from src.utils.rolling_features import RollingFeatureExtractor
+from src.utils.signal_reducer import SignalReducer
 
 KST = "Asia/Seoul"
 
-# ── 페이지 설정 ───────────────────────────────────────────────────────────────
 st.set_page_config(page_title="PIMS 장애 분석", page_icon="⚡", layout="wide")
+apply_dashboard_theme()
 
 
-# ── 캐시된 리소스 / 데이터 ────────────────────────────────────────────────────
 @st.cache_resource
-def load_label_mapper() -> "SignalLabelMapper | None":
-    """OVEN xlsx 라벨 매퍼를 로드한다. 파일 없으면 None."""
+def load_label_mapper() -> SignalLabelMapper | None:
+    """OVEN xlsx 라벨 매퍼를 로드한다. 파일이 없으면 None."""
     cfg_path = ROOT / "config" / "label_files.yaml"
     if not cfg_path.exists():
         return None
     with open(cfg_path, encoding="utf-8") as f:
-        cfg = yaml.safe_load(f)
+        cfg = yaml.safe_load(f) or {}
     paths = [ROOT / p for p in (cfg.get("label_files") or [])]
     existing = [p for p in paths if p.exists()]
     if not existing:
@@ -75,20 +85,14 @@ def load_and_process(path: str) -> pd.DataFrame:
 @st.cache_data(show_spinner="이상치 탐지 중 (그룹별 HITL 파이프라인)...")
 def detect_anomalies_hitl(
     path: str,
-    groups_profile_json: str,   # {group_id: {conditions:[...], clusters:{...}|null}}
+    groups_profile_json: str,
     _if_params_key: str,
     _topn: int,
     _excluded: tuple[str, ...],
     _settings_key: str,
-) -> tuple[list, list, int, int, int]:
-    """
-    Returns: (candidates, events, total_rows, running_rows, reduced_cols)
-    running_rows = 그룹들의 가동 행 수 합산
-    reduced_cols = 전체 그룹 대표 신호 수 합산
-    """
+) -> tuple[list[AnomalyEvent], list[AnomalyEvent], int, int, int]:
+    """Returns: (candidates, events, total_rows, running_rows, reduced_cols)."""
     from src.agents.isolation_forest_adapter import IsolationForestAdapter
-    from src.utils.device_group_parser import DeviceGroupParser
-    from src.utils.signal_reducer import SignalReducer
 
     df = load_and_process(path)
     settings = json.loads(_settings_key)
@@ -101,7 +105,7 @@ def detect_anomalies_hitl(
     device_groups = DeviceGroupParser.parse(df.columns.tolist())
 
     total_reduced_cols = 0
-    all_candidates: list = []
+    all_candidates: list[AnomalyEvent] = []
     running_index_union = pd.Index([])
     all_feature_frames: list[pd.DataFrame] = []
 
@@ -125,18 +129,13 @@ def detect_anomalies_hitl(
             rep_cols = [c for c in clusters if c in df_running.columns]
             df_reduced = df_running[rep_cols].copy()
         else:
-            # 클러스터 저장은 @st.cache_data 외부(run_btn 블록)에서 수행한다.
-            # 여기서는 계산만 한다.
             df_reduced, _ = SignalReducer.from_config(hitl_cfg).fit_transform(df_running)
 
         total_reduced_cols += len(df_reduced.columns)
-
         if df_reduced.empty:
             continue
 
-        df_feat = RollingFeatureExtractor(
-            window=int(roll_cfg.get("window_rows", 30))
-        ).transform(df_reduced)
+        df_feat = RollingFeatureExtractor(window=int(roll_cfg.get("window_rows", 30))).transform(df_reduced)
         all_feature_frames.append(df_feat)
 
         candidates = IsolationForestAdapter(
@@ -149,7 +148,6 @@ def detect_anomalies_hitl(
 
         for ev in candidates:
             ev.metadata["group_id"] = group_id
-
         all_candidates.extend(candidates)
 
     if all_feature_frames:
@@ -165,14 +163,12 @@ def detect_anomalies_hitl(
     return all_candidates, events, len(df), len(running_index_union), total_reduced_cols
 
 
-# ── 사이드바 ──────────────────────────────────────────────────────────────────
 csv_input, top_n, run_btn = render_sidebar(ROOT, clear_detection_cache_fn=detect_anomalies_hitl.clear)
 
-# ── 메인 영역 ─────────────────────────────────────────────────────────────────
 st.title("PIMS 장애 분석 대시보드")
 
 if not run_btn and "df" not in st.session_state:
-    st.info("사이드바에서 CSV 파일 경로를 입력하고 **분석 실행**을 클릭하세요.")
+    st.info("사이드바에서 CSV 파일 경로를 입력하고 **분석 시작하기**를 눌러주세요.")
     st.stop()
 
 if run_btn:
@@ -185,7 +181,7 @@ if run_btn:
     ep_store = EquipmentProfileStore()
 
     with st.spinner("분석 중..."):
-        excluded, overrides, model_params = load_signal_config()
+        excluded, _, model_params = load_signal_config()
         settings_cfg = load_settings()
         hitl_cfg = settings_cfg.get("hitl", {})
         if_params = hitl_cfg.get("detector", model_params.get("isolation_forest", {}))
@@ -202,11 +198,11 @@ if run_btn:
         for group_id, group_cols in device_groups.items():
             if len(group_cols) < 5:
                 continue
+
             gp = all_groups.get(group_id, {})
             raw_conds = gp.get("conditions")
 
             if raw_conds is None:
-                # 미탐색 그룹 → 자동 탐색 후 저장
                 group_df = df_temp[group_cols]
                 new_conds = AutoOperationDiscovery(
                     top_binary_n=int(disc_cfg.get("top_binary_n", 1)),
@@ -218,7 +214,6 @@ if run_btn:
             else:
                 clusters = gp.get("clusters")
 
-            # 클러스터 미캐시 → 사전 계산 후 저장 (@st.cache_data 내부 파일 I/O 금지 원칙)
             if clusters is None and raw_conds:
                 conds_objs = [OperationCondition.from_dict(c) for c in raw_conds]
                 df_grp = df_temp[group_cols]
@@ -230,107 +225,218 @@ if run_btn:
             groups_profile[group_id] = {"conditions": raw_conds, "clusters": clusters}
 
         groups_profile_json = json.dumps(groups_profile, sort_keys=True)
-
         candidates, events, total_rows, running_rows, reduced_cols = detect_anomalies_hitl(
-            csv_path, groups_profile_json,
-            if_params_key, top_n, tuple(excluded), settings_key,
+            csv_path,
+            groups_profile_json,
+            if_params_key,
+            top_n,
+            tuple(excluded),
+            settings_key,
         )
         group_count = len([g for g, cols in device_groups.items() if len(cols) >= 5])
         df = load_and_process(csv_path)
 
     st.session_state.update(
-        df=df, events=events, candidates=candidates,
-        csv_path=csv_path, equipment_id=equipment_id,
-        total_rows=total_rows, running_rows=running_rows,
-        reduced_cols=reduced_cols, group_count=group_count,
+        df=df,
+        events=events,
+        candidates=candidates,
+        csv_path=csv_path,
+        equipment_id=equipment_id,
+        total_rows=total_rows,
+        running_rows=running_rows,
+        reduced_cols=reduced_cols,
+        group_count=group_count,
+        groups_profile=groups_profile,
+        group_signal_counts={g: len(cols) for g, cols in device_groups.items() if len(cols) >= 5},
     )
     st.rerun()
 
 mapper = load_label_mapper()
-df: pd.DataFrame = st.session_state.get("df")
+df: pd.DataFrame | None = st.session_state.get("df")
 events: list[AnomalyEvent] = st.session_state.get("events", [])
 candidates: list[AnomalyEvent] = st.session_state.get("candidates", [])
 if df is None:
     st.stop()
 
-# ── 요약 카드 ─────────────────────────────────────────────────────────────────
 render_metrics_hitl(
-    df, candidates, events, KST,
+    df,
+    candidates,
+    events,
+    KST,
     running_rows=st.session_state.get("running_rows", len(df)),
     reduced_cols=st.session_state.get("reduced_cols", len(df.columns)),
     group_count=st.session_state.get("group_count", 0),
 )
-st.divider()
 
+report_frames = build_report_frames(
+    df=df,
+    source_file=st.session_state.get("csv_path", ""),
+    candidates=candidates,
+    events=events,
+    running_rows=st.session_state.get("running_rows", len(df)),
+    reduced_cols=st.session_state.get("reduced_cols", len(df.columns)),
+    group_count=st.session_state.get("group_count", 0),
+    group_signal_counts=st.session_state.get("group_signal_counts", {}),
+    groups_profile=st.session_state.get("groups_profile", {}),
+    kst=KST,
+)
+report_bytes = frames_to_excel_bytes(report_frames)
+report_name = f"pims_report_{pd.Timestamp.now(tz=KST).strftime('%Y%m%d_%H%M%S')}.xlsx"
+
+st.subheader("검증 리포트")
+rc1, rc2 = st.columns([1, 1])
+with rc1:
+    if st.button("엑셀 파일 저장", key="save_excel_report_btn"):
+        saved_path = save_report_file(
+            root=ROOT,
+            source_file=st.session_state.get("csv_path", "analysis.csv"),
+            excel_bytes=report_bytes,
+        )
+        st.session_state["last_report_path"] = str(saved_path)
+        st.success(f"저장 완료: {saved_path}")
+with rc2:
+    st.download_button(
+        "엑셀 다운로드",
+        data=report_bytes,
+        file_name=report_name,
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        key="download_excel_report_btn",
+        use_container_width=True,
+    )
+
+last_saved = st.session_state.get("last_report_path")
+if last_saved:
+    st.caption(f"최근 저장 파일: {last_saved}")
+
+with st.expander("리포트 미리보기 (대시보드에서 바로 확인)"):
+    tab1, tab2, tab3, tab4 = st.tabs(["요약", "장치 그룹", "IF 후보", "LLM 검증"])
+    with tab1:
+        st.dataframe(report_frames["Summary"], use_container_width=True, hide_index=True)
+    with tab2:
+        st.dataframe(report_frames["DeviceGroups"], use_container_width=True, hide_index=True)
+    with tab3:
+        st.dataframe(report_frames["IFCandidates"], use_container_width=True, hide_index=True)
+    with tab4:
+        st.dataframe(report_frames["LLMVerified"], use_container_width=True, hide_index=True)
+
+st.divider()
 if not events:
-    st.success("탐지된 이상 이벤트가 없습니다.")
+    st.success("현재는 이상 이벤트가 없습니다.")
     st.stop()
 
-# ── 이상 이벤트 선택 ──────────────────────────────────────────────────────────
-classifier = FaultClassifier()
-sel_idx, event, ts_kst = render_event_selector(events, KST)
+settings_cfg = load_settings()
+hitl_cfg = settings_cfg.get("hitl", {})
+fb_store = FeedbackStore(db_path=str(ROOT / hitl_cfg.get("feedback_db", "feedback.db")))
+_, signal_overrides, _ = load_signal_config()
 
-# ── 이벤트 요약 + 급변 신호 bar chart + 신호 선택 라디오 ──────────────────────
+st.subheader("실시간 이상치 검증")
+top_left, top_right = st.columns([1.2, 1], gap="large")
+selected_idx = int(st.session_state.get("selected_event_idx", 0))
+selected_idx = min(max(selected_idx, 0), len(events) - 1)
+
+with top_left:
+    picked_idx = render_anomaly_score_board(
+        events=events,
+        selected_idx=selected_idx,
+        kst=KST,
+        max_items=max(1, top_n),
+    )
+if picked_idx != selected_idx:
+    st.session_state["selected_event_idx"] = picked_idx
+    st.rerun()
+
+sel_idx = st.selectbox(
+    "이상 이벤트 선택",
+    options=list(range(len(events))),
+    index=selected_idx,
+    format_func=lambda i: (
+        f"이상 {i+1:02d} | "
+        f"{events[i].timestamp.tz_convert(KST).strftime('%H:%M:%S')} | "
+        f"score={events[i].score:.4f} "
+        f"[{events[i].metadata.get('llm_verdict', '')}]"
+    ),
+    key="event_picker_v2",
+)
+st.session_state["selected_event_idx"] = sel_idx
+event = events[sel_idx]
+ts_kst = event.timestamp.tz_convert(KST)
+
+with top_right:
+    render_event_image_panel(root=ROOT, event=event, kst=KST)
+    q1, q2 = st.columns(2)
+    if q1.button("O (실제 이상)", key=f"quick_o_{sel_idx}", type="primary", use_container_width=True):
+        fb_store.save(event, label="O", reason="quick_validation")
+        st.success("O 라벨 저장 완료")
+    if q2.button("X (오탐)", key=f"quick_x_{sel_idx}", use_container_width=True):
+        fb_store.save(event, label="X", reason="quick_validation")
+        st.success("X 라벨 저장 완료")
+
+classifier = FaultClassifier()
 sel_sig = render_event_summary_and_bar(event, mapper, classifier, df, sel_idx, ts_kst, KST)
 st.divider()
 
-# ── 신호 추이 차트 ────────────────────────────────────────────────────────────
-st.subheader("📈 신호 추이 (이상 이벤트 전후)")
+st.subheader("신호 추이 / LLM 근거 / 알람 로직")
 context_sec = st.slider("표시 구간 (이벤트 기준 ±초)", 10, 300, 60, 10, key="ctx_slider")
+c_trend, c_chat, c_alarm = st.columns([1, 1, 1], gap="large")
+
+with c_trend:
+    if sel_sig:
+        render_trend_chart(df, event, sel_sig, context_sec, mapper, KST)
+    else:
+        st.info("상단에서 신호를 선택하면 추이 그래프가 표시됩니다.")
+
+with c_chat:
+    render_llm_chat_panel(event, sel_idx)
+
+with c_alarm:
+    render_alarm_logic_panel(event=event, signal_overrides=signal_overrides)
 
 if sel_sig:
-    render_trend_chart(df, event, sel_sig, context_sec, mapper, KST)
-    render_stats_table(df, event, mapper, sel_idx, context_sec, KST,
-                       clear_detection_cache_fn=detect_anomalies_hitl.clear)
-
-    # ── 관리자 피드백 ──────────────────────────────────────────────────────────────
-    st.divider()
-    st.subheader("관리자 피드백")
-
-    _settings_cfg = load_settings()
-    _hitl_cfg = _settings_cfg.get("hitl", {})
-    fb_store = FeedbackStore(
-        db_path=str(ROOT / _hitl_cfg.get("feedback_db", "feedback.db"))
-    )
-    formatter = AnomalyContextFormatter(
-        context_minutes=int(_hitl_cfg.get("context_minutes", 5))
+    render_stats_table(
+        df,
+        event,
+        mapper,
+        sel_idx,
+        context_sec,
+        KST,
+        clear_detection_cache_fn=detect_anomalies_hitl.clear,
     )
 
-    fb_key = f"feedback_{sel_idx}"
-    prev_label = st.session_state.get(fb_key, "미판정")
-
-    fb_col1, fb_col2, fb_col3 = st.columns([3, 1, 1])
-    with fb_col1:
-        fb_label = st.radio(
-            "이 탐지 결과가 실제 이상입니까?",
-            ["미판정", "O (이상 확정)", "X (정상 패턴)"],
-            index=["미판정", "O (이상 확정)", "X (정상 패턴)"].index(prev_label),
-            key=f"fb_radio_{sel_idx}",
-            horizontal=True,
-        )
-    with fb_col2:
-        fb_reason = st.text_input("판단 근거 (선택)", key=f"fb_reason_{sel_idx}")
-    with fb_col3:
-        st.write("")
-        st.write("")
-        if st.button("피드백 저장", key=f"fb_save_{sel_idx}", type="primary"):
-            if fb_label != "미판정":
-                label_code = "O" if "O" in fb_label else "X"
-                fb_store.save(event, label=label_code, reason=fb_reason)
-                st.session_state[fb_key] = fb_label
-                st.success(f"'{label_code}' 저장 완료")
-                st.rerun()
-            else:
-                st.warning("O 또는 X를 선택해주세요.")
-
-    retrain = fb_store.retrain_scaffold()
-    st.caption(
-        f"피드백 누적: {retrain['total_labeled']}개 "
-        f"(이상 {retrain['anomaly_count']} / 정상 {retrain['normal_count']}) "
-        f"— {retrain['message']}"
+st.divider()
+st.subheader("관리자 피드백")
+fb_key = f"feedback_{sel_idx}"
+prev_label = st.session_state.get(fb_key, "미판정")
+fc1, fc2, fc3 = st.columns([3, 1, 1])
+with fc1:
+    fb_label = st.radio(
+        "탐지 결과가 실제 이상입니까?",
+        ["미판정", "O (이상 확정)", "X (정상 오탐)"],
+        index=["미판정", "O (이상 확정)", "X (정상 오탐)"].index(prev_label),
+        key=f"fb_radio_{sel_idx}",
+        horizontal=True,
     )
+with fc2:
+    fb_reason = st.text_input("판단 근거 (선택)", key=f"fb_reason_{sel_idx}")
+with fc3:
+    st.write("")
+    st.write("")
+    if st.button("피드백 저장", key=f"fb_save_{sel_idx}", type="primary"):
+        if fb_label != "미판정":
+            label_code = "O" if "O" in fb_label else "X"
+            fb_store.save(event, label=label_code, reason=fb_reason)
+            st.session_state[fb_key] = fb_label
+            st.success(f"'{label_code}' 저장 완료")
+            st.rerun()
+        else:
+            st.warning("O 또는 X를 선택해주세요.")
 
-# ── 전체 이상 타임라인 ────────────────────────────────────────────────────────
+retrain = fb_store.retrain_scaffold()
+st.caption(
+    f"피드백 누적: {retrain['total_labeled']}개"
+    f"(이상 {retrain['anomaly_count']} / 정상 {retrain['normal_count']}) "
+    f"→ {retrain['message']}"
+)
+
 st.divider()
 available = [s[0] for s in event.top_signals if s[0] in df.columns]
 render_timeline(df, events, sel_idx, available, KST)

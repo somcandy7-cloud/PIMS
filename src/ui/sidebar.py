@@ -10,17 +10,21 @@ import yaml
 from src.services.config_service import (
     SETTINGS_YAML,
     load_signal_config,
+    save_hitl_top_n,
     save_llm_config,
     save_signal_config,
 )
+
+
+def _clamp_top_n(value: int) -> int:
+    return max(0, min(20, int(value)))
 
 
 def render_sidebar(
     root: Path,
     clear_detection_cache_fn: Callable[[], None],
 ) -> tuple[str, int, bool]:
-    """사이드바를 렌더링하고 (csv_path, top_n, run_btn)를 반환한다."""
-
+    """사이드바를 렌더링하고 (csv_path, top_n, run_btn)을 반환한다."""
     with st.sidebar:
         st.title("PIMS 분석")
 
@@ -31,12 +35,12 @@ def render_sidebar(
             help="Railway에서는 로컬 경로 대신 업로드를 사용하세요.",
         )
 
-        default_local = str(root / "2603201549_oven.csv")
+        default_local = str(root / "반출데이터" / "2603201549_oven.csv")
         use_default = (not os.getenv("RAILWAY_ENVIRONMENT")) and Path(default_local).exists()
         csv_input = st.text_input(
             "데이터 파일 경로 (.csv / .xlsx)",
             value=(default_local if use_default else ""),
-            help="로컬 실행 시 절대경로를 입력할 수 있습니다.",
+            help="로컬 실행 시 절대경로를 직접 입력해도 됩니다.",
         )
 
         if uploaded is not None:
@@ -45,23 +49,25 @@ def render_sidebar(
             upload_path = upload_dir / uploaded.name
             upload_path.write_bytes(uploaded.getbuffer())
             csv_input = str(upload_path)
-            st.caption(f"업로드 사용 중: `{uploaded.name}`")
+            st.caption(f"업로드 파일 사용 중: `{uploaded.name}`")
+
+        with open(SETTINGS_YAML, encoding="utf-8") as f:
+            settings_now = yaml.safe_load(f) or {}
 
         st.divider()
         st.subheader("탐지 설정")
-        top_n = st.slider("상위 신호 개수", 3, 20, 5)
+        hitl_now = settings_now.get("hitl", {}) or {}
+        detector_now = hitl_now.get("detector", {}) or {}
+        saved_top_n = _clamp_top_n(detector_now.get("top_n", 5))
+        top_n = st.slider("상위 신호 개수", 0, 20, saved_top_n, key="top_n_slider")
 
         st.divider()
         st.subheader("LLM 설정")
-
-        with open(SETTINGS_YAML, encoding="utf-8") as f:
-            settings_now = yaml.safe_load(f)
-        llm_now = settings_now.get("llm", {})
+        llm_now = settings_now.get("llm", {}) or {}
 
         backend_options = ["OpenAI", "Ollama", "비활성화"]
         backend_map = {"openai": 0, "ollama": 1, "disabled": 2}
         current_backend = (llm_now.get("backend") or "disabled").lower()
-
         selected_backend = st.radio(
             "백엔드",
             backend_options,
@@ -70,7 +76,6 @@ def render_sidebar(
         )
 
         new_llm_cfg = dict(llm_now)
-
         if selected_backend == "OpenAI":
             new_llm_cfg["backend"] = "openai"
             oai = llm_now.get("openai") or {}
@@ -100,14 +105,15 @@ def render_sidebar(
         else:
             new_llm_cfg["backend"] = "disabled"
 
-        if st.button("LLM 설정 저장", key="save_llm_btn"):
+        if st.button("설정 저장", key="save_all_settings_btn", use_container_width=True):
             save_llm_config(new_llm_cfg)
+            save_hitl_top_n(top_n)
             st.cache_data.clear()
-            st.success("저장되었습니다")
+            st.success("설정이 저장되었습니다.")
             st.rerun()
 
         st.divider()
-        run_btn = st.button("분석 실행", type="primary", use_container_width=True)
+        run_btn = st.button("분석 시작하기", type="primary", use_container_width=True)
 
         st.divider()
         st.subheader("장치 프로필")
@@ -144,7 +150,7 @@ def render_sidebar(
         excl, ovrd, _ = load_signal_config()
         if excl or ovrd:
             st.divider()
-            st.subheader("신호 설정")
+            st.subheader("분석 제외/오버라이드")
 
             if excl:
                 st.caption(f"제외 신호: {len(excl)}개")

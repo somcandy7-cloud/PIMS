@@ -2,5 +2,5 @@
 # 상대 경로: PIMS 루트 기준
 # 파일이 없으면 라벨 기능이 비활성화(PLC 태그명 그대로 표시)됩니다.
 label_files:
-  - "3OVEN.xlsx"
-  - "4OVEN.xlsx"
+  - "반출데이터/3OVEN.xlsx"
+  - "반출데이터/4OVEN.xlsx"

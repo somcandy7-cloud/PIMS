@@ -31,6 +31,7 @@ env/
 # Streamlit / local DB / logs
 .streamlit/secrets.toml
 .runtime_uploads/
+exports/
 *.db
 *.sqlite
 *.sqlite3
@@ -41,3 +42,6 @@ env/
 Thumbs.db
 .idea/
 .vscode/
+
+# Exported large data
+반출데이터/

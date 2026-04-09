@@ -42,3 +42,16 @@ def load_settings() -> dict:
     """settings.yaml 전체를 dict로 반환한다."""
     with open(SETTINGS_YAML, encoding="utf-8") as f:
         return yaml.safe_load(f)
+
+
+def save_hitl_top_n(top_n: int) -> None:
+    """settings.yaml의 hitl.detector.top_n 값을 업데이트한다."""
+    with open(SETTINGS_YAML, encoding="utf-8") as f:
+        cfg = yaml.safe_load(f) or {}
+
+    hitl = cfg.setdefault("hitl", {})
+    detector = hitl.setdefault("detector", {})
+    detector["top_n"] = int(top_n)
+
+    with open(SETTINGS_YAML, "w", encoding="utf-8") as f:
+        yaml.dump(cfg, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
