@@ -1,0 +1,49 @@
+signal_groups:
+  double_word:
+    patterns:
+    - 'MD '
+    type: analog
+    zscore_threshold: 3.0
+  drive_db420:
+    patterns:
+    - DB420.DBW
+    type: analog
+    zscore_threshold: 3.0
+  drive_db421:
+    patterns:
+    - DB421.DBW
+    type: analog
+    zscore_threshold: 3.0
+  status_word:
+    patterns:
+    - 'MW '
+    type: analog
+    zscore_threshold: 4.0
+  digital_input:
+    patterns:
+    - 'IB '
+    type: digital
+  digital_output:
+    patterns:
+    - 'QB '
+    type: digital
+  flag_byte:
+    patterns:
+    - 'MB '
+    type: digital
+known_roles: {}
+model_params:
+  isolation_forest:
+    window_size: 5
+    contamination: 0.03
+    n_estimators: 100
+excluded_signals:
+- DB401.DBD 236_1
+- DB401.DBD 256_1
+- DB401.DBD 236_2
+- DB401.DBD 208_1
+- DB401.DBD 260_3
+- DB401.DBD 236_3
+- DB401.DBD 240_2
+- DB401.DBD 232_2
+signal_overrides: {}

@@ -1,0 +1,42 @@
+# AutoResearch experiment results (not tracked in git)
+experiments/results.tsv
+experiments/eval_data/*.csv
+
+# Python caches / build
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.backend.example
+!.env.frontend.example
+
+# Streamlit / local DB / logs
+.streamlit/secrets.toml
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

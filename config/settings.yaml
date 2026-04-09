@@ -1,0 +1,39 @@
+watch_folder: C:/ibaData/exports
+output_folder: C:/ibaData/reports
+log_file: C:/ibaData/reports/alarm.log
+llm:
+  backend: openai
+  openai:
+    model: gpt-4o-mini
+    api_key_env: OPENAI_API_KEY
+    timeout: 60
+    max_tokens: 256
+  ollama:
+    model: qwen3:4b
+    host: http://localhost:11434
+    timeout: 30
+analysis:
+  zscore_threshold: 3.0
+  trip_window: 50
+  trip_roc_zscore_threshold: 3.0
+  top_n_signals: 5
+detector:
+  name: isolation_forest
+hitl:
+  signal_reducer:
+    corr_threshold: 0.9
+    low_var_threshold: 0.01
+  rolling:
+    window_rows: 30
+  detector:
+    contamination: 0.02
+    n_estimators: 100
+    window_size: 1
+    top_n: 10
+  discovery:
+    top_binary_n: 0
+    top_bimodal_n: 1
+  feedback_db: feedback.db
+  llm_prompt: config/llm_hitl_prompt.md
+  context_minutes: 5
+  min_retrain_samples: 20

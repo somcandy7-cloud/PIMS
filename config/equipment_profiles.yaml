@@ -1,0 +1,8 @@
+oven:
+  conditions:
+  - column: MB    118
+    confidence: 1.0
+    op: '>'
+    source: bimodal
+    value: 15.5
+  confirmed: false
