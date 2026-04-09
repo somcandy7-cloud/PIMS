@@ -42,15 +42,11 @@ def render_sidebar(
         if "csv_path_input" not in st.session_state:
             st.session_state["csv_path_input"] = default_input
 
-        st.text_input(
-            "데이터 파일 경로 (.csv / .xlsx)",
-            key="csv_path_input",
-            help="로컬 실행 시 절대경로를 직접 입력해도 됩니다.",
-        )
-
+        # NOTE: csv_path_input 위젯 생성 전에 세션 값을 갱신해야 Streamlit 예외가 나지 않는다.
         if uploaded is not None:
             upload_dir = root / ".runtime_uploads"
             upload_dir.mkdir(parents=True, exist_ok=True)
+
             file_bytes = bytes(uploaded.getbuffer())
             digest = hashlib.sha1(file_bytes).hexdigest()[:10]
             src_name = Path(uploaded.name)
@@ -58,9 +54,15 @@ def render_sidebar(
             upload_path = upload_dir / upload_name
             if not upload_path.exists():
                 upload_path.write_bytes(file_bytes)
-            st.session_state["csv_path_input"] = str(upload_path)
-            st.caption(f"업로드 파일 사용 중: `{uploaded.name}` → `{upload_name}`")
 
+            st.session_state["csv_path_input"] = str(upload_path)
+            st.caption(f"업로드 파일 사용 중: `{uploaded.name}` -> `{upload_name}`")
+
+        st.text_input(
+            "데이터 파일 경로 (.csv / .xlsx)",
+            key="csv_path_input",
+            help="로컬 실행 시 절대경로를 직접 입력해도 됩니다.",
+        )
         csv_input = str(st.session_state.get("csv_path_input", "")).strip()
 
         with open(SETTINGS_YAML, encoding="utf-8") as f:
@@ -129,11 +131,10 @@ def render_sidebar(
 
         st.divider()
         st.subheader("장치 프로필")
-        csv_val = csv_input.strip()
-        if csv_val:
+        if csv_input:
             from src.services.equipment_profile_store import EquipmentProfileStore
 
-            eq_id = EquipmentProfileStore.extract_id(Path(csv_val).name)
+            eq_id = EquipmentProfileStore.extract_id(Path(csv_input).name)
             ep_store = EquipmentProfileStore()
             all_groups = ep_store.load_all_groups(eq_id)
 
@@ -159,30 +160,30 @@ def render_sidebar(
             else:
                 st.caption(f"`{eq_id}` 프로필 없음 (분석 시 자동 생성)")
 
-        excl, ovrd, _ = load_signal_config()
-        if excl or ovrd:
+        excluded, overrides, _ = load_signal_config()
+        if excluded or overrides:
             st.divider()
             st.subheader("분석 제외/오버라이드")
 
-            if excl:
-                st.caption(f"제외 신호: {len(excl)}개")
-                for sig in list(excl):
+            if excluded:
+                st.caption(f"제외 신호: {len(excluded)}개")
+                for sig in list(excluded):
                     col_a, col_b = st.columns([3, 1])
                     col_a.caption(sig)
                     if col_b.button("복원", key=f"restore_{sig}"):
-                        excl.remove(sig)
-                        save_signal_config(excl, ovrd)
+                        excluded.remove(sig)
+                        save_signal_config(excluded, overrides)
                         clear_detection_cache_fn()
                         st.rerun()
 
-            if ovrd:
-                st.caption(f"임계값 변경: {len(ovrd)}개")
-                for sig, thr in list(ovrd.items()):
+            if overrides:
+                st.caption(f"임계값 변경: {len(overrides)}개")
+                for sig, thr in list(overrides.items()):
                     col_a, col_b = st.columns([3, 1])
                     col_a.caption(f"{sig}: {thr:.1f}")
                     if col_b.button("초기화", key=f"reset_{sig}"):
-                        del ovrd[sig]
-                        save_signal_config(excl, ovrd)
+                        del overrides[sig]
+                        save_signal_config(excluded, overrides)
                         clear_detection_cache_fn()
                         st.rerun()
 
