@@ -24,11 +24,23 @@ _PREFIX_RE = re.compile(r'^\[([^\]]+)\]')
 
 # 제외 대상 패턴 (flag 신호) — 모두 주소 시작 부터 매칭 (match)
 _FLAG_PATTERNS: list[re.Pattern] = [
+    # Merker 메모리 (모두 PLC 내부 레지스터)
     re.compile(r'^MB[\s_]'),            # MB  (Merker Byte)
-    re.compile(r'^QB[\s_]'),            # QB  (Output Byte)
-    re.compile(r'^IB[\s_]'),            # IB  (Input Byte)
+    re.compile(r'^MW[\s_]'),            # MW  (Merker Word)   ← 신규
     re.compile(r'^MD[\s_]'),            # MD  (Merker DWord)
-    re.compile(r'^DB\d+\.DBB', re.I),  # DB블록 Byte 플래그 — DBB / DBb 대소문자 무관
+    re.compile(r'^MX[\s_.]'),           # MX  (Merker Bit)    ← 신규
+    # 디지털 출력
+    re.compile(r'^QB[\s_]'),            # QB  (Output Byte)
+    re.compile(r'^QW[\s_]'),            # QW  (Output Word)   ← 신규
+    re.compile(r'^QD[\s_]'),            # QD  (Output DWord)  ← 신규
+    # 디지털 입력
+    re.compile(r'^IB[\s_]'),            # IB  (Input Byte)
+    re.compile(r'^IW[\s_]'),            # IW  (Input Word)    ← 신규
+    re.compile(r'^ID[\s_]'),            # ID  (Input DWord)   ← 신규
+    # 아날로그 출력 (제어 명령)
+    re.compile(r'^PQW[\s_]'),           # PQW (Periph. Output Word) ← 신규
+    # DB 블록 Byte 플래그 (DBB / DBb 대소문자 무관)
+    re.compile(r'^DB\d+\.DBB', re.I),
 ]
 
 # 이름 내부 어딘가에나 나타날 수 있는 PLC 메모리 참조 태그 (search)
