@@ -130,6 +130,19 @@ def render_sidebar(
         run_btn = st.button("분석 시작하기", type="primary", use_container_width=True)
 
         st.divider()
+        st.subheader("과도 구간 필터")
+        trans_now = hitl_now.get("transient_filter", {})
+        warmup_now   = int(trans_now.get("warmup_sec",   0))
+        cooldown_now = int(trans_now.get("cooldown_sec", 0))
+        max_cand_now = int((settings_now.get("llm") or {}).get("max_candidates_per_run", 10))
+        st.caption(
+            f"기동 제외: **{warmup_now}초**  |  "
+            f"정지 전 제외: **{cooldown_now}초**  |  "
+            f"LLM 최대 분석: **{max_cand_now}건**"
+        )
+        st.caption("`config/settings.yaml` → `hitl.transient_filter` 에서 변경")
+
+        st.divider()
         st.subheader("장치 프로필")
         if csv_input:
             from src.services.equipment_profile_store import EquipmentProfileStore
