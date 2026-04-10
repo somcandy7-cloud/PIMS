@@ -68,10 +68,49 @@ def render_sidebar(
 
         with open(SETTINGS_YAML, encoding="utf-8") as f:
             settings_now = yaml.safe_load(f) or {}
+        hitl_now = settings_now.get("hitl", {}) or {}
+
+        st.divider()
+        st.subheader("⏱ 과도 구간 필터")
+        with st.expander("과도 구간이란?", expanded=False):
+            st.markdown(
+                """
+**과도 구간(Transient Zone)**이란 장비의 **기동(시작) 또는 정지(종료) 직후**,
+신호가 완전히 안정화되기 전까지의 구간을 말합니다.
+
+| 구간 | 설명 | 예시 |
+|------|------|------|
+| **기동(Warmup)** | 전원 인가 후 온도·압력·유량 등이 정상 범위로 수렴하기까지의 시간 | 가열 시작 후 온도 급상승 |
+| **정지(Cooldown)** | 장비 정지 직전 관성·냉각으로 신호가 지속 변동하는 시간 | 모터 OFF 후 속도 감속 구간 |
+
+이 구간에서 탐지된 이상치는 **정상적인 기동/정지 패턴**에 의한 것이므로,
+자동으로 제외하여 **오탐률을 낮춥니다**.
+
+> 값이 클수록 더 긴 과도 구간을 제외합니다 (0초 = 필터 비활성화).
+"""
+            )
+        trans_now = hitl_now.get("transient_filter", {})
+        warmup_now   = int(trans_now.get("warmup_sec",   60))
+        cooldown_now = int(trans_now.get("cooldown_sec", 60))
+        warmup_edit = st.slider(
+            "기동 제외 구간 (초)",
+            min_value=0, max_value=300,
+            value=warmup_now, step=10,
+            key="warmup_slider",
+            help="장비 기동 후 이 시간(초) 동안 탐지에서 제외합니다.",
+        )
+        cooldown_edit = st.slider(
+            "정지 전 제외 구간 (초)",
+            min_value=0, max_value=300,
+            value=cooldown_now, step=10,
+            key="cooldown_slider",
+            help="장비 정지 직전 이 시간(초) 동안 탐지에서 제외합니다.",
+        )
+        max_cand_now = int((settings_now.get("llm") or {}).get("max_candidates_per_run", 10))
+        st.caption(f"LLM 최대 분석 건수: **{max_cand_now}건**")
 
         st.divider()
         st.subheader("탐지 설정")
-        hitl_now = settings_now.get("hitl", {}) or {}
         detector_now = hitl_now.get("detector", {}) or {}
         saved_top_n = _clamp_top_n(detector_now.get("top_n", 5))
         top_n = st.slider("상위 신호 개수", 0, 20, saved_top_n, key="top_n_slider")
@@ -131,44 +170,6 @@ def render_sidebar(
         st.divider()
         run_btn = st.button("분석 시작하기", type="primary", use_container_width=True)
 
-        st.divider()
-        st.subheader("⏱ 과도 구간 필터")
-        with st.expander("과도 구간이란?", expanded=False):
-            st.markdown(
-                """
-**과도 구간(Transient Zone)**이란 장비의 **기동(시작) 또는 정지(종료) 직후**,
-신호가 완전히 안정화되기 전까지의 구간을 말합니다.
-
-| 구간 | 설명 | 예시 |
-|------|------|------|
-| **기동(Warmup)** | 전원 인가 후 온도·압력·유량 등이 정상 범위로 수렴하기까지의 시간 | 가열 시작 후 온도 급상승 |
-| **정지(Cooldown)** | 장비 정지 직전 관성·냉각으로 신호가 지속 변동하는 시간 | 모터 OFF 후 속도 감속 구간 |
-
-이 구간에서 탐지된 이상치는 **정상적인 기동/정지 패턴**에 의한 것이므로,
-자동으로 제외하여 **오탐률을 낮춥니다**.
-
-> 값이 클수록 더 긴 과도 구간을 제외합니다 (0초 = 필터 비활성화).
-"""
-            )
-        trans_now = hitl_now.get("transient_filter", {})
-        warmup_now   = int(trans_now.get("warmup_sec",   60))
-        cooldown_now = int(trans_now.get("cooldown_sec", 60))
-        warmup_edit = st.slider(
-            "기동 제외 구간 (초)",
-            min_value=0, max_value=300,
-            value=warmup_now, step=10,
-            key="warmup_slider",
-            help="장비 기동 후 이 시간(초) 동안 탐지에서 제외합니다.",
-        )
-        cooldown_edit = st.slider(
-            "정지 전 제외 구간 (초)",
-            min_value=0, max_value=300,
-            value=cooldown_now, step=10,
-            key="cooldown_slider",
-            help="장비 정지 직전 이 시간(초) 동안 탐지에서 제외합니다.",
-        )
-        max_cand_now = int((settings_now.get("llm") or {}).get("max_candidates_per_run", 10))
-        st.caption(f"LLM 최대 분석 건수: **{max_cand_now}건**")
 
         st.divider()
         st.subheader("장치 프로필")
