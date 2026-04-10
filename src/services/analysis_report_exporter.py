@@ -23,9 +23,23 @@ def _top_signals_to_str(top_signals: list[tuple[str, float]], limit: int = 10) -
     return " | ".join(f"{sig}:{mag:.4f}" for sig, mag in cut)
 
 
-def _events_to_df(events: list[AnomalyEvent], kst: str) -> pd.DataFrame:
+def _events_to_df(
+    events: list[AnomalyEvent],
+    kst: str,
+    *,
+    mark_rejected: bool = False,
+) -> pd.DataFrame:
+    """AnomalyEvent 목록을 DataFrame으로 변환한다.
+
+    Parameters
+    ----------
+    mark_rejected : True이면 verdict 열에 'REJECT'를 명시하고
+                   llm_reject_reason 열에 사유를 채운다.
+    """
     rows: list[dict] = []
     for i, ev in enumerate(events, 1):
+        verdict = ev.metadata.get("llm_verdict", "REJECT" if mark_rejected else "")
+        reason  = ev.metadata.get("llm_reason", "")
         rows.append(
             {
                 "rank": i,
@@ -34,8 +48,8 @@ def _events_to_df(events: list[AnomalyEvent], kst: str) -> pd.DataFrame:
                 "group_id": ev.metadata.get("group_id", ""),
                 "top_signal_count": len(ev.top_signals),
                 "top_signals": _top_signals_to_str(ev.top_signals),
-                "llm_verdict": ev.metadata.get("llm_verdict", ""),
-                "llm_reason": ev.metadata.get("llm_reason", ""),
+                "llm_verdict": verdict,
+                "llm_reason": reason,
             }
         )
     return pd.DataFrame(rows)
@@ -47,6 +61,7 @@ def build_report_frames(
     source_file: str,
     candidates: list[AnomalyEvent],
     events: list[AnomalyEvent],
+    rejected: list[AnomalyEvent] | None = None,
     running_rows: int,
     reduced_cols: int,
     group_count: int,
@@ -54,6 +69,13 @@ def build_report_frames(
     groups_profile: dict | None = None,
     kst: str = "Asia/Seoul",
 ) -> dict[str, pd.DataFrame]:
+    """분석 결과를 여러 시트 DataFrame으로 빌드한다.
+
+    Parameters
+    ----------
+    rejected : LLMFilter가 REJECT 판정한 이벤트 목록.
+               None이면 candidates 중 llm_verdict가 없는 항목만 IFCandidates에 포함.
+    """
     total_rows = len(df)
     raw_cols = len(df.columns)
     running_pct = (running_rows / max(total_rows, 1)) * 100.0
@@ -98,7 +120,25 @@ def build_report_frames(
         )
     groups_df = pd.DataFrame(group_rows)
 
-    if_candidates_df = _events_to_df(candidates, kst)
+    # IFCandidates: KEEP(events) + REJECT(rejected) 통합, 없으면 원본 candidates
+    if rejected is not None:
+        kept_df = _events_to_df(events, kst)
+        rej_df  = _events_to_df(rejected, kst, mark_rejected=True)
+        if_candidates_df = (
+            pd.concat([kept_df, rej_df], ignore_index=True)
+            if not rej_df.empty
+            else kept_df
+        )
+        # 점수 내림차순 정렬 (KEEP 먼저)
+        if not if_candidates_df.empty:
+            if_candidates_df = if_candidates_df.sort_values(
+                ["llm_verdict", "score"],
+                ascending=[True, True],  # KEEP < REJECT 알파벳순, score 오름차순
+            ).reset_index(drop=True)
+            if_candidates_df["rank"] = range(1, len(if_candidates_df) + 1)
+    else:
+        if_candidates_df = _events_to_df(candidates, kst)
+
     llm_verified_df = _events_to_df(events, kst)
 
     return {

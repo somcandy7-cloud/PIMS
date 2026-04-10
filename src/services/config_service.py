@@ -55,3 +55,18 @@ def save_hitl_top_n(top_n: int) -> None:
 
     with open(SETTINGS_YAML, "w", encoding="utf-8") as f:
         yaml.dump(cfg, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+
+def save_transient_filter(warmup_sec: int, cooldown_sec: int) -> None:
+    """settings.yaml의 hitl.transient_filter 값을 업데이트한다."""
+    with open(SETTINGS_YAML, encoding="utf-8") as f:
+        cfg = yaml.safe_load(f) or {}
+
+    hitl = cfg.setdefault("hitl", {})
+    hitl["transient_filter"] = {
+        "warmup_sec": int(warmup_sec),
+        "cooldown_sec": int(cooldown_sec),
+    }
+
+    with open(SETTINGS_YAML, "w", encoding="utf-8") as f:
+        yaml.dump(cfg, f, allow_unicode=True, default_flow_style=False, sort_keys=False)

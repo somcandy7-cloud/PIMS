@@ -93,8 +93,8 @@ def detect_anomalies_hitl(
     _topn: int,
     _excluded: tuple[str, ...],
     _settings_key: str,
-) -> tuple[list[AnomalyEvent], list[AnomalyEvent], int, int, int]:
-    """Returns: (candidates, events, total_rows, running_rows, reduced_cols)."""
+) -> tuple[list[AnomalyEvent], list[AnomalyEvent], list[AnomalyEvent], int, int, int]:
+    """Returns: (candidates, events, rejected, total_rows, running_rows, reduced_cols)."""
     from src.agents.isolation_forest_adapter import IsolationForestAdapter
 
     df = load_and_process(path)
@@ -172,9 +172,9 @@ def detect_anomalies_hitl(
         llm_input_df = df
 
     llm_filter = build_llm_filter(settings)
-    events = llm_filter.filter(all_candidates, llm_input_df)
+    events, rejected = llm_filter.filter(all_candidates, llm_input_df)
 
-    return all_candidates, events, len(df), len(running_index_union), total_reduced_cols
+    return all_candidates, events, rejected, len(df), len(running_index_union), total_reduced_cols
 
 
 csv_input, top_n, run_btn = render_sidebar(ROOT, clear_detection_cache_fn=detect_anomalies_hitl.clear)
@@ -270,7 +270,7 @@ if run_btn:
                 groups_profile[group_id] = {"conditions": raw_conds, "clusters": clusters}
 
             groups_profile_json = json.dumps(groups_profile, sort_keys=True)
-            candidates, events, total_rows, running_rows, reduced_cols = detect_anomalies_hitl(
+            candidates, events, rejected, total_rows, running_rows, reduced_cols = detect_anomalies_hitl(
                 csv_path,
                 groups_profile_json,
                 if_params_key,
@@ -288,6 +288,7 @@ if run_btn:
         df=df,
         events=events,
         candidates=candidates,
+        rejected=rejected,
         csv_path=csv_path,
         equipment_id=equipment_id,
         total_rows=total_rows,
@@ -321,6 +322,7 @@ report_frames = build_report_frames(
     source_file=st.session_state.get("csv_path", ""),
     candidates=candidates,
     events=events,
+    rejected=st.session_state.get("rejected"),
     running_rows=st.session_state.get("running_rows", len(df)),
     reduced_cols=st.session_state.get("reduced_cols", len(df.columns)),
     group_count=st.session_state.get("group_count", 0),

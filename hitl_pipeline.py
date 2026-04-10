@@ -197,10 +197,11 @@ def run_hitl_pipeline(csv_path: str, interactive: bool = True) -> list[dict]:
     backend = build_llm_backend(settings.get("llm", {}))
     if backend:
         print(f"\n[Step 2-B] LLM filter: {backend.name()}")
-        events = LLMFilter(backend).filter(candidates, llm_input_df)
-        print(f"  LLM keep={len(events)}")
+        events, rejected = LLMFilter(backend).filter(candidates, llm_input_df)
+        print(f"  LLM keep={len(events)}, rejected={len(rejected)}")
     else:
         events = candidates
+        rejected = []
         print("  LLM disabled: passing all IF candidates")
 
     formatter = AnomalyContextFormatter(

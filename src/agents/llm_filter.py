@@ -76,15 +76,22 @@ class LLMFilter:
         self,
         candidates: list[AnomalyEvent],
         df: pd.DataFrame,
-    ) -> list[AnomalyEvent]:
-        """후보 목록을 LLM으로 검증하고 KEEP 판정된 이벤트만 반환한다."""
+    ) -> tuple[list[AnomalyEvent], list[AnomalyEvent]]:
+        """후보 목록을 LLM으로 검증하고 (kept, rejected) 튜플을 반환한다.
+
+        Returns
+        -------
+        kept : KEEP / ERROR_KEEP / SKIP_KEEP 판정 이벤트 (대시보드에 표시)
+        rejected : REJECT 판정 이벤트 (엑셀 리포트 기록용, llm_reason 포함)
+        """
         if not candidates:
-            return []
+            return [], []
         if self.backend is None:
-            return candidates
+            return candidates, []
 
         template = _load_prompt_template()
-        validated = []
+        kept: list[AnomalyEvent] = []
+        rejected: list[AnomalyEvent] = []
 
         should_limit = (
             self.max_candidates_per_run is not None
@@ -126,9 +133,11 @@ class LLMFilter:
                 metadata=updated_meta,
             )
             if verdict in ("KEEP", "ERROR_KEEP", "SKIP_KEEP"):
-                validated.append(updated_event)
+                kept.append(updated_event)
+            else:  # REJECT
+                rejected.append(updated_event)
 
-        return validated
+        return kept, rejected
 
     def _call_backend(
         self,
