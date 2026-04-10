@@ -172,7 +172,21 @@ def render_sidebar(
 
 
         st.divider()
-        st.subheader("장치 프로필")
+        st.subheader("🗂 장치 프로필")
+        with st.expander("장치 프로필이란?", expanded=False):
+            st.markdown(
+                """
+분석 실행 시 두 가지 학습 결과를 **자동 저장**해서 다음 실행 속도를 높입니다.
+
+| 항목 | 내용 | 초기화 필요 시 |
+|------|------|----------------|
+| **가동 조건** | 장비 가동 구간을 자동 탐색한 기준값 | CSV 구성이 크게 바뀔 때 |
+| **클러스터** | 상관관계 높은 신호들을 대표 신호 1개로 압축한 결과 | 신호 필터 변경 후 재학습 시 |
+
+> 신호 필터를 수정했거나 처음부터 새로 분석하고 싶을 때는
+> **초기화 후 재분석**을 권장합니다.
+"""
+            )
         if csv_input:
             from src.services.equipment_profile_store import EquipmentProfileStore
 
@@ -199,8 +213,38 @@ def render_sidebar(
                                 ep_store.clear_group_clusters(eq_id, gid)
                                 clear_detection_cache_fn()
                                 st.rerun()
+
+                st.markdown("---")
+                if st.button(
+                    f"🔄 이 장치 프로필 초기화 (`{eq_id}`)",
+                    key="clr_eq_profile_btn",
+                    use_container_width=True,
+                    help="가동 조건 + 클러스터 전부 삭제. 다음 분석 시 처음부터 재탐색.",
+                ):
+                    ep_store.clear_equipment(eq_id)
+                    clear_detection_cache_fn()
+                    st.success(f"`{eq_id}` 프로필을 초기화했습니다. 재분석하세요.")
+                    st.rerun()
             else:
                 st.caption(f"`{eq_id}` 프로필 없음 (분석 시 자동 생성)")
+
+        st.markdown("---")
+        confirm_reset = st.checkbox(
+            "전체 초기화 실행 확인 (모든 장치 프로필 삭제)",
+            key="confirm_full_reset",
+        )
+        if st.button(
+            "⚠️ 전체 프로필 초기화",
+            key="clr_all_profiles_btn",
+            use_container_width=True,
+            disabled=not confirm_reset,
+            help="equipment_profiles.yaml의 모든 장치 데이터를 삭제합니다.",
+        ):
+            from src.services.equipment_profile_store import EquipmentProfileStore
+            n = EquipmentProfileStore().clear_all()
+            clear_detection_cache_fn()
+            st.success(f"전체 초기화 완료: {n}개 장치 프로필 삭제")
+            st.rerun()
 
         excluded, overrides, _ = load_signal_config()
         if excluded or overrides:

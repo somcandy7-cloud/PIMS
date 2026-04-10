@@ -118,6 +118,34 @@ class EquipmentProfileStore:
             group.pop("clusters", None)
             self._write(data)
 
+    def clear_all_clusters(self, equipment_id: str) -> None:
+        """장치의 모든 그룹 클러스터맵을 삭제한다. conditions/confirmed는 보존."""
+        data = self._read()
+        for group in data.get(equipment_id, {}).get("groups", {}).values():
+            group.pop("clusters", None)
+        self._write(data)
+
+    def clear_equipment(self, equipment_id: str) -> None:
+        """장치 프로필 전체(conditions + clusters + confirmed)를 삭제한다.
+
+        다음 분석 실행 시 조건·클러스터를 처음부터 재탐색한다.
+        """
+        data = self._read()
+        data.pop(equipment_id, None)
+        self._write(data)
+
+    def clear_all(self) -> int:
+        """모든 장치 프로필을 삭제하고 파일을 비운다.
+
+        Returns
+        -------
+        int : 삭제된 장치(equipment_id) 수
+        """
+        data = self._read()
+        count = len(data)
+        self._write({})
+        return count
+
     @staticmethod
     def extract_id(csv_filename: str) -> str:
         stem = Path(csv_filename).stem
