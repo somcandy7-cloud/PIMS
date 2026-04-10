@@ -347,3 +347,137 @@ def render_timeline(
         height=280, margin=dict(t=30, b=40), showlegend=False,
     )
     st.plotly_chart(fig_tl, use_container_width=True, key="timeline_chart")
+
+
+def render_detection_reasoning(event: AnomalyEvent) -> None:
+    """IF 판단 근거와 LLM 검증 결과를 사용자 친화적으로 표시한다."""
+
+    # ── rolling 접미사 → 한국어 해석 ───────────────────────────────────────
+    _SUFFIX_LABEL: dict[str, str] = {
+        "_rstd": "구간 변동성 급증",
+        "_roc":  "급격한 변화율",
+        "_rmean":"평균값 이탈",
+    }
+
+    def _decode_signal(col: str) -> tuple[str, str]:
+        """(base_name, 변화 유형) 반환."""
+        for sfx, label in _SUFFIX_LABEL.items():
+            if col.endswith(sfx):
+                return col[: -len(sfx)], label
+        return col, "값 이상"
+
+    # ── IF 점수 해석 ────────────────────────────────────────────────────────
+    s = event.score
+    if s <= -0.5:
+        score_label, score_color = "매우 강함", "🔴"
+    elif s <= -0.3:
+        score_label, score_color = "강함", "🟠"
+    elif s <= -0.15:
+        score_label, score_color = "보통", "🟡"
+    else:
+        score_label, score_color = "경계 수준", "🟢"
+
+    contamination = event.metadata.get("contamination", 0.02)
+
+    # ── LLM 결과 ────────────────────────────────────────────────────────────
+    llm_verdict = event.metadata.get("llm_verdict", "")
+    llm_reason  = event.metadata.get("llm_reason", "")
+    llm_backend = event.metadata.get("llm_backend", "")
+
+    st.subheader("탐지 과정 요약")
+    c_if, c_llm = st.columns(2, gap="large")
+
+    # ── IF 패널 ─────────────────────────────────────────────────────────────
+    with c_if:
+        st.markdown("**Isolation Forest 판단**")
+        st.markdown(
+            f"{score_color} 이상 점수: **{s:.4f}** ({score_label})  \n"
+            f"전체 데이터 중 상위 **{contamination*100:.0f}%** 이상치 기준으로 분류됨"
+        )
+        st.caption("주요 이상 원인 신호:")
+        for sig, mag in event.top_signals[:5]:
+            base, kind = _decode_signal(sig)
+            st.markdown(f"- `{base}` — **{kind}** (변화량 {mag:.3f})")
+        with st.expander("Isolation Forest란?", expanded=False):
+            st.caption(
+                "각 데이터 포인트를 무작위로 고립시킬 때 '몇 번 만에 고립되는가'를 기준으로 "
+                "이상치를 판단합니다. 적은 횟수로 고립될수록 이상치일 가능성이 높습니다. "
+                f"현재 설정: contamination={contamination*100:.0f}% "
+                "(전체 데이터의 이 비율을 이상으로 간주)"
+            )
+
+    # ── LLM 패널 ────────────────────────────────────────────────────────────
+    with c_llm:
+        st.markdown("**LLM 검증 결과**")
+        if not llm_verdict:
+            st.caption("LLM 결과 없음")
+        elif llm_verdict == "KEEP":
+            st.success(f"✅ 이상 확정 (KEEP)")
+            st.markdown(f"**판단 근거:** {llm_reason}")
+        elif llm_verdict == "REJECT":
+            st.info(f"⬜ 정상으로 판단 (REJECT)")
+            st.markdown(f"**판단 근거:** {llm_reason}")
+        elif llm_verdict == "SKIP_KEEP":
+            st.warning("⏭ LLM 검증 생략 — IF 점수 기준 통과")
+            st.caption(llm_reason)
+        else:  # ERROR_KEEP
+            st.warning(f"⚠ LLM 오류 — 안전하게 포함 처리")
+            st.caption(llm_reason)
+
+        if llm_backend:
+            st.caption(f"모델: {llm_backend}")
+
+        with st.expander("LLM 역할이란?", expanded=False):
+            st.caption(
+                "IF가 통계적으로 '이상'으로 분류한 후보를 LLM이 2차 검토합니다. "
+                "전후 구간의 신호 트렌드·통계를 함께 보고 '단순 노이즈인지 vs 실제 이상인지'를 "
+                "판단해 최종 이벤트 목록을 정제합니다."
+            )
+
+
+def render_flag_context_panel(
+    df: pd.DataFrame,
+    event: AnomalyEvent,
+    group_id: str | None,
+    context_sec: int,
+    mapper,
+) -> None:
+    """이상 시점 flag 신호 상태 패널을 렌더링한다.
+
+    Parameters
+    ----------
+    df          : 원본 전체 DataFrame (measurement + flag 포함)
+    event       : 이상 이벤트
+    group_id    : 이벤트가 속한 장치 그룹 ID
+    context_sec : 이벤트 전후 ±초 (표시 구간)
+    mapper      : SignalLabelMapper (라벨 표시용, None 가능)
+    """
+    from src.utils.flag_context import get_flag_context
+
+    flag_df = get_flag_context(
+        df, event.timestamp, group_id=group_id,
+        context_sec=context_sec, mapper=mapper,
+    )
+
+    st.subheader("제어·상태 신호 (이벤트 시점)")
+
+    if flag_df.empty:
+        st.caption("이 그룹에서 이벤트 시점에 변화한 제어/상태 신호가 없습니다.")
+        return
+
+    display = flag_df.copy()
+    display["신호"] = display.apply(
+        lambda r: f"{r['label']}  `{r['signal']}`" if r["label"] else f"`{r['signal']}`",
+        axis=1,
+    )
+    display["이전"] = display["val_before"]
+    display["이벤트시점"] = display["val_at_event"]
+    display["이후"] = display["val_after"]
+    display["변화량"] = display["changed"].apply(lambda v: f"{v:+.1f}" if v != 0 else "-")
+
+    st.dataframe(
+        display[["신호", "이전", "이벤트시점", "이후", "변화량"]],
+        use_container_width=True,
+        hide_index=True,
+    )
+    st.caption(f"변화 감지 신호 {len(flag_df)}개 · 표시 구간 ±{context_sec}초")

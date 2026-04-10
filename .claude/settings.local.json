@@ -8,7 +8,14 @@
       "Bash(python -c \"import pytest; r = pytest.main\\(['tests/', '--tb=short', '-q']\\)\")",
       "Bash(python -m pytest tests/ --tb=short -q)",
       "Bash(python -m pytest tests/test_signal_reducer.py -v)",
-      "mcp__ide__executeCode"
+      "mcp__ide__executeCode",
+      "Bash(export -p)",
+      "Bash(echo \"written\")",
+      "Bash(python -m pytest tests/test_operation_filter.py -v)",
+      "Bash(python -m py_compile app.py hitl_pipeline.py src/utils/operation_filter.py)",
+      "Bash(python -m pytest tests/test_operation_filter.py tests/test_flag_context.py tests/test_signal_type_filter.py -v)",
+      "Bash(python -m py_compile src/ui/sidebar.py)",
+      "Bash(python -m py_compile app.py src/ui/charts.py)"
     ]
   }
 }

@@ -35,8 +35,8 @@ hitl:
     top_binary_n: 0
     top_bimodal_n: 1
   transient_filter:
-    warmup_sec: 60     # 가동 직후 제외 (기동 과도 구간)
-    cooldown_sec: 60   # 정지 직전 제외 (관성·감속 구간)
+    warmup_sec: 60
+    cooldown_sec: 60
   feedback_db: feedback.db
   llm_prompt: config/llm_hitl_prompt.md
   context_minutes: 5

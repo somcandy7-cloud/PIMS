@@ -29,6 +29,7 @@ from src.services.feedback_store import FeedbackStore
 from src.services.pipeline_builder import build_llm_filter, get_loader
 from src.services.signal_label_mapper import SignalLabelMapper
 from src.ui.charts import (
+    render_detection_reasoning,
     render_event_summary_and_bar,
     render_flag_context_panel,
     render_metrics_hitl,
@@ -420,6 +421,9 @@ with top_right:
 
 classifier = FaultClassifier()
 sel_sig = render_event_summary_and_bar(event, mapper, classifier, df, sel_idx, ts_kst, KST)
+st.divider()
+
+render_detection_reasoning(event)
 st.divider()
 
 st.subheader("신호 추이 / LLM 근거 / 알람 로직")
