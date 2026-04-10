@@ -42,6 +42,7 @@ from src.ui.industrial_panels import (
     render_anomaly_score_board,
     render_event_image_panel,
     render_llm_chat_panel,
+    render_alarm_payload_panel,
 )
 from src.ui.sidebar import render_sidebar
 from src.ui.theme import apply_dashboard_theme
@@ -462,6 +463,16 @@ render_flag_context_panel(
     group_id=event.metadata.get("group_id"),
     context_sec=context_sec,
     mapper=mapper,
+)
+
+st.divider()
+render_alarm_payload_panel(
+    event=event,
+    df=df,
+    equipment_id=st.session_state.get("equipment_id", ""),
+    kst=KST,
+    mapper=mapper,
+    sel_idx=sel_idx,
 )
 
 st.divider()

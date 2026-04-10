@@ -128,3 +128,62 @@ def render_alarm_logic_panel(
             st.write(f"`{state}`")
         st.markdown("</div>", unsafe_allow_html=True)
 
+
+def render_alarm_payload_panel(
+    *,
+    event: AnomalyEvent,
+    df: pd.DataFrame,
+    equipment_id: str,
+    kst: str,
+    mapper=None,
+    sel_idx: int = 0,
+) -> None:
+    """사내 알람 로직 LLM에 전달할 JSON 페이로드를 생성하고 표시한다.
+
+    JSON을 복사해서 사내 LLM에 붙여넣으면 알람 로직 추천을 받을 수 있다.
+    """
+    import json
+    from src.utils.alarm_payload_builder import build_alarm_payload
+
+    st.subheader("🔔 알람 로직 LLM 페이로드")
+    st.caption(
+        "아래 JSON을 복사해서 사내 알람 로직 LLM에 전달하면 "
+        "기존 알람 로직 고도화 방안 또는 신규 로직 제안을 받을 수 있습니다."
+    )
+
+    with st.spinner("페이로드 생성 중..."):
+        try:
+            payload = build_alarm_payload(
+                event=event,
+                df=df,
+                equipment_id=equipment_id,
+                kst=kst,
+                mapper=mapper,
+            )
+            payload_json = json.dumps(payload, ensure_ascii=False, indent=2)
+        except Exception as exc:
+            st.error(f"페이로드 생성 실패: {exc}")
+            return
+
+    # 필드 요약 표시
+    af = payload.get("anomaly_features", {})
+    ai = payload.get("ai_model_info", {})
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("주요 신호", payload.get("signal", "-")[:20])
+    c2.metric("이상 점수", f"{ai.get('anomaly_score', 0):.2f}")
+    c3.metric("이상 편차", f"{af.get('deviation') or 0:.2f}")
+    c4.metric("이상 타입", ", ".join(af.get("type", ["-"]))[:20])
+
+    # JSON 코드 블록 (st.code는 자동으로 복사 버튼 포함)
+    st.code(payload_json, language="json")
+
+    # 가동 조건 플래그가 비어있으면 안내
+    op = payload.get("operating_condition", {})
+    if "(no flag signals detected)" in op:
+        st.info(
+            "💡 `operating_condition` 항목이 비어 있습니다. "
+            "이 시점에 변화한 flag 신호가 없거나, 그룹 정보가 없습니다. "
+            "필요 시 수동으로 채워서 전달하세요."
+        )
+
+
