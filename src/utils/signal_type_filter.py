@@ -22,14 +22,18 @@ import pandas as pd
 # 브래킷 접두사 제거 패턴: [3_CO_PLC_A] 등
 _PREFIX_RE = re.compile(r'^\[([^\]]+)\]')
 
-# 제외 대상 패턴 (flag 신호)
+# 제외 대상 패턴 (flag 신호) — 모두 주소 시작 부터 매칭 (match)
 _FLAG_PATTERNS: list[re.Pattern] = [
-    re.compile(r'^MB[\s_]'),       # MB (Merker Byte)
-    re.compile(r'^QB[\s_]'),       # QB (Output Byte)
-    re.compile(r'^IB[\s_]'),       # IB (Input Byte)
-    re.compile(r'^MD[\s_]'),       # MD (Merker DWord)
-    re.compile(r'^DB\d+\.DBB'),    # 임의 데이터블록 Byte (상태 플래그)
+    re.compile(r'^MB[\s_]'),            # MB  (Merker Byte)
+    re.compile(r'^QB[\s_]'),            # QB  (Output Byte)
+    re.compile(r'^IB[\s_]'),            # IB  (Input Byte)
+    re.compile(r'^MD[\s_]'),            # MD  (Merker DWord)
+    re.compile(r'^DB\d+\.DBB', re.I),  # DB블록 Byte 플래그 — DBB / DBb 대소문자 무관
 ]
+
+# 이름 내부 어딘가에나 나타날 수 있는 PLC 메모리 참조 태그 (search)
+# 예) DB110.DBb11_3A_reverse[MB169], SomeSignal[MW4]
+_INLINE_TAG_RE = re.compile(r'\[M[BWDX]\d+\]')
 
 # 포함 대상 패턴 (measurement 신호)
 _MEAS_PATTERNS: list[re.Pattern] = [
@@ -50,9 +54,13 @@ def classify_signal(col: str) -> SignalKind:
     'unknown'     : 분류 불명 → 보수적으로 포함
     """
     addr = _PREFIX_RE.sub("", col).strip()
+    # 1) 주소 시작 부터 매칭되는 플래그 패턴
     for pat in _FLAG_PATTERNS:
         if pat.match(addr):
             return "flag"
+    # 2) 이름 어딘가나 나타날 수 있는 인라인 PLC 메모리 태그 ([MB숫자] 등)
+    if _INLINE_TAG_RE.search(addr):
+        return "flag"
     for pat in _MEAS_PATTERNS:
         if pat.match(addr):
             return "measurement"

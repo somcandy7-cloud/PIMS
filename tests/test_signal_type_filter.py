@@ -35,9 +35,9 @@ def test_no_prefix_mb_is_flag():
 def test_no_prefix_dbw_is_measurement():
     assert classify_signal("DB420.DBW    4") == "measurement"
 
-def test_unknown_kept():
-    # 분류 불명인 신호는 보수적으로 포함
-    assert classify_signal("MD    348_1") == "unknown"
+def test_md_is_flag():
+    # MD (Merker DWord) 는 PLC 내부 플래그 메모리 — 제외 대상
+    assert classify_signal("MD    348_1") == "flag"
 
 
 # ── SignalTypeFilter ─────────────────────────────────────────────────────────
@@ -86,10 +86,22 @@ def test_empty_df():
 
 def test_unknown_signals_kept():
     """분류 불명 신호는 보수적으로 유지한다."""
-    cols = ["MD    348_1", "some_unknown_signal"]
+    cols = ["some_unknown_signal", "PIW_100"]  # MD는 이제 flag로 분류됨
     df = _df(cols)
     result, stats = SignalTypeFilter().filter(df)
     assert stats["kept"] == 2
+
+
+def test_dbb_lowercase_is_flag():
+    """DBb (소문자) 형태도 flag로 분류해야 한다."""
+    assert classify_signal("[3_CO_PLC_A]DB110.DBb11_3A_reverse[MB169]") == "flag"
+
+
+def test_inline_mb_tag_is_flag():
+    """주소명 내부에 [MB숫자] 태그가 포함된 경우 flag로 분류해야 한다."""
+    assert classify_signal("[3_CO_PLC_A]DB110.DBb11_3A_reverse[MB169]") == "flag"
+    assert classify_signal("SomeSignal[MW4]") == "flag"
+    assert classify_signal("OtherSignal[MD12]") == "flag"
 
 def test_index_preserved():
     idx = pd.date_range("2026-03-12", periods=5, freq="2s", tz="UTC")
