@@ -54,7 +54,21 @@ def _build_context_stats(event: AnomalyEvent, df: pd.DataFrame, context_sec: int
 
 
 def _parse_verdict(response_text: str) -> tuple[str, str]:
+    """LLM 응답에서 판정(KEEP/REJECT)과 이유를 추출한다.
+
+    지원 형식:
+      이상: 이유     → KEEP
+      정상: 이유     → REJECT
+      KEEP: 이유     → KEEP  (레거시)
+      REJECT: 이유   → REJECT (레거시)
+    """
     first_line = response_text.strip().splitlines()[0] if response_text.strip() else ""
+    # 한국어 레이블 (이상/정상)
+    m = re.match(r"^(이상|정상):\s*(.+)", first_line)
+    if m:
+        label = "KEEP" if m.group(1) == "이상" else "REJECT"
+        return label, m.group(2).strip()
+    # 영문 레이블 레거시 호환
     m = re.match(r"^(KEEP|REJECT):\s*(.+)", first_line, re.IGNORECASE)
     if m:
         return m.group(1).upper(), m.group(2).strip()
