@@ -6,6 +6,7 @@ from src.utils.operation_discovery import OperationCondition
 
 _DEFAULT_PATH = Path(__file__).parent.parent.parent / "config" / "equipment_profiles.yaml"
 _TS_PREFIX_RE = re.compile(r"^\d{10}_(.+)$")
+_UPLOAD_HASH_RE = re.compile(r"_[0-9a-f]{10}$")  # 업로드 시 추가된 SHA1 접미사
 
 
 class EquipmentProfileStore:
@@ -149,6 +150,8 @@ class EquipmentProfileStore:
     @staticmethod
     def extract_id(csv_filename: str) -> str:
         stem = Path(csv_filename).stem
+        # 업로드 시 추가된 SHA1 해시 접미사 제거 (예: oven_0cb5bfba8a → oven)
+        stem = _UPLOAD_HASH_RE.sub("", stem)
         m = _TS_PREFIX_RE.match(stem)
         return m.group(1) if m else stem
 

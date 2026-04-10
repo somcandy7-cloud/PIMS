@@ -264,6 +264,8 @@ if run_btn:
                     conds_objs = [OperationCondition.from_dict(c) for c in raw_conds]
                     df_grp = df_temp[group_cols]
                     df_running_grp = OperationFilter(conds_objs).filter(df_grp) if conds_objs else df_grp.copy()
+                    # PLC 플래그·제어 신호 제거 후 클러스터 학습 — 플래그가 대표 신호로 저장되는 것을 방지
+                    df_running_grp, _ = SignalTypeFilter().filter(df_running_grp)
                     if not df_running_grp.empty:
                         _, clusters = sr.fit_transform(df_running_grp)
                         ep_store.save_group_clusters(equipment_id, group_id, clusters)
