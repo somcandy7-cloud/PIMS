@@ -4,6 +4,7 @@ log_file: C:/ibaData/reports/alarm.log
 llm:
   backend: openai
   max_candidates_per_run: 50
+  context_sec: 60
   openai:
     model: gpt-4o-mini
     api_key_env: OPENAI_API_KEY

@@ -30,11 +30,12 @@ def build_llm_filter(settings: dict):
     from src.agents.llm_filter import LLMFilter
     llm_cfg = settings.get("llm", {})
     backend = build_llm_backend(llm_cfg)
-    # Large CSV can produce many IF candidates; cap per-run LLM calls to avoid timeouts.
     max_candidates = int(llm_cfg.get("max_candidates_per_run", 10))
+    context_sec = int(llm_cfg.get("context_sec", 60))
     return LLMFilter(
         backend=backend,
         max_candidates_per_run=max_candidates if max_candidates > 0 else None,
+        context_sec=context_sec,
     )
 
 

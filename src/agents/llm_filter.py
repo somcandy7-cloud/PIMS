@@ -9,7 +9,7 @@ from src.agents.base_detector import AnomalyEvent
 from src.agents.llm_backends import LLMBackend
 
 _PROMPT_PATH = Path(__file__).parent.parent.parent / "config" / "llm_filter_prompt.md"
-_CONTEXT_SEC = 60
+_DEFAULT_CONTEXT_SEC = 60
 
 
 def _load_prompt_template() -> str:
@@ -23,10 +23,10 @@ def _load_prompt_template() -> str:
     )
 
 
-def _build_context_stats(event: AnomalyEvent, df: pd.DataFrame) -> str:
+def _build_context_stats(event: AnomalyEvent, df: pd.DataFrame, context_sec: int) -> str:
     ts = event.timestamp
-    t_start = ts - pd.Timedelta(seconds=_CONTEXT_SEC)
-    t_end = ts + pd.Timedelta(seconds=_CONTEXT_SEC)
+    t_start = ts - pd.Timedelta(seconds=context_sec)
+    t_end = ts + pd.Timedelta(seconds=context_sec)
 
     sig_names = [s[0] for s in event.top_signals]
     available = [s for s in sig_names if s in df.columns]
@@ -68,9 +68,15 @@ class LLMFilter:
     프롬프트 템플릿: config/llm_filter_prompt.md
     """
 
-    def __init__(self, backend: LLMBackend | None, max_candidates_per_run: int | None = None):
+    def __init__(
+        self,
+        backend: LLMBackend | None,
+        max_candidates_per_run: int | None = None,
+        context_sec: int = _DEFAULT_CONTEXT_SEC,
+    ):
         self.backend = backend
         self.max_candidates_per_run = max_candidates_per_run
+        self.context_sec = context_sec
 
     def filter(
         self,
@@ -148,7 +154,7 @@ class LLMFilter:
         top_signals_text = "\n".join(
             f"  - {name}: 기여도={val*100:.1f}%" for name, val in event.top_signals
         )
-        context_stats = _build_context_stats(event, df)
+        context_stats = _build_context_stats(event, df, self.context_sec)
 
         s = event.score
         if s <= -0.5:
@@ -165,7 +171,7 @@ class LLMFilter:
                 timestamp=str(event.timestamp),
                 score_level=score_level,
                 top_signals=top_signals_text,
-                context_sec=_CONTEXT_SEC,
+                context_sec=self.context_sec,
                 context_stats=context_stats,
             )
         except KeyError:

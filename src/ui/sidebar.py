@@ -106,9 +106,6 @@ def render_sidebar(
             key="cooldown_slider",
             help="장비 정지 직전 이 시간(초) 동안 탐지에서 제외합니다.",
         )
-        max_cand_now = int((settings_now.get("llm") or {}).get("max_candidates_per_run", 10))
-        st.caption(f"LLM 최대 분석 건수: **{max_cand_now}건**")
-
         st.divider()
         st.subheader("탐지 설정")
         detector_now = hitl_now.get("detector", {}) or {}
@@ -139,7 +136,38 @@ def render_sidebar(
             key="llm_backend_radio",
         )
 
+        # ── LLM 분석 파라미터 ────────────────────────────────────────────────
+        max_cand_now = int(llm_now.get("max_candidates_per_run", 50))
+        max_cand_edit = st.slider(
+            "최대 분석 건수",
+            min_value=0, max_value=100,
+            value=max_cand_now, step=5,
+            key="max_cand_slider",
+            help=(
+                "분석 실행당 LLM이 검증할 이상 후보 최대 건수.\n\n"
+                "• 0 = 무제한 (모든 후보 검증)\n"
+                "• IF 점수가 낮은 순(더 이상한 것) 우선 검증\n"
+                "• 값이 클수록 분석 시간 증가"
+            ),
+        )
+        ctx_sec_now = int(llm_now.get("context_sec", 60))
+        ctx_sec_edit = st.slider(
+            "신호 컨텍스트 윈도우 (초)",
+            min_value=10, max_value=600,
+            value=ctx_sec_now, step=10,
+            key="ctx_sec_slider",
+            help=(
+                "LLM에 전달할 이벤트 전후 신호 통계 구간.\n\n"
+                "• 작을수록 이벤트 직전 패턴에 집중\n"
+                "• 클수록 더 긴 추세를 반영 (최대 10분)\n"
+                "• LLM 판단 근거의 신호 통계가 이 구간 기준"
+            ),
+        )
+
         new_llm_cfg = dict(llm_now)
+        new_llm_cfg["max_candidates_per_run"] = max_cand_edit
+        new_llm_cfg["context_sec"] = ctx_sec_edit
+
         if selected_backend == "OpenAI":
             new_llm_cfg["backend"] = "openai"
             oai = llm_now.get("openai") or {}
