@@ -30,6 +30,51 @@ class IsolationForestAdapter(AnomalyDetector):
         self.excluded_signals: set[str] = set(excluded_signals or [])
         self.top_n = top_n
 
+    @staticmethod
+    def _ablation_importance(
+        iso: IsolationForest,
+        windowed: np.ndarray,
+        anomaly_indices: list[int],
+        window_size: int,
+        n_orig_cols: int,
+    ) -> np.ndarray:
+        """Ablation 방식으로 feature별 IF 점수 기여도를 계산한다.
+
+        각 feature를 학습 데이터 평균값으로 대체했을 때 anomaly score 변화량을
+        측정한다.  양수(+) = 해당 feature가 이상치 점수를 끌어내리는 원인.
+
+        Returns
+        -------
+        np.ndarray of shape (n_anomalies, n_orig_cols)
+            원본 컬럼 단위로 집계된 기여도 행렬 (정규화 전).
+        """
+        n_flat = windowed.shape[1]
+        train_means = windowed.mean(axis=0)  # (n_flat,)
+
+        anomaly_samples = windowed[anomaly_indices]          # (A, n_flat)
+        orig_scores = iso.score_samples(anomaly_samples)     # (A,)
+
+        # 각 feature dimension을 학습 평균으로 교체한 배치를 한꺼번에 계산
+        # batch shape: (A * n_flat, n_flat)
+        batch = np.repeat(anomaly_samples, n_flat, axis=0)   # (A*n_flat, n_flat)
+        for j in range(n_flat):
+            rows = np.arange(len(anomaly_indices)) * n_flat + j
+            batch[rows, j] = train_means[j]
+
+        perturbed_scores = iso.score_samples(batch)          # (A*n_flat,)
+        perturbed_scores = perturbed_scores.reshape(len(anomaly_indices), n_flat)
+
+        # contribution: 제거 시 점수 상승량 (양수 = 이상 원인)
+        contrib = perturbed_scores - orig_scores[:, None]    # (A, n_flat)
+
+        # windowed flatten (W*M) → 원본 컬럼 (M) 집계
+        col_contrib = np.zeros((len(anomaly_indices), n_orig_cols))
+        for k in range(window_size):
+            offset = k * n_orig_cols
+            col_contrib += contrib[:, offset: offset + n_orig_cols]
+
+        return col_contrib
+
     def detect(self, df: pd.DataFrame) -> list[AnomalyEvent]:
         analog_cols = [
             c for c in df.select_dtypes(include="number").columns
@@ -57,29 +102,34 @@ class IsolationForestAdapter(AnomalyDetector):
         scores = iso.score_samples(windowed) # 낮을수록 이상
 
         target_indices = list(range(self.window_size - 1, N))
+        anomaly_win_indices = [i for i, p in enumerate(preds) if p == -1]
+
+        if not anomaly_win_indices:
+            return []
+
+        # 모든 이상치에 대해 ablation 기여도 일괄 계산
+        col_contribs = self._ablation_importance(
+            iso, windowed, anomaly_win_indices, self.window_size, M
+        )  # (A, M)
 
         events: list[AnomalyEvent] = []
-        for i, (pred, score) in enumerate(zip(preds, scores)):
-            if pred != -1:
-                continue
-
+        for rank, i in enumerate(anomaly_win_indices):
             df_idx = target_indices[i]
             ts = df.index[df_idx]
+            score = float(scores[i])
 
-            # 윈도우 내 컬럼별 표준편차 → top_n 기여 신호
-            contrib_window = max(self.window_size, 5)
-            start_idx = max(0, df_idx - contrib_window // 2)
-            end_idx = min(N, start_idx + contrib_window)
-            start_idx = max(0, end_idx - contrib_window)
-            window_slice = matrix[start_idx:end_idx]  # (W, M)
-            col_stds = window_slice.std(axis=0)
-            top_idx = np.argsort(col_stds)[::-1][: self.top_n]
-            top_signals = [(analog_cols[j], float(col_stds[j])) for j in top_idx]
+            col_imp = np.maximum(col_contribs[rank], 0)  # 음수(정상 기여) 제거
+            imp_sum = col_imp.sum()
+            if imp_sum > 0:
+                col_imp /= imp_sum
+
+            top_idx = np.argsort(col_imp)[::-1][: self.top_n]
+            top_signals = [(analog_cols[j], float(col_imp[j])) for j in top_idx]
 
             events.append(
                 AnomalyEvent(
                     timestamp=ts,
-                    score=float(score),
+                    score=score,
                     top_signals=top_signals,
                     label="if_candidate",
                     metadata={

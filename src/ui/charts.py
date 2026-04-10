@@ -394,10 +394,10 @@ def render_detection_reasoning(event: AnomalyEvent) -> None:
             f"{score_color} 이상 점수: **{s:.4f}** ({score_label})  \n"
             f"전체 데이터 중 상위 **{contamination*100:.0f}%** 이상치 기준으로 분류됨"
         )
-        st.caption("주요 이상 원인 신호:")
+        st.caption("주요 이상 원인 신호 (IF 점수 기여도 순):")
         for sig, mag in event.top_signals[:5]:
             base, kind = _decode_signal(sig)
-            st.markdown(f"- `{base}` — **{kind}** (변화량 {mag:.3f})")
+            st.markdown(f"- `{base}` — **{kind}** (기여도 {mag*100:.1f}%)")
         with st.expander("Isolation Forest란?", expanded=False):
             st.caption(
                 "각 데이터 포인트를 무작위로 고립시킬 때 '몇 번 만에 고립되는가'를 기준으로 "

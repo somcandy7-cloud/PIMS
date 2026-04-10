@@ -55,7 +55,7 @@ class AnomalyContextFormatter:
             "timestamp": str(ts),
             "score":     round(event.score, 4),
             "score_level": level,
-            "top_signals": [{"name": n, "variability": round(v, 4)} for n, v in event.top_signals],
+            "top_signals": [{"name": n, "importance": round(v, 4)} for n, v in event.top_signals],
             "context_window_minutes": self.context_minutes,
             "context_stats": ctx,
         }

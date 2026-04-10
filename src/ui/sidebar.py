@@ -113,7 +113,17 @@ def render_sidebar(
         st.subheader("탐지 설정")
         detector_now = hitl_now.get("detector", {}) or {}
         saved_top_n = _clamp_top_n(detector_now.get("top_n", 5))
-        top_n = st.slider("상위 신호 개수", 0, 20, saved_top_n, key="top_n_slider")
+        top_n = st.slider(
+            "상위 신호 개수",
+            0, 20, saved_top_n,
+            key="top_n_slider",
+            help=(
+                "이상 이벤트당 'IF 점수 기여도' 상위 N개 신호를 저장합니다.\n\n"
+                "• 탐지 여부에는 영향 없음 (IF는 모든 신호를 사용)\n"
+                "• 대시보드 '이상 원인 신호' 목록과 LLM 분석 입력에 반영\n"
+                "• 값이 클수록 더 많은 신호를 LLM이 검토 (분석 시간 소폭 증가)"
+            ),
+        )
 
         st.divider()
         st.subheader("LLM 설정")
