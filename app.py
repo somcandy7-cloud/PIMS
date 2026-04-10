@@ -425,7 +425,8 @@ with top_right:
         st.success("X 라벨 저장 완료")
 
 classifier = FaultClassifier()
-sel_sig = render_event_summary_and_bar(event, mapper, classifier, df, sel_idx, ts_kst, KST)
+available_sigs = render_event_summary_and_bar(event, mapper, classifier, df, sel_idx, ts_kst, KST)
+sel_sig: str | None = None  # c_trend 블록에서 결정됨
 st.divider()
 
 render_detection_reasoning(event)
@@ -436,10 +437,19 @@ context_sec = st.slider("표시 구간 (이벤트 기준 ±초)", 10, 300, 60, 1
 c_trend, c_chat, c_alarm = st.columns([1, 1, 1], gap="large")
 
 with c_trend:
-    if sel_sig:
+    if available_sigs:
+        available_display = {s: (mapper.get(s, s) if mapper else s) for s in available_sigs}
+        sel_sig = st.radio(
+            "신호 선택 (그래프에 표시)",
+            options=available_sigs,
+            format_func=lambda s: available_display.get(s, s),
+            horizontal=True,
+            key=f"sig_radio_{sel_idx}",
+        )
         render_trend_chart(df, event, sel_sig, context_sec, mapper, KST)
     else:
-        st.info("상단에서 신호를 선택하면 추이 그래프가 표시됩니다.")
+        sel_sig = None
+        st.info("표시할 신호가 없습니다.")
 
 with c_chat:
     render_llm_chat_panel(event, sel_idx)

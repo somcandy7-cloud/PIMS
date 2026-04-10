@@ -9,7 +9,7 @@ from src.agents.base_detector import AnomalyEvent
 from src.agents.llm_backends import LLMBackend
 
 _PROMPT_PATH = Path(__file__).parent.parent.parent / "config" / "llm_filter_prompt.md"
-_CONTEXT_SEC = 10
+_CONTEXT_SEC = 60
 
 
 def _load_prompt_template() -> str:
@@ -146,7 +146,7 @@ class LLMFilter:
         template: str,
     ) -> tuple[str, str]:
         top_signals_text = "\n".join(
-            f"  - {name}: 변동성={val:.3f}" for name, val in event.top_signals
+            f"  - {name}: 기여도={val*100:.1f}%" for name, val in event.top_signals
         )
         context_stats = _build_context_stats(event, df)
 

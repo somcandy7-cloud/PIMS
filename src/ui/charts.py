@@ -79,10 +79,11 @@ def render_event_summary_and_bar(
     sel_idx: int,
     ts_kst: pd.Timestamp,
     kst: str,
-) -> str | None:
-    """이벤트 요약(left) + 급변 신호 bar chart + 신호 라디오(right)를 렌더링한다.
+) -> list[str]:
+    """이벤트 요약(left) + 기여도 bar chart(right)를 렌더링한다.
 
-    선택된 신호명을 반환한다. 신호 없으면 None.
+    추이 차트 표시 가능한 원본 신호명 리스트를 반환한다. 없으면 빈 리스트.
+    신호 선택 라디오는 app.py의 추이 차트 바로 위에서 렌더링한다.
     """
     trip_event = event.metadata.get("trip_event")
     left, right = st.columns([1, 2])
@@ -126,54 +127,42 @@ def render_event_summary_and_bar(
                 st.info(llm_reason)
 
     with right:
-        st.subheader("📊 급변 신호 Top N — 신호를 선택하면 아래 추이 차트 갱신")
+        st.subheader("📊 IF 점수 기여도 Top N")
         sig_names = [s[0] for s in event.top_signals]
-        sig_mags  = [s[1] for s in event.top_signals]
+        sig_pcts  = [s[1] * 100 for s in event.top_signals]  # 0-1 → 0-100%
         sig_display_names = [display_name(s, mapper) for s in sig_names]
 
         fig_bar = go.Figure(go.Bar(
-            x=sig_mags[::-1], y=sig_display_names[::-1],
+            x=sig_pcts[::-1], y=sig_display_names[::-1],
             orientation="h", marker_color="crimson",
-            text=[f"{v:.2f}" for v in sig_mags[::-1]], textposition="outside",
+            text=[f"{v:.1f}%" for v in sig_pcts[::-1]], textposition="outside",
         ))
         fig_bar.update_layout(
-            xaxis_title="변화량 (절대값)",
+            xaxis_title="IF 점수 기여도 (%)",
             height=max(250, len(sig_names) * 45),
-            margin=dict(l=10, r=60, t=10, b=30),
+            margin=dict(l=10, r=70, t=10, b=30),
         )
         st.plotly_chart(fig_bar, use_container_width=True, key="bar_chart")
 
-        # top_signals 컬럼명은 rolling suffix(_rmean/_rstd/_roc)가 붙은 특징명.
-        # 원본 df 컬럼과 대조하려면 suffix를 제거해 기본 신호명으로 복원한다.
-        _ROLL_SUFFIXES = ("_rmean", "_rstd", "_roc")
+    # top_signals 컬럼명은 rolling suffix(_rmean/_rstd/_roc)가 붙은 특징명.
+    # 원본 df 컬럼과 대조하려면 suffix를 제거해 기본 신호명으로 복원한다.
+    _ROLL_SUFFIXES = ("_rmean", "_rstd", "_roc")
 
-        def _base_sig(col: str) -> str:
-            for sfx in _ROLL_SUFFIXES:
-                if col.endswith(sfx):
-                    return col[: -len(sfx)]
-            return col
+    def _base_sig(col: str) -> str:
+        for sfx in _ROLL_SUFFIXES:
+            if col.endswith(sfx):
+                return col[: -len(sfx)]
+        return col
 
-        seen: set[str] = set()
-        available: list[str] = []
-        for s in sig_names:
-            base = _base_sig(s)
-            if base not in seen and base in df.columns:
-                seen.add(base)
-                available.append(base)
+    seen: set[str] = set()
+    available: list[str] = []
+    for s in sig_names:
+        base = _base_sig(s)
+        if base not in seen and base in df.columns:
+            seen.add(base)
+            available.append(base)
 
-        if available:
-            available_display = {s: display_name(s, mapper) for s in available}
-            sel_sig = st.radio(
-                "신호 선택 →",
-                options=available,
-                format_func=lambda s: available_display[s],
-                horizontal=True,
-                key=f"sig_radio_{sel_idx}",
-            )
-        else:
-            sel_sig = None
-
-    return sel_sig
+    return available
 
 
 def render_trend_chart(
