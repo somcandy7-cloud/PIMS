@@ -30,7 +30,7 @@ hitl:
     contamination: 0.02
     n_estimators: 100
     window_size: 1
-    top_n: 10
+    top_n: 5
   discovery:
     top_binary_n: 0
     top_bimodal_n: 1
