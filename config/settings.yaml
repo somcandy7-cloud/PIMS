@@ -36,7 +36,7 @@ hitl:
     top_bimodal_n: 1
   transient_filter:
     warmup_sec: 60
-    cooldown_sec: 60
+    cooldown_sec: 0
   feedback_db: feedback.db
   llm_prompt: config/llm_hitl_prompt.md
   context_minutes: 5

@@ -37,13 +37,5 @@ model_params:
     window_size: 5
     contamination: 0.03
     n_estimators: 100
-excluded_signals:
-- DB401.DBD 236_1
-- DB401.DBD 256_1
-- DB401.DBD 236_2
-- DB401.DBD 208_1
-- DB401.DBD 260_3
-- DB401.DBD 236_3
-- DB401.DBD 240_2
-- DB401.DBD 232_2
+excluded_signals: []
 signal_overrides: {}
