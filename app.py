@@ -438,7 +438,8 @@ c_trend, c_chat, c_alarm = st.columns([1, 1, 1], gap="large")
 
 with c_trend:
     if available_sigs:
-        available_display = {s: (mapper.get(s, s) if mapper else s) for s in available_sigs}
+        from src.utils.formatters import display_name as _dn
+        available_display = {s: _dn(s, mapper) for s in available_sigs}
         sel_sig = st.radio(
             "신호 선택 (그래프에 표시)",
             options=available_sigs,
