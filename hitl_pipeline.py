@@ -103,6 +103,9 @@ def run_hitl_pipeline(csv_path: str, interactive: bool = True) -> list[dict]:
     hitl_cfg = settings.get("hitl", {})
     det_cfg = hitl_cfg.get("detector", {})
     roll_cfg = hitl_cfg.get("rolling", {})
+    trans_cfg = hitl_cfg.get("transient_filter", {})
+    warmup_sec   = float(trans_cfg.get("warmup_sec", 0))
+    cooldown_sec = float(trans_cfg.get("cooldown_sec", 0))
 
     equipment_id = EquipmentProfileStore.extract_id(Path(csv_path).name)
 
@@ -128,7 +131,10 @@ def run_hitl_pipeline(csv_path: str, interactive: bool = True) -> list[dict]:
             group_df, equipment_id, group_id, hitl_cfg, interactive, ep_store
         )
 
-        df_running = OperationFilter(conditions).filter(group_df) if conditions else group_df.copy()
+        df_running = (
+            OperationFilter(conditions, warmup_sec=warmup_sec, cooldown_sec=cooldown_sec).filter(group_df)
+            if conditions else group_df.copy()
+        )
         pct = len(df_running) / max(len(group_df), 1) * 100
         print(f"     running rows={len(df_running)} ({pct:.1f}%)")
 

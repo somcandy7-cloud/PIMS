@@ -30,6 +30,7 @@ from src.services.pipeline_builder import build_llm_filter, get_loader
 from src.services.signal_label_mapper import SignalLabelMapper
 from src.ui.charts import (
     render_event_summary_and_bar,
+    render_flag_context_panel,
     render_metrics_hitl,
     render_stats_table,
     render_timeline,
@@ -100,6 +101,9 @@ def detect_anomalies_hitl(
     hitl_cfg = settings.get("hitl", {})
     det_cfg = hitl_cfg.get("detector", {})
     roll_cfg = hitl_cfg.get("rolling", {})
+    trans_cfg = hitl_cfg.get("transient_filter", {})
+    warmup_sec   = float(trans_cfg.get("warmup_sec", 0))
+    cooldown_sec = float(trans_cfg.get("cooldown_sec", 0))
     if_params = json.loads(_if_params_key)
 
     groups_profile: dict = json.loads(groups_profile_json)
@@ -119,7 +123,10 @@ def detect_anomalies_hitl(
         raw_conds = profile.get("conditions") or []
         conditions = [OperationCondition.from_dict(c) for c in raw_conds]
 
-        df_running = OperationFilter(conditions).filter(group_df) if conditions else group_df.copy()
+        df_running = (
+            OperationFilter(conditions, warmup_sec=warmup_sec, cooldown_sec=cooldown_sec).filter(group_df)
+            if conditions else group_df.copy()
+        )
         if df_running.empty:
             continue
 
@@ -441,6 +448,15 @@ if sel_sig:
         KST,
         clear_detection_cache_fn=detect_anomalies_hitl.clear,
     )
+
+# flag 신호 컨텍스트 패널 — 이벤트 시점의 제어/상태 신호 변화
+render_flag_context_panel(
+    df=df,
+    event=event,
+    group_id=event.metadata.get("group_id"),
+    context_sec=context_sec,
+    mapper=mapper,
+)
 
 st.divider()
 st.subheader("관리자 피드백")
